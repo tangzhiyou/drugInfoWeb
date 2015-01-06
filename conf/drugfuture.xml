@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GatherRoot> 
+  <webGather> 
+    <!-- 规则名称 -->  
+    <GatherName>drugfuture</GatherName>  
+    <!-- 站点域名 -->  
+    <SiteDomain>http://www.drugfuture.com/fda</SiteDomain>  
+    <!-- 描述 -->  
+    <describe>drugfuture</describe>  
+    <!-- 采集到栏目 -->  
+    <GatherColumn>drugfutureColumn</GatherColumn>  
+    <!-- 网页字符集 -->  
+    <characterset>utf-8</characterset>  
+    <!-- 索引数据库 -->  
+    <DataIndex>druglist-a</DataIndex>  
+    <!-- 批量更新数据库的记录 -->  
+    <batchUpdate>5</batchUpdate>  
+    <!-- 过虑一些特殊标签和字符 以;分隔 -->  
+    <specialTag/>  
+    <!-- 爬取数据到数据库的表名-->  
+    <Datatable>ufda_drug</Datatable> 
+  </webGather>  
+  <!-- 映射的实体名 -->  
+  <databases> 
+    <choice>drugprice</choice>
+    <drugprice>
+      <mapper name="drugprice" class="com.skysoft.domain.drugprice">
+        <property name="drugName" type="java.lang.String">
+          <value>1</value> 
+        </property>  
+        <property name="dosage" type="java.lang.String">
+          <value>2</value> 
+        </property>  
+        <property name="dosageComment" type="java.lang.String">
+          <value>3</value> 
+        </property>  
+        <property name="specifications" type="java.lang.String">
+          <value>4</value> 
+        </property>  
+        <property name="unit" type="java.lang.String">
+          <value>5</value> 
+        </property>  
+        <property name="referencePrice" type="java.lang.String">
+          <value>6</value> 
+        </property>  
+        <property name="performRegion" type="java.lang.String">
+          <value>7</value> 
+        </property>  
+        <property name="effectTime" type="java.lang.String">
+          <value>8</value> 
+        </property>  
+        <property name="enterprise" type="java.lang.String">
+          <value>9</value> 
+        </property>  
+        <property name="policyBasis" type="java.lang.String">
+          <value>10</value> 
+        </property>  
+        <property name="sourceUrl" type="java.lang.String">
+          <value>11</value> 
+        </property> 
+      </mapper> 
+    </drugprice>
+  </databases> 
+</GatherRoot>

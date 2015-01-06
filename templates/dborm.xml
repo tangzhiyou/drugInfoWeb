@@ -1,0 +1,66 @@
+<GatherRoot>
+    <webGather>
+        <!-- 规则名称 -->
+        <GatherName>cfdaRule</GatherName>
+        <!-- 站点域名 -->
+        <SiteDomain>menet.com.cn</SiteDomain>
+        <!-- 描述 -->
+        <describe>cfda</describe>
+        <!-- 采集到栏目 -->
+        <GatherColumn>cfdaColumn</GatherColumn>
+        <!-- 网页字符集 -->
+        <characterset>gbk</characterset>
+        <!-- CFDA -->
+        <!-- ===============  -->
+        <!-- 专业数据库 -->
+        <tableId>84</tableId>
+        <!-- 开始ID -->
+        <startID>1</startID>
+        <!-- 结束ID -->
+        <EndID>500</EndID>
+        <!-- ===============  -->
+        <!-- 批量更新数据库的记录 -->
+        <batchUpdate>5</batchUpdate>
+        <!-- file imort -->
+        <ImportFile>conf/urldata.txt</ImportFile>
+        <MappingXML>conf/DefaultRule.xml</MappingXML>
+        <!-- 爬取数据到数据库的表名 -->
+        <Datatable>drug_price</Datatable>
+    </webGather>
+    <!-- 实体对象映射     -->
+    <entity class="drugNews">
+        <!-- 映射文件级别的元数据 -->
+        <package>com.skyinfo.domain</package>
+        <table name="t_drugNewsInfo"/>
+        <attributes>
+            <id name="newsId">
+                <column name="news_Id"/>
+                <generated-value strategy="SEQUENCE"/>
+            </id>
+            <basic name="artTitle" StartRegExp="${artTitle.startregexp}" EndRegExp="${artTitle.endregexp}">
+                <column name="ArtTitle"/>
+            </basic>
+            <basic name="keywordes" StartRegExp="${keywordes.startregexp}" EndRegExp="${keywordes.endregexp}">
+                <column name="Keywordes"/>
+            </basic>
+            <basic name="artTime" StartRegExp="${artTime.startregexp}" EndRegExp="${artTime.endregexp}">
+                <column name="ArtTime"/>
+                <temporal>DATE</temporal>
+            </basic>
+            <basic name="artSource" StartRegExp="${artSource.startregexp}" EndRegExp="${artSource.endregexp}">
+                <column name="ArtSource"/>
+            </basic>
+            <basic name="artSummary" StartRegExp="${artSummary.startregexp}" EndRegExp="${artSummary.endregexp}">
+                <column name="ArtSummary"/>
+            </basic>
+            <basic name="artContent" fetch="LAZY" StartRegExp="${artContent.startregexp}"
+                   EndRegExp="${artContent.endregexp}">
+                <column name="ArtContent" column-definition="LONGTEXT"/>
+                <lob/>
+            </basic>
+            <basic name="artFlag" StartRegExp="${artFlag.startregexp}" EndRegExp="${artFlag.endregexp}">
+                <column name="ArtFlag" column-definition="Integer"/>
+            </basic>
+        </attributes>
+    </entity>
+</GatherRoot>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<description>Spring-web MVC配置</description>
+	
+	<!-- 对所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
+	<context:component-scan base-package="com.skysoft">
+		<context:exclude-filter type="annotation" 
+				expression="org.springframework.stereotype.Service" />
+	</context:component-scan>	
+	
+	<!-- 扫描指定包下面通过注解配置的组件 -->
+   <!--  <context:component-scan base-package="com.skysoft.handler"/> -->
+
+	<!-- 添加自动代理功能 -->
+	<!-- <aop:aspectj-autoproxy proxy-target-class="true"/> -->
+
+	<!-- 默认的注解处理器映射，必须配置 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="useDefaultSuffixPattern" value="false" />
+ 	</bean>
+ 	
+ 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+ 	
+ 	<!-- RESTful风格链接,处理静态资源无法访问的问题 -->
+    <mvc:default-servlet-handler />	
+<!-- 基于内容协商的视图解析器,其中可以配置多个视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+        	<list>
+        		<!-- JSP/HTML页面的视图解析器 -->
+			    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			        <property name="prefix" value="/WEB-INF/views/"/>
+			        <property name="suffix" value=".jsp"/>
+			        <property name="contentType" value="text/html;charset=UTF-8"/>
+					<property name="order" value="2"/>
+			    </bean>
+        	</list>
+        </property>
+    </bean>
+
+    <!-- 根路径默认视图,非必须,可以去掉 -->
+    <mvc:view-controller path="/" view-name="welcome" />
+    
+    <!-- 异常处理,非必须,可以去掉 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="exception"/>
+        <property name="warnLogCategory" value="warn"/>
+    </bean>
+	 
+	 
+</beans>

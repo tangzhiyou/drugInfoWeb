@@ -1,0 +1,1 @@
+call mvn mybatis-generator:generate
