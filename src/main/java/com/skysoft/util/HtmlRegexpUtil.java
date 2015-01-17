@@ -1,28 +1,5 @@
 package com.skysoft.util;
 
-import com.skysoft.framework.HtmlParserTool;
-import org.apache.commons.lang.StringUtils;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-import org.htmlparser.NodeFilter;
-import org.htmlparser.Parser;
-import org.htmlparser.filters.NodeClassFilter;
-import org.htmlparser.tags.TableColumn;
-import org.htmlparser.tags.TableRow;
-import org.htmlparser.tags.TableTag;
-import org.htmlparser.util.NodeList;
-import org.htmlparser.util.ParserException;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -285,6 +262,36 @@ public class HtmlRegexpUtil {
         //最后调用appendTail()方法将最后一次匹配后的剩余字符串加到sb里；
         m.appendTail(sb);
         System.out.println("调用m.appendTail(sb)后sb的最终内容是:"+ sb.toString());
+    }
+
+    // 自定义截取相关内容
+    public static String extractSpecificContent(String StartRegExp,
+                                                String EndRegExp, String Content) throws Exception {
+        StringBuffer sbConent = null;
+        int startPos = 0, endPos = 0;
+        sbConent = new StringBuffer();
+        Pattern spattern = Pattern.compile(StartRegExp);
+        Matcher smatcher = spattern.matcher(Content);
+        boolean sresult = smatcher.find();
+        while (sresult) {
+            startPos = smatcher.start();
+            sresult = smatcher.find();
+        }
+        System.out.println("startPos****:" + startPos);
+        Pattern epattern = Pattern.compile(EndRegExp);
+        Matcher ematcher = epattern.matcher(Content);
+        boolean eresult = ematcher.find();
+        while (eresult) {
+            endPos = ematcher.start();
+            eresult = ematcher.find();
+        }
+        System.out.println("endPos****:" + endPos);
+        if (startPos == -1 || endPos == 0 || endPos == -1) {
+            sbConent.append("");
+        } else {
+            sbConent.append(Content.substring(startPos, endPos));
+        }
+        return sbConent.toString();
     }
 
 }

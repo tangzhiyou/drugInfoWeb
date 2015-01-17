@@ -132,18 +132,18 @@ public class ReflectUtil {
 
     public static String packageName(String filePath)
     {
-        Document doc=XMLEscapeUtils.getRootFileDocument(filePath);
+        Document document=Dom4jParserXml.getRootFileDocument(ReflectUtil.class, filePath);
         String classpackageName="";
 
-        Element packageName =  XMLEscapeUtils.getSingleNode("//mapper",doc);
+        Element packageName =  Dom4jParserXml.getSingleNode("//mapper",document);
         classpackageName= packageName.attribute("class").getValue();
         return  classpackageName;
     }
     public static List<String> methodList(String filePath)
     {
-        Document doc=XMLEscapeUtils.getRootFileDocument(filePath);
+        Document document=Dom4jParserXml.getRootFileDocument(ReflectUtil.class,filePath);
         List<String> methodList=new ArrayList<String>();
-        Element element =  XMLEscapeUtils.getSingleNode("//druggds/mapper",doc);
+        Element element =  Dom4jParserXml.getSingleNode("//druggds/mapper",document);
 
         List<Element> elecolumn =element.elements("property");
         for (Element ele:elecolumn)

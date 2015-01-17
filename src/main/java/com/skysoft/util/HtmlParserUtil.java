@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by tangzy on 2015/1/6.
  */
-public class HtmlParser
+public class HtmlParserUtil
 {
 
         public static List<String> ExtractTableText(String content, String contexturl, String characterset) {

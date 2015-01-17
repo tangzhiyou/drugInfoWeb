@@ -11,13 +11,6 @@
         <spring.version>3.2.4.RELEASE</spring.version>
         <aspectj.version>1.7.3</aspectj.version>
     </properties>
-    <repositories>
-        <repository>
-            <id>oss.sonatype.org</id>
-            <name>OSS Sonatype Staging</name>
-            <url>https://oss.sonatype.org/content/groups/staging</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -207,11 +200,6 @@
             <version>2.0.8</version>
         </dependency>
         <dependency>
-            <groupId>net.sf.mavenjython</groupId>
-            <artifactId>jython-compile-maven-plugin</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
@@ -221,17 +209,6 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.20</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.5.0-RC1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.eclipse.persistence</groupId>
-                    <artifactId>commonj.sdo</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -253,7 +230,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.1.41</version>
         </dependency>
-
     </dependencies>
     <build>
         <finalName>drugInfoWeb</finalName>

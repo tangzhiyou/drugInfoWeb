@@ -1,6 +1,6 @@
 package com.skysoft.handler;
 
-import com.skysoft.framework.HtmlParserTool;
+import com.skysoft.util.HtmlParserTool;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * User:  tangzhiyou

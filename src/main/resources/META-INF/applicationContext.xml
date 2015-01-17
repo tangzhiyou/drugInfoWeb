@@ -21,8 +21,6 @@
         <context:exclude-filter type="annotation"
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-
-    <bean id="myBatisDao" class="com.skysoft.dao.MyBatisDao"/>
     <bean id="cfdaDao" class="com.skysoft.dao.CfdaBatisDao"/>
     <bean id="fetureDao" class="com.skysoft.dao.futureBatisDao"/>
 

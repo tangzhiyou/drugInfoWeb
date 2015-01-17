@@ -27,7 +27,7 @@ import java.net.URLConnection;
  * 处理相关数据流
  */
 public class NetWorkHandlerData {
-    private static final int BUFFER_SIZE = 1024*4;
+
     static Logger logger = LoggerFactory.getLogger(NetWorkHandlerData.class);
 
     /*下载 url 指向的网页*/
@@ -70,7 +70,7 @@ public class NetWorkHandlerData {
             int statusCode = httpClient.executeMethod(getMethod);
             //读取为 InputStream，在网页内容数据量大时候推荐使用
             InputStream response = getMethod.getResponseBodyAsStream();
-            content = InputStreamToString(response, characterset);
+            content = FileIOStreamTools.InputStreamToString(response, characterset);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -125,7 +125,7 @@ public class NetWorkHandlerData {
             if (statusCode == HttpStatus.SC_OK) {
                 //读取为 InputStream，在网页内容数据量大时候推荐使用
                 response = getMethod.getResponseBodyAsStream();
-                HttpclientDownLoadFile(fileName, response);
+//                HttpclientDownLoadFile(fileName, response);
             }
         } catch (Exception e) {
             System.out.println("得到资源出错了！");
@@ -231,106 +231,4 @@ public class NetWorkHandlerData {
         return null;
     }
 
-    public static String startFetchData(String url,String characterset) {
-        String content="";
-        System.out.println("正在爬取的页面" + url);
-        if (url.equals("")) {
-            return null;
-        }
-        HttpClient httpclient = new HttpClient();
-        try {
-            // 设置 Http 连接超时为5秒
-            httpclient.getHttpConnectionManager().getParams()
-                    .setConnectionTimeout(5000000);
-            httpclient.getHttpConnectionManager().getParams()
-                    .setSoTimeout(5000000);
-
-        } catch (Exception e) {
-            // 设置 Http 连接超时为5秒
-            httpclient.getHttpConnectionManager().getParams()
-                    .setConnectionTimeout(5000000);
-            httpclient.getHttpConnectionManager().getParams()
-                    .setSoTimeout(5000000);
-            e.printStackTrace();
-        }
-
-        GetMethod get = new GetMethod(url);
-        // 设置 get 请求超时为 5 秒
-        get.getParams().setParameter(HttpMethodParams.SO_TIMEOUT, 50000);
-        // 设置请求重试处理，用的是默认的重试处理：请求三次
-        get.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
-                new DefaultHttpMethodRetryHandler(100, true));
-        try {
-            int statusCode = httpclient.executeMethod(get);
-            if (statusCode == HttpStatus.SC_OK) { // 打印服务器返回的状态
-                byte[] responseBody = get.getResponseBodyAsString().getBytes(
-                        get.getResponseCharSet());
-                content = new String(responseBody, characterset);
-                get.releaseConnection();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return content;
-    }
-
-    public static void downLoadFile(String downurl)
-            throws MalformedURLException {
-        // String text="http://www.18ladys.com/tupian/xianmao2.jpg";
-        String Tempdownurl = downurl;
-        Tempdownurl = Tempdownurl.replaceAll("http://", "");
-        String[] str = Tempdownurl.split("/");
-		/*
-		 * for (int i = 0; i < str.length; i++) { System.out.println(str[i]); }
-		 */
-
-        int byteread = 0;
-        URL url = new URL(downurl);
-        try {
-            URLConnection conn = url.openConnection();
-            InputStream inStream = conn.getInputStream();
-            // String
-            // imgName=downurl.substring(downurl.indexOf("/structure")+11);
-            File file = new File("./Resources/Image/" + str[2]);
-            FileOutputStream fs = new FileOutputStream(file);
-            byte[] buffer = new byte[1024 * 4];
-            int length;
-            while ((byteread = inStream.read(buffer)) != -1) {
-                fs.write(buffer, 0, byteread);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // inputstream转String
-    public static String InputStreamToString(InputStream response, String characterset) throws Exception {
-        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-        byte[] data = new byte[BUFFER_SIZE];
-        int count = -1;
-        while ((count = response.read(data, 0, BUFFER_SIZE)) != -1)
-            outStream.write(data, 0, count);
-
-        return new String(outStream.toByteArray(), characterset);
-    }
-
-    // 使用httpclient下载附件
-    public static void HttpclientDownLoadFile(String fileName,InputStream input)
-    {
-        System.out.println("进入下载程序");
-        FileOutputStream fs=null;
-        int byteread=0;
-        try {
-            fs = new FileOutputStream(new File(fileName));
-            byte[] buffer = new byte[1024*4];
-            while ((byteread = input.read(buffer)) != -1) {
-                fs.write(buffer, 0, byteread);
-            }
-            fs.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

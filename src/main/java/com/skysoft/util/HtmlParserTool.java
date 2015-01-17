@@ -1,4 +1,4 @@
-package com.skysoft.framework;
+package com.skysoft.util;
 
 /**
  * User: pinaster
@@ -64,33 +64,4 @@ public class HtmlParserTool {
         return sbHtmlText.toString();
     }
 
-    // 自定义截取相关内容
-    public static String extractSpecificContent(String StartRegExp,
-            String EndRegExp, String Content) throws Exception {
-        StringBuffer sbConent = null;
-        int startPos = 0, endPos = 0;
-        sbConent = new StringBuffer();
-        Pattern spattern = Pattern.compile(StartRegExp);
-        Matcher smatcher = spattern.matcher(Content);
-        boolean sresult = smatcher.find();
-        while (sresult) {
-            startPos = smatcher.start();
-            sresult = smatcher.find();
-        }
-        System.out.println("startPos****:" + startPos);
-        Pattern epattern = Pattern.compile(EndRegExp);
-        Matcher ematcher = epattern.matcher(Content);
-        boolean eresult = ematcher.find();
-        while (eresult) {
-            endPos = ematcher.start();
-            eresult = ematcher.find();
-        }
-        System.out.println("endPos****:" + endPos);
-        if (startPos == -1 || endPos == 0 || endPos == -1) {
-            sbConent.append("");
-        } else {
-            sbConent.append(Content.substring(startPos, endPos));
-        }
-        return sbConent.toString();
-    }
 }

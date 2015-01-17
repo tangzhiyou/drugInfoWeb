@@ -1,11 +1,10 @@
 package com.skysoft.handler;
 
-import com.skysoft.framework.HtmlParserTool;
+import com.skysoft.util.HtmlParserTool;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
 import com.skysoft.util.FileIOStreamTools;
-import com.skysoft.util.HtmlRegexpUtil;
 import com.skysoft.util.ReflectUtil;
 import com.skysoft.util.generateBean;
 import org.apache.commons.lang.StringUtils;

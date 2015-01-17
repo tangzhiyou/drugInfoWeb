@@ -26,20 +26,5 @@ public class TestJavaXml {
         System.out.println(newXML);
     }
 
-        /**
-         * 读取输入流为byte[]数组
-         */
-        public static byte[] read(InputStream instream) throws IOException
-        {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
-            int len = 0;
-            while ((len = instream.read(buffer)) != -1)
-            {
-                bos.write(buffer, 0, len);
-            }
-            return bos.toByteArray();
-        }
-
 
 }

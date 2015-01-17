@@ -1,21 +1,12 @@
 package com.skysoft.handler;
 
-import com.skysoft.framework.HtmlParserTool;
+import com.skysoft.util.HtmlParserTool;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
 import com.skysoft.util.FileIOStreamTools;
-import com.skysoft.util.HtmlRegexpUtil;
 import com.skysoft.util.ReflectUtil;
 import com.skysoft.util.generateBean;
-import org.htmlparser.NodeFilter;
-import org.htmlparser.Parser;
-import org.htmlparser.filters.NodeClassFilter;
-import org.htmlparser.tags.TableColumn;
-import org.htmlparser.tags.TableRow;
-import org.htmlparser.tags.TableTag;
-import org.htmlparser.util.NodeList;
-import org.htmlparser.util.ParserException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

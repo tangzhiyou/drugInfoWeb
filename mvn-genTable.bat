@@ -1,1 +1,0 @@
-java -cp ".;bin;./libs/*" com.skyinfo.framework.ExeEclipseLink

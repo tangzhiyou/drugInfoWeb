@@ -15,6 +15,7 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 public class FileIOStreamTools {
+    private static final int BUFFER_SIZE = 1024*4;
 	public static void writeDtatFile(String url, String fileName) {
         File file =null;
         FileWriter fwriter=null;
@@ -231,6 +232,32 @@ public class FileIOStreamTools {
 
     }
 
+    /**
+     * 读取输入流为byte[]数组
+     */
+    public static byte[] read(InputStream instream) throws IOException
+    {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int len = 0;
+        while ((len = instream.read(buffer)) != -1)
+        {
+            bos.write(buffer, 0, len);
+        }
+        return bos.toByteArray();
+    }
+
+
+    // inputstream转String
+    public static String InputStreamToString(InputStream response, String characterset) throws Exception {
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        byte[] data = new byte[BUFFER_SIZE];
+        int count = -1;
+        while ((count = response.read(data, 0, BUFFER_SIZE)) != -1)
+            outStream.write(data, 0, count);
+
+        return new String(outStream.toByteArray(), characterset);
+    }
 
 
 }

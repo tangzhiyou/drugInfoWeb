@@ -40,9 +40,4 @@ public class FreeMarkertUtil {
             e.printStackTrace();
         }
     }
-    
-    public static Configuration getConfiguration(String templateDir) throws IOException
-    {
-        return null;
-    }
 }

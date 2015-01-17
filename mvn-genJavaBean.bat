@@ -1,1 +1,0 @@
-call java -cp ".;bin;./libs/*" com.skyinfo.main.FreeMarkerEntity
