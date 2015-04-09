@@ -16,15 +16,14 @@ import org.dom4j.io.SAXReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skysoft.dao.CfdaBatisDao;
+import com.skysoft.domain.Druggds;
+import com.skysoft.repository.DruggdsMapper;
 
 @Service
 public class CFDAService {
 
 	@Autowired
-	private CfdaBatisDao cfdaDao;
-
-	// Queue<Identification> queue;
+	private DruggdsMapper druggdsDao;
 
 	public void save(SortedMap map,String TableName)
 	{
@@ -39,18 +38,19 @@ public class CFDAService {
 				list.add(ident);
 				map.remove(entry.getKey());
 			}
-			cfdaDao.save(TableName+".insert", list);
+//			cfdaDao.save(TableName+".insert", list);
 	}
-    public void saveBeans(SortedMap map,String TableName)
+    public void saveBeans(List<Druggds> druggdsList,String TableName)
     {
-        Iterator<Map.Entry<Integer, Object>> iter = map.entrySet()
-                .iterator();
-        while (iter.hasNext())
+//        Iterator<Map.Entry<Integer, Object>> iter = map.entrySet()
+//                .iterator();
+        for(Druggds druggds:druggdsList)
         {
-            Map.Entry<Integer, Object> entry = iter.next();
-            Object ident = (Object) entry.getValue();
-            cfdaDao.save(TableName+".insert", ident);
-            map.remove(entry.getKey());
+//            Map.Entry<Integer, Object> entry = iter.next();
+//			Druggds ident = (Druggds) entry.getValue();
+//            cfdaDao.save(TableName+".insert", ident);
+			druggdsDao.insert(druggds);
+//            map.remove(entry.getKey());
         }
     }
 }

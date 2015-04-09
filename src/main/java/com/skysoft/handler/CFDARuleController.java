@@ -25,14 +25,6 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-import org.htmlparser.NodeFilter;
-import org.htmlparser.Parser;
-import org.htmlparser.filters.NodeClassFilter;
-import org.htmlparser.tags.TableColumn;
-import org.htmlparser.tags.TableRow;
-import org.htmlparser.tags.TableTag;
-import org.htmlparser.util.NodeList;
-import org.htmlparser.util.ParserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -194,42 +186,7 @@ public class CFDARuleController {
     }
 
     public static void extractText(String context, String contexturl) {
-        List listText = null;
-        Parser myParser = null;
-        NodeList nodeList = null;
-        try {
-            myParser = new Parser(context);
-            myParser.setEncoding("utf-8");
-            NodeFilter filter = new NodeClassFilter(TableTag.class);
-            nodeList = myParser.extractAllNodesThatMatch(filter);
-        } catch (ParserException e) {
-            // TODO Auto-generated catch block
-            logger.error("解析页面数据出错", e);
-        }
-        // 设置页面编码
-        boolean flag = true;
-        boolean fetchData = false;
-        listText = new ArrayList();
-        TableTag table = (TableTag) nodeList.elementAt(0);
-        System.out.println(table.getRowCount());
-        for (int j = 1; j < table.getRowCount() - 1; j++) {
-            TableRow tRow = table.getRow(j);
-            TableColumn[] columns = tRow.getColumns();
-            // 只要判断一次就行
-            if (flag) {
-                fetchData = isfetchData(table, contexturl);
-                flag = false;
-            }
-            if (fetchData) {
-                listText.add(j - 1, columns[1].toPlainTextString());
-            } else {
-                break;
-            }
-        }
-        if (fetchData) {
-
-            saveContent(listText);
-        }
+        
     }
 
     // 映射到pojo
@@ -248,18 +205,9 @@ public class CFDARuleController {
     }
 
     // 处理没有记录的页面
-    private static boolean isfetchData(TableTag table, String url) {
-        for (int j = 1; j < table.getRowCount(); j++) {
-            TableRow row = table.getRow(j);
-            TableColumn[] columns = row.getColumns();
-            if (columns[0].toPlainTextString().equals("没有相关信息")) {
-                logger.info("这个页面没有内容{}", url);
-                System.out.println("没有记录");
-                return false;
-            }
-        }
-        return true;
-    }
+//    private static boolean isfetchData(TableTag table, String url) {
+//       
+//    }
 
     public void createCFDARule(String RuleName, Map<String, String> rule) {
         System.out.println("创建xml");
