@@ -21,8 +21,6 @@
         <context:exclude-filter type="annotation"
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-    <bean id="cfdaDao" class="com.skysoft.dao.CfdaBatisDao"/>
-    <bean id="fetureDao" class="com.skysoft.dao.futureBatisDao"/>
 
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -34,21 +32,23 @@
     </bean>
 
     <!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <!-- Connection Info -->
-        <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-
-        <!-- Connection Pooling Info -->
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="100"/>
-        <property name="maxIdle" value="30"/>
-        <property name="maxWait" value="500"/>
-        <property name="poolPreparedStatements" value="false"/>
-        <property name="defaultAutoCommit" value="false"/>
-    </bean>
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		  destroy-method="close">
+		<!-- Connection Info -->
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="${jdbc.pool.maxActive}" />
+		<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
+		<property name="minIdle" value="0" />
+		<property name="defaultAutoCommit" value="false" />
+		<!-- 连接Idle10分钟后超时，每1分钟检查一次 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="600000" />
+	</bean>
+    
+    
     <!-- mybatis配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -60,7 +60,7 @@
     <!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.skysoft"/>
-        <property name="annotationClass" value="com.skysoft.repository.mybatis.MyBatisRepository"/>
+        <property name="sqlSessionFactoryBeanName" value="mybatisSessionFactory"/>
     </bean>
 
     <!-- 事务管理器配置,单数据源事务 -->
