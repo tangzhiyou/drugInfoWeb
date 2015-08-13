@@ -18,7 +18,6 @@ public class BdbEnvironment extends Environment {
 
     /**
      * Constructor
-     *
      * @param envHome   数据库环境目录
      * @param envConfig config options 数据库换纪念馆配置
      * @throws com.sleepycat.je.DatabaseException

@@ -1,10 +1,10 @@
 package com.skysoft.handler;
 
-import com.skysoft.util.*;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
-import org.apache.commons.lang.StringUtils;
+import com.skysoft.util.*;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
