@@ -14,22 +14,18 @@ import java.util.List;
  * Created by tangzy on 2015/1/17.
  */
 public class Dom4jParserXml {
-    public static Document getRootFileDocument(Class<?> clazz,String filePath)
-    {
-        SAXReader saxReader =null;
+    public static Document getRootFileDocument(Class<?> clazz, String filePath) {
+        SAXReader saxReader = null;
         Document document = null;
-        InputStream input=null;
-        try
-        {
+        InputStream input = null;
+        try {
             saxReader = new SAXReader();
-            input=clazz.getClassLoader().getResourceAsStream(filePath);
+            input = clazz.getClassLoader().getResourceAsStream(filePath);
             document = saxReader.read(input);
-        } catch (DocumentException ex)
-        {
+        } catch (DocumentException ex) {
             ex.printStackTrace();
-        }finally {
-            if(input!=null)
-            {
+        } finally {
+            if (input != null) {
                 try {
                     input.close();
                 } catch (IOException e) {
@@ -40,21 +36,19 @@ public class Dom4jParserXml {
         return document;
     }
 
-    public static Element getSingleNode(String expression,Document document)
-    {
-        return  (Element) document.selectSingleNode(expression);
+    public static Element getSingleNode(String expression, Document document) {
+        return (Element) document.selectSingleNode(expression);
     }
 
-    public static List<Element> getNodes(String expression,Element element)
-    {
+    public static List<Element> getNodes(String expression, Element element) {
         return element.selectNodes(expression);
     }
 
-    public static String getAttributeValue(Element element,String attribute)
-    {
+    public static String getAttributeValue(Element element, String attribute) {
         return element.attribute(attribute).getValue();
     }
-    public static void writeFormatFileXML(Document document,String filePath,String encoding) {
+
+    public static void writeFormatFileXML(Document document, String filePath, String encoding) {
         OutputFormat format = OutputFormat.createPrettyPrint();
         // 利用格式化类对编码进行设置
         format.setEncoding(encoding);
@@ -66,11 +60,11 @@ public class Dom4jParserXml {
             writer.write(document);
             writer.flush();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         } finally {
             if (writer != null) {
                 try {

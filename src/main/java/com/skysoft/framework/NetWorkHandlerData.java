@@ -17,11 +17,8 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * 处理相关数据流
@@ -32,8 +29,6 @@ public class NetWorkHandlerData {
 
     /*下载 url 指向的网页*/
     public static String fetchNetWorkData(String url, String characterset) {
-
-//        Mozilla/5.0 (Windows NT 6.1; rv:26.0) Gecko/20100101 Firefox/26.0
         String content = "";
           /* 1.生成 HttpClinet 对象并设置参数*/
         HttpClient httpClient = new HttpClient();
@@ -50,20 +45,19 @@ public class NetWorkHandlerData {
                     setConnectionTimeout(50000);
             httpClient.getHttpConnectionManager().getParams()
                     .setSoTimeout(20000);
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             httpClient.getHttpConnectionManager().getParams().
                     setConnectionTimeout(50000);
             httpClient.getHttpConnectionManager().getParams()
                     .setSoTimeout(20000);
         }
-		  /*2.生成 GetMethod 对象并设置参数*/
+          /*2.生成 GetMethod 对象并设置参数*/
         GetMethod getMethod = new GetMethod(url);
         //设置 get 请求超时 5s
         getMethod.getParams().setParameter(HttpMethodParams.SO_TIMEOUT, 5000);
         //设置请求重试处理
         getMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
-                new DefaultHttpMethodRetryHandler(100,true));
+                new DefaultHttpMethodRetryHandler(100, true));
 
 		  /*3.执行 HTTP GET 请求*/
         try {
@@ -177,55 +171,51 @@ public class NetWorkHandlerData {
         return response;
     }
 
-    public static String ImitateLoginSite(String url,String characterset,String pageNumber)
-    {
-        String content="";
-        HttpClient httpClient=new HttpClient();
-        PostMethod postMethod=new PostMethod(url);
-        NameValuePair[] data={
-                new NameValuePair("__VIEWSTATE","/wEPDwULLTEzODQxNzY5NjMPZBYCAgEPZBYGAgEPDxYCHgRUZXh0BQ3nu7RD6ZO257+Y54mHZGQCBQ8PFgIfAAVpPGZvbnQgY29sb3I9J2JsYWNrJz7ns7vnu5/kuK3nrKblkIjmnaHku7Y8L2ZvbnQ+IOe7tEPpk7bnv5jniYc8Zm9udCBjb2xvcj0nYmxhY2snPiDnmoTllYblk4HmnInvvJo8L2ZvbnQ+ZGQCCQ8PFgQeC1JlY29yZGNvdW50AowBHg5DdXN0b21JbmZvVGV4dAWRAeaAu+iusOW9leaVsO+8mjxmb250IGNvbG9yPSJibHVlIj48Yj4xNDA8L2I+PC9mb250PiDmgLvpobXmlbDvvJo8Zm9udCBjb2xvcj0iYmx1ZSI+PGI+MTA8L2I+PC9mb250PiDlvZPliY3pobXvvJo8Zm9udCBjb2xvcj0icmVkIj48Yj4xPC9iPjwvZm9udD5kZGTTH+FVIATkq4vm6Z9r3eqdIM2F/w=="),
-                new NameValuePair("__EVENTVALIDATION","/wEWAwLV6/uwCALd5eLQCQLmjL2EB8fO+J+HuoaczuXONjQGC4Us7zRM"),
-                new NameValuePair("__EVENTTARGET","myPager"),
-                new NameValuePair("__EVENTARGUMENT",pageNumber),
-                new NameValuePair("ContentType","application/x-www-form-urlencoded")
+    public static String ImitateLoginSite(String url, String characterset, String pageNumber) {
+        String content = "";
+        HttpClient httpClient = new HttpClient();
+        PostMethod postMethod = new PostMethod(url);
+        NameValuePair[] data = {
+                new NameValuePair("__VIEWSTATE", "/wEPDwULLTEzODQxNzY5NjMPZBYCAgEPZBYGAgEPDxYCHgRUZXh0BQ3nu7RD6ZO257+Y54mHZGQCBQ8PFgIfAAVpPGZvbnQgY29sb3I9J2JsYWNrJz7ns7vnu5/kuK3nrKblkIjmnaHku7Y8L2ZvbnQ+IOe7tEPpk7bnv5jniYc8Zm9udCBjb2xvcj0nYmxhY2snPiDnmoTllYblk4HmnInvvJo8L2ZvbnQ+ZGQCCQ8PFgQeC1JlY29yZGNvdW50AowBHg5DdXN0b21JbmZvVGV4dAWRAeaAu+iusOW9leaVsO+8mjxmb250IGNvbG9yPSJibHVlIj48Yj4xNDA8L2I+PC9mb250PiDmgLvpobXmlbDvvJo8Zm9udCBjb2xvcj0iYmx1ZSI+PGI+MTA8L2I+PC9mb250PiDlvZPliY3pobXvvJo8Zm9udCBjb2xvcj0icmVkIj48Yj4xPC9iPjwvZm9udD5kZGTTH+FVIATkq4vm6Z9r3eqdIM2F/w=="),
+                new NameValuePair("__EVENTVALIDATION", "/wEWAwLV6/uwCALd5eLQCQLmjL2EB8fO+J+HuoaczuXONjQGC4Us7zRM"),
+                new NameValuePair("__EVENTTARGET", "myPager"),
+                new NameValuePair("__EVENTARGUMENT", pageNumber),
+                new NameValuePair("ContentType", "application/x-www-form-urlencoded")
         };
         postMethod.setRequestBody(data);
         try {
             httpClient.getParams().setCookiePolicy(CookiePolicy.BROWSER_COMPATIBILITY);
             httpClient.executeMethod(postMethod);
-            int code=postMethod.getStatusCode();
+            int code = postMethod.getStatusCode();
 
-                content=new String(postMethod.getResponseBodyAsString().getBytes(characterset));
-        }catch (Exception ex)
-        {
+            content = new String(postMethod.getResponseBodyAsString().getBytes(characterset));
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return content;
 
     }
 
-    public static String SearchGDS(String url,String characterset)
-    {
-        HttpClient httpClient=new HttpClient();
-        PostMethod postMethod=new PostMethod(url);
-        NameValuePair[] data={
-                new NameValuePair("__VIEWSTATE","/wEPDwULLTEzODQxNzY5NjNkZEc4gDy0wp5ERjILg2b7lTTH3F+w"),
-                new NameValuePair("__EVENTVALIDATION","/wEWAwKK7u6vCQLd5eLQCQLmjL2EBxmZU7jWYoh9371phOcBPCjfgdVD"),
-                new NameValuePair("gdsBtn","%C9%CC%C6%B7%CB%D1%CB%F7"),
-                new NameValuePair("keyword","%CA%B7%B9%FA%B9%AB%D2%A9%BE%C6"),
-                new NameValuePair("ContentType","application/x-www-form-urlencoded"),
-                new NameValuePair("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.76 Safari/537.36")
+    public static String SearchGDS(String url, String characterset) {
+        HttpClient httpClient = new HttpClient();
+        PostMethod postMethod = new PostMethod(url);
+        NameValuePair[] data = {
+                new NameValuePair("__VIEWSTATE", "/wEPDwULLTEzODQxNzY5NjNkZEc4gDy0wp5ERjILg2b7lTTH3F+w"),
+                new NameValuePair("__EVENTVALIDATION", "/wEWAwKK7u6vCQLd5eLQCQLmjL2EBxmZU7jWYoh9371phOcBPCjfgdVD"),
+                new NameValuePair("gdsBtn", "%C9%CC%C6%B7%CB%D1%CB%F7"),
+                new NameValuePair("keyword", "%CA%B7%B9%FA%B9%AB%D2%A9%BE%C6"),
+                new NameValuePair("ContentType", "application/x-www-form-urlencoded"),
+                new NameValuePair("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.76 Safari/537.36")
         };
         postMethod.setRequestBody(data);
         try {
             httpClient.getParams().setCookiePolicy(CookiePolicy.BROWSER_COMPATIBILITY);
             httpClient.executeMethod(postMethod);
-            int code=postMethod.getStatusCode();
+            int code = postMethod.getStatusCode();
 
-            String info=new String(postMethod.getResponseBodyAsString().getBytes("UTF-8"));
+            String info = new String(postMethod.getResponseBodyAsString().getBytes("UTF-8"));
             System.out.println(info);
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;

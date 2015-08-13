@@ -1,12 +1,9 @@
 package com.skysoft.handler;
 
-import com.skysoft.util.HtmlParserTool;
+import com.skysoft.util.*;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
-import com.skysoft.util.FileIOStreamTools;
-import com.skysoft.util.ReflectUtil;
-import com.skysoft.util.generateBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -59,7 +56,7 @@ public class yaozhController {
             RequestMethod.POST})
     public String HandlerData(HttpServletRequest request,
                               HttpServletResponse response) {
-        Map<String, String> webGather = FileIOStreamTools.readerDataHashMap("conf/DefaultRule.xml",null);
+        Map<String, String> webGather = FileIOStreamTools.readerDataHashMap("conf/DefaultRule.xml", null);
         Iterator iter = webGather.entrySet().iterator();
         while (iter.hasNext()) {
             Map.Entry entry = (Map.Entry) iter.next();
@@ -104,13 +101,9 @@ public class yaozhController {
             String Content = NetWorkHandlerData.fetchNetWorkData(link, characterset);
 
             extractText(Content, link);
-            /*if (worker.size() == batchUpdate) {
-                cfdaService.save(worker.map, Datatable);
-            }*/
+
         }
-        /*if (worker.size()>=1) {
-            cfdaService.save(worker.map, Datatable);
-        }*/
+
         return "successful";
     }
 
@@ -118,15 +111,15 @@ public class yaozhController {
     public static void extractText(String context, String contexturl) {
         //先得到当前区域
         String useful = HtmlParserTool.extractHtmlLabel(context, "div#mall_wrap");
-/*        System.out.println(useful);
         try {
              String currRegion= HtmlParserTool.extractSpecificContent("当前位置：",
                     "深圳仁爱医院</a>",useful);
-            currRegion=HtmlRegexpUtil.filterHtml(currRegion);
+            String tableText = null;
+            currRegion= HtmlRegexpUtil.filterHtml(tableText, currRegion);
             System.out.println(currRegion.replaceAll("&nbsp;","").replaceAll("&gt;",""));
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         List<String> currRegion = new ArrayList<String>();
         Document doc = Jsoup.parse(useful);
         String HtmlText = "";
@@ -147,15 +140,15 @@ public class yaozhController {
         StringBuffer sbHospitalInfo = null;
         sbHospitalInfo = new StringBuffer();
         // 医院简况
-/*        String tableText = HtmlParserTool.extractHtmlLabel(useful, "div#tagContent0 table");
+      String tableText = HtmlParserTool.extractHtmlLabel(useful, "div#tagContent0 table");
         String divRegexp = "<div\\s*(\\w+(=('|\").*?\")\\s*)*>([\\s\\S]*)</div>";
         String DivContent = HtmlRegexpUtil.filterHtml(tableText, divRegexp);
         String aRegexp = "<a\\s*(\\w+(=('|\").*?\")\\s*)*>([\\s\\S]*)</a>";
         String AContent = HtmlRegexpUtil.filterHtml(DivContent, aRegexp);
-        sbHospitalInfo.append(HtmlParserTool.extractHtmlText(AContent, "table"));*/
+        sbHospitalInfo.append(HtmlParserTool.extractHtmlText(AContent, "table"));
         // 医院介绍
-        String tableText = HtmlParserTool.extractHtmlLabel(useful, "div#tagContent1 table");
-        String StringText=HtmlParserTool.extractHtmlText(tableText,"table");
+//        String tableText = HtmlParserTool.extractHtmlLabel(useful, "div#tagContent1 table");
+        String StringText = HtmlParserTool.extractHtmlText(tableText, "table");
         System.out.println(StringText);
         // 医院科室
 

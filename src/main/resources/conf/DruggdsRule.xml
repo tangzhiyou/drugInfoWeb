@@ -27,19 +27,19 @@
     </webGather>
     <!-- 映射的实体名 -->
     <databases>
-            <mapper name="druggds" class="com.skysoft.domain.druggds">
-                <property name="drugBrand" StartRegExp="${artTitle.startregexp}"
-                          EndRegExp="${artTitle.endregexp}"/>
-                <property name="productionUnit" StartRegExp="${keywordes.startregexp}"
-                          EndRegExp="${keywordes.endregexp}"/>
-                <property name="drugGDS" StartRegExp="${newsTime.startregexp}"
-                          EndRegExp="${newsTime.endregexp}"/>
-                <property name="drugName" StartRegExp="${artSource.startregexp}"
-                          EndRegExp="${artSource.endregexp}"/>
-                <property name="specification" StartRegExp="${artSummary.startregexp}"
-                          EndRegExp="${artSummary.endregexp}"/>
-                <property name="sescription" StartRegExp="${artSummary.startregexp}"
-                          EndRegExp="${artSummary.endregexp}"/>
-            </mapper>
+        <mapper name="druggds" class="com.skysoft.domain.druggds">
+            <property name="drugBrand" StartRegExp="${artTitle.startregexp}"
+                      EndRegExp="${artTitle.endregexp}"/>
+            <property name="productionUnit" StartRegExp="${keywordes.startregexp}"
+                      EndRegExp="${keywordes.endregexp}"/>
+            <property name="drugGDS" StartRegExp="${newsTime.startregexp}"
+                      EndRegExp="${newsTime.endregexp}"/>
+            <property name="drugName" StartRegExp="${artSource.startregexp}"
+                      EndRegExp="${artSource.endregexp}"/>
+            <property name="specification" StartRegExp="${artSummary.startregexp}"
+                      EndRegExp="${artSummary.endregexp}"/>
+            <property name="sescription" StartRegExp="${artSummary.startregexp}"
+                      EndRegExp="${artSummary.endregexp}"/>
+        </mapper>
     </databases>
 </GatherRoot>

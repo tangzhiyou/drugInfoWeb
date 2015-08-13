@@ -1,12 +1,9 @@
 package com.skysoft.handler;
 
-import com.skysoft.util.HtmlParserTool;
+import com.skysoft.util.*;
 import com.skysoft.framework.NetWorkHandlerData;
 import com.skysoft.framework.fetchDatabase;
 import com.skysoft.service.CFDAService;
-import com.skysoft.util.FileIOStreamTools;
-import com.skysoft.util.ReflectUtil;
-import com.skysoft.util.generateBean;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +47,7 @@ public class pharmnetController {
             RequestMethod.POST})
     public String HandlerData(HttpServletRequest request,
                               HttpServletResponse response) {
-        Map<String, String> webGather = FileIOStreamTools.readerDataHashMap("conf/DefaultRule.xml",null);
+        Map<String, String> webGather = FileIOStreamTools.readerDataHashMap("conf/DefaultRule.xml", null);
         Iterator iter = webGather.entrySet().iterator();
         while (iter.hasNext()) {
             Map.Entry entry = (Map.Entry) iter.next();
@@ -82,11 +79,10 @@ public class pharmnetController {
         }
 
         for (String link : links) {
-            if (StringUtils.isBlank(link))
-            {
+            if (StringUtils.isBlank(link)) {
                 continue;
             }
-           System.out.println("当前爬取的URL地址:............."+link);
+            System.out.println("当前爬取的URL地址:............." + link);
             String Content = NetWorkHandlerData.fetchNetWorkData(link, characterset);
 
             extractText(Content, link);
@@ -94,21 +90,21 @@ public class pharmnetController {
                 cfdaService.save(worker.map, Datatable);
             }
         }
-        if (worker.size()>=1) {
+        if (worker.size() >= 1) {
             cfdaService.save(worker.map, Datatable);
         }
         return "successful";
     }
 
     public static void extractText(String context, String contexturl) {
-        String TableText=HtmlParserTool.extractHtmlLabel(context,"table[class=bian221]");
-        String H1Text=HtmlParserTool.extractHtmlText(TableText,"h1>a");
-//        List<String> listText= HtmlRegexpUtil.ExtractTableText(TableText, contexturl,H1Text);
-//        if (listText.size()==0)
-//        {
-//            return;
-//        }
-//        saveContent(listText);
+        String TableText = HtmlParserTool.extractHtmlLabel(context, "table[class=bian221]");
+        String H1Text = HtmlParserTool.extractHtmlText(TableText, "h1>a");
+        List<String> listText= HtmlRegexpUtil.ExtractTableText(TableText, contexturl, H1Text);
+        if (listText.size()==0)
+        {
+            return;
+        }
+        saveContent(listText);
     }
 
     // 映射到pojo
@@ -117,12 +113,10 @@ public class pharmnetController {
         Object obj = generateBean.newInstance(MappingXML);
         Map<Integer, String> methodMap = generateBean
                 .methodname(MappingXML);
-        if (list.size()==10)
-        {
+        if (list.size() == 10) {
             methodMap.remove("unit");
         }
-        if (list.size()==9)
-        {
+        if (list.size() == 9) {
             methodMap.remove("dosageComment");
         }
 

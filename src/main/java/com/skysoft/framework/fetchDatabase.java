@@ -1,43 +1,22 @@
 package com.skysoft.framework;
 
-import java.io.File;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.SortedMap;
-
-import com.sleepycat.bind.EntryBinding;
 import com.sleepycat.bind.serial.ClassCatalog;
 import com.sleepycat.bind.serial.SerialBinding;
 import com.sleepycat.bind.serial.StoredClassCatalog;
 import com.sleepycat.bind.tuple.TupleBinding;
 import com.sleepycat.collections.StoredSortedMap;
-import com.sleepycat.collections.TransactionRunner;
-import com.sleepycat.collections.TransactionWorker;
-import com.sleepycat.je.Database;
-import com.sleepycat.je.DatabaseConfig;
-import com.sleepycat.je.DatabaseException;
-import com.sleepycat.je.DatabaseExistsException;
-import com.sleepycat.je.DatabaseNotFoundException;
-import com.sleepycat.je.Environment;
-import com.sleepycat.je.EnvironmentConfig;
+import com.sleepycat.je.*;
+
+import java.io.File;
+import java.util.SortedMap;
 public class fetchDatabase {
 
-	private static final String[] INT_NAMES = { "Hello", "Database", "World", };
-
-	private static boolean create = true;
 
 	private Environment env;
 	private ClassCatalog catalog;
 	private Database db;
 	public static SortedMap<Integer, Object> map;
 
-	/** Creates the environment and runs a transaction */
-	public static void main(String[] argv) throws Exception
-	{
-		fetchDatabase worker = new fetchDatabase();
-		worker.createAndBindDatabase("./tmep");
-		worker.ReadData();
-	}
 
 	public void createAndBindDatabase(String dbDir)
 			throws DatabaseNotFoundException, DatabaseExistsException,
@@ -127,19 +106,7 @@ public class fetchDatabase {
 		map.put(new Integer(i), data);
 	}
 
-	public Object ReadData()
-	{
-		Object value = null;
-		Iterator<Map.Entry<Integer, Object>> iter = map.entrySet().iterator();
-		System.out.println("Reading data");
-		while (iter.hasNext())
-		{
-			Map.Entry<Integer, Object> entry = iter.next();
-			value = entry.getValue();
-		}
-		return value;
 
-	}
 
 	public int size()
 	{

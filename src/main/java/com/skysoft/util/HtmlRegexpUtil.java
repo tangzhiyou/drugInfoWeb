@@ -1,5 +1,8 @@
 package com.skysoft.util;
 
+import org.apache.oro.text.regex.*;
+
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,12 +22,6 @@ public class HtmlRegexpUtil {
      */
     public HtmlRegexpUtil() {
         // TODO Auto-generated constructor stub
-    }
-
-    public static void main(String[] args) {
-//        String Content = readerURL("conf/NewFile.html");
-//        Content = fiterHtmlTag(Content, "td");
-//        System.out.println(Content);
     }
 
 
@@ -100,10 +97,12 @@ public class HtmlRegexpUtil {
      * 基本功能：过滤所有以"<"开头以">"结尾的标签
      * <p/>
      *
+     *
+     * @param tableText
      * @param str
      * @return String
      */
-    public static String filterHtml(String str) {
+    public static String filterHtml(String tableText, String str) {
         Pattern pattern = Pattern.compile(regxpForHtml);
         Matcher matcher = pattern.matcher(str);
         StringBuffer sb = new StringBuffer();
@@ -215,19 +214,21 @@ public class HtmlRegexpUtil {
         return result;
     }
 
-    public void ORO() {
-        /*RegExp="<p>【([\u4E00-\u9FA5])*】([//s//S]*)([^》[\u4E00-\u9FA5]+</p>])*";
-        Pattern pattern = new Perl5Compiler().compile(RegExp);
+    public void ORO() throws MalformedPatternException {
+        String RegExp="<p>【([\u4E00-\u9FA5])*】([//s//S]*)([^》[\u4E00-\u9FA5]+</p>])*";
+        org.apache.oro.text.regex.Pattern pattern = new Perl5Compiler().compile(RegExp);
         Perl5Matcher matcher = new Perl5Matcher();
+        char[] Content = new char[0];
         PatternMatcherInput matcherInput = new PatternMatcherInput(Content);
         while (matcher.contains(matcherInput, pattern)) {
             MatchResult result = matcher.getMatch();
             //System.out.println(result.toString());
-            for(int i = 0; i < result.groups(); i++) {  
-                System.out.printf("%s : %s\n", i, result.group(i));  
-            } 
-        }*/
+            for(int i = 0; i < result.groups(); i++) {
+                System.out.printf("%s : %s\n", i, result.group(i));
+            }
+        }
     }
+
     public static String replaceIllegalCharacter(String source) {
         if (source == null)
             return source;
@@ -241,27 +242,26 @@ public class HtmlRegexpUtil {
         return text.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("’", "&apos;").replaceAll("\"", "&quot;");
     }
 
-    public void testAppendReplacement()
-    {
+    public void testAppendReplacement() {
         //生成Pattern对象并且编译一个简单的正则表达式"Kelvin"
         Pattern p = Pattern.compile("Kelvin");
         //用Pattern类的matcher()方法生成一个Matcher对象
         Matcher m = p.matcher("Kelvin Li and Kelvin Chan are both working in Kelvin Chen's KelvinSoftShop company");
         StringBuffer sb = new StringBuffer();
-        int i=0;
+        int i = 0;
         //使用find()方法查找第一个匹配的对象
         boolean result = m.find();
         //使用循环将句子里所有的kelvin找出并替换再将内容加到sb里
-        while(result) {
+        while (result) {
             i++;
             m.appendReplacement(sb, "Kevin");
-            System.out.println("第"+i+"次匹配后sb的内容是："+sb);
+            System.out.println("第" + i + "次匹配后sb的内容是：" + sb);
             //继续查找下一个匹配对象
             result = m.find();
         }
         //最后调用appendTail()方法将最后一次匹配后的剩余字符串加到sb里；
         m.appendTail(sb);
-        System.out.println("调用m.appendTail(sb)后sb的最终内容是:"+ sb.toString());
+        System.out.println("调用m.appendTail(sb)后sb的最终内容是:" + sb.toString());
     }
 
     // 自定义截取相关内容
@@ -294,4 +294,7 @@ public class HtmlRegexpUtil {
         return sbConent.toString();
     }
 
+    public static List<String> ExtractTableText(String tableText, String contexturl, String h1Text) {
+        return null;
+    }
 }

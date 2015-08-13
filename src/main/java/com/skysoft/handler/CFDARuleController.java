@@ -1,19 +1,10 @@
 package com.skysoft.handler;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.skysoft.framework.BdbPersistentQueue;
+import com.skysoft.framework.fetchDatabase;
+import com.skysoft.service.CFDAService;
+import com.skysoft.util.ReflectUtil;
+import com.skysoft.util.generateBean;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
@@ -33,11 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.WebUtils;
 
-import com.skysoft.framework.BdbPersistentQueue;
-import com.skysoft.framework.fetchDatabase;
-import com.skysoft.service.CFDAService;
-import com.skysoft.util.ReflectUtil;
-import com.skysoft.util.generateBean;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.*;
 
 @Controller
 @RequestMapping("/drugInfoWeb")
@@ -186,7 +179,7 @@ public class CFDARuleController {
     }
 
     public static void extractText(String context, String contexturl) {
-        
+
     }
 
     // 映射到pojo
@@ -205,9 +198,6 @@ public class CFDARuleController {
     }
 
     // 处理没有记录的页面
-//    private static boolean isfetchData(TableTag table, String url) {
-//       
-//    }
 
     public void createCFDARule(String RuleName, Map<String, String> rule) {
         System.out.println("创建xml");

@@ -62,7 +62,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.id
      *
      * @return the value of drug_gds.id
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public Long getId() {
@@ -74,7 +73,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.id
      *
      * @param id the value for drug_gds.id
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setId(Long id) {
@@ -86,7 +84,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.drugBrand
      *
      * @return the value of drug_gds.drugBrand
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getDrugBrand() {
@@ -98,7 +95,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.drugBrand
      *
      * @param drugBrand the value for drug_gds.drugBrand
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setDrugBrand(String drugBrand) {
@@ -110,7 +106,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.productionUnit
      *
      * @return the value of drug_gds.productionUnit
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getProductionUnit() {
@@ -122,7 +117,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.productionUnit
      *
      * @param productionUnit the value for drug_gds.productionUnit
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setProductionUnit(String productionUnit) {
@@ -134,7 +128,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.drugGDS
      *
      * @return the value of drug_gds.drugGDS
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getDrugGDS() {
@@ -146,7 +139,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.drugGDS
      *
      * @param drugGDS the value for drug_gds.drugGDS
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setDrugGDS(String drugGDS) {
@@ -158,7 +150,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.drugName
      *
      * @return the value of drug_gds.drugName
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getDrugName() {
@@ -170,7 +161,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.drugName
      *
      * @param drugName the value for drug_gds.drugName
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setDrugName(String drugName) {
@@ -182,7 +172,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.specification
      *
      * @return the value of drug_gds.specification
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getSpecification() {
@@ -194,7 +183,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.specification
      *
      * @param specification the value for drug_gds.specification
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setSpecification(String specification) {
@@ -206,7 +194,6 @@ public class Druggds {
      * This method returns the value of the database column drug_gds.sescription
      *
      * @return the value of drug_gds.sescription
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public String getSescription() {
@@ -218,7 +205,6 @@ public class Druggds {
      * This method sets the value of the database column drug_gds.sescription
      *
      * @param sescription the value for drug_gds.sescription
-     *
      * @mbggenerated Sun Jan 18 01:22:18 CST 2015
      */
     public void setSescription(String sescription) {

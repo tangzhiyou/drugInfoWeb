@@ -6,11 +6,6 @@ package com.skysoft.util;
  * Time: 下午3:52
  */
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -64,4 +59,7 @@ public class HtmlParserTool {
         return sbHtmlText.toString();
     }
 
+    public static String extractSpecificContent(String s, String s1, String useful) {
+        return null;
+    }
 }
