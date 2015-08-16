@@ -31,9 +31,9 @@ public class Druggds {
 
     private String associateddata;
 
-    private byte[] comments;
+    private String comments;
 
-    public Druggds(Long id, String approvalnumber, String productname, String englishname, String brandname, String preparation, String dimension, String productionunit, String productionaddress, String productcategory, String originalapproval, String approvaldate, String drugcode, String drugcoderemark, String associateddata, byte[] comments) {
+    public Druggds(Long id, String approvalnumber, String productname, String englishname, String brandname, String preparation, String dimension, String productionunit, String productionaddress, String productcategory, String originalapproval, String approvaldate, String drugcode, String drugcoderemark, String associateddata, String comments) {
         this.id = id;
         this.approvalnumber = approvalnumber;
         this.productname = productname;
@@ -176,11 +176,11 @@ public class Druggds {
         this.associateddata = associateddata == null ? null : associateddata.trim();
     }
 
-    public byte[] getComments() {
+    public String getComments() {
         return comments;
     }
 
-    public void setComments(byte[] comments) {
-        this.comments = comments;
+    public void setComments(String comments) {
+        this.comments = comments == null ? null : comments.trim();
     }
 }

@@ -13,7 +13,5 @@ public interface DruggdsMapper {
 
     int updateByPrimaryKeySelective(Druggds record);
 
-    int updateByPrimaryKeyWithBLOBs(Druggds record);
-
     int updateByPrimaryKey(Druggds record);
 }

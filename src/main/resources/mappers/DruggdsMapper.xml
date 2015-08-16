@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skysoft.repository.DruggdsMapper">
+  <resultMap id="BaseResultMap" type="com.skysoft.domain.Druggds">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="approvalnumber" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="productname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="englishname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="brandname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="preparation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dimension" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="productionunit" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="productionaddress" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="productcategory" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="originalapproval" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="approvaldate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="drugcode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="drugcoderemark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="associateddata" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="comments" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, approvalnumber, productname, englishname, brandname, preparation, dimension, 
+    productionunit, productionaddress, productcategory, originalapproval, approvaldate, 
+    drugcode, drugcoderemark, associateddata, comments
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from drug_gds
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from drug_gds
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.skysoft.domain.Druggds">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into drug_gds (approvalnumber, productname, englishname, 
+      brandname, preparation, dimension, 
+      productionunit, productionaddress, productcategory, 
+      originalapproval, approvaldate, drugcode, 
+      drugcoderemark, associateddata, comments
+      )
+    values (#{approvalnumber,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{englishname,jdbcType=VARCHAR}, 
+      #{brandname,jdbcType=VARCHAR}, #{preparation,jdbcType=VARCHAR}, #{dimension,jdbcType=VARCHAR}, 
+      #{productionunit,jdbcType=VARCHAR}, #{productionaddress,jdbcType=VARCHAR}, #{productcategory,jdbcType=VARCHAR}, 
+      #{originalapproval,jdbcType=VARCHAR}, #{approvaldate,jdbcType=VARCHAR}, #{drugcode,jdbcType=VARCHAR}, 
+      #{drugcoderemark,jdbcType=VARCHAR}, #{associateddata,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.skysoft.domain.Druggds">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into drug_gds
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="approvalnumber != null">
+        approvalnumber,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="englishname != null">
+        englishname,
+      </if>
+      <if test="brandname != null">
+        brandname,
+      </if>
+      <if test="preparation != null">
+        preparation,
+      </if>
+      <if test="dimension != null">
+        dimension,
+      </if>
+      <if test="productionunit != null">
+        productionunit,
+      </if>
+      <if test="productionaddress != null">
+        productionaddress,
+      </if>
+      <if test="productcategory != null">
+        productcategory,
+      </if>
+      <if test="originalapproval != null">
+        originalapproval,
+      </if>
+      <if test="approvaldate != null">
+        approvaldate,
+      </if>
+      <if test="drugcode != null">
+        drugcode,
+      </if>
+      <if test="drugcoderemark != null">
+        drugcoderemark,
+      </if>
+      <if test="associateddata != null">
+        associateddata,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="approvalnumber != null">
+        #{approvalnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="englishname != null">
+        #{englishname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="preparation != null">
+        #{preparation,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null">
+        #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="productionunit != null">
+        #{productionunit,jdbcType=VARCHAR},
+      </if>
+      <if test="productionaddress != null">
+        #{productionaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="originalapproval != null">
+        #{originalapproval,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaldate != null">
+        #{approvaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="drugcode != null">
+        #{drugcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugcoderemark != null">
+        #{drugcoderemark,jdbcType=VARCHAR},
+      </if>
+      <if test="associateddata != null">
+        #{associateddata,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.skysoft.domain.Druggds">
+    update drug_gds
+    <set>
+      <if test="approvalnumber != null">
+        approvalnumber = #{approvalnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        productname = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="englishname != null">
+        englishname = #{englishname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandname != null">
+        brandname = #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="preparation != null">
+        preparation = #{preparation,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null">
+        dimension = #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="productionunit != null">
+        productionunit = #{productionunit,jdbcType=VARCHAR},
+      </if>
+      <if test="productionaddress != null">
+        productionaddress = #{productionaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        productcategory = #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="originalapproval != null">
+        originalapproval = #{originalapproval,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaldate != null">
+        approvaldate = #{approvaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="drugcode != null">
+        drugcode = #{drugcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugcoderemark != null">
+        drugcoderemark = #{drugcoderemark,jdbcType=VARCHAR},
+      </if>
+      <if test="associateddata != null">
+        associateddata = #{associateddata,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.skysoft.domain.Druggds">
+    update drug_gds
+    set approvalnumber = #{approvalnumber,jdbcType=VARCHAR},
+      productname = #{productname,jdbcType=VARCHAR},
+      englishname = #{englishname,jdbcType=VARCHAR},
+      brandname = #{brandname,jdbcType=VARCHAR},
+      preparation = #{preparation,jdbcType=VARCHAR},
+      dimension = #{dimension,jdbcType=VARCHAR},
+      productionunit = #{productionunit,jdbcType=VARCHAR},
+      productionaddress = #{productionaddress,jdbcType=VARCHAR},
+      productcategory = #{productcategory,jdbcType=VARCHAR},
+      originalapproval = #{originalapproval,jdbcType=VARCHAR},
+      approvaldate = #{approvaldate,jdbcType=VARCHAR},
+      drugcode = #{drugcode,jdbcType=VARCHAR},
+      drugcoderemark = #{drugcoderemark,jdbcType=VARCHAR},
+      associateddata = #{associateddata,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
