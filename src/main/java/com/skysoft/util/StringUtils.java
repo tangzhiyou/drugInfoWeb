@@ -249,18 +249,19 @@ public class StringUtils {
      * @param text
      * @return
      */
-    public static String getNumbericFromString(String text) {
+    public static List<String> getNumbericFromString(String text) {
         if (GerneralUtils.isEmptyString(text)) {
             return null;
         }
+        List<String> values=new ArrayList<String>();
         StringBuffer reg = new StringBuffer();
         reg.append("0\\.\\d+|[1-9]{1}([0-9]+)?\\.\\d+|\\d+");
         Pattern pattern = Pattern.compile(reg.toString());
         Matcher matcher = pattern.matcher(text);
-        if (matcher.find()) {
-            return matcher.group();
+        while (matcher.find()) {
+            values.add(matcher.group());
         }
-        return null;
+        return values;
     }
 
     /**

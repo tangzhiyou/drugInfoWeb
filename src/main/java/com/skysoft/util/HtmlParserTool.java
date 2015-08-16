@@ -11,55 +11,66 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * HTML解析数据库 使用JSOUP截取字符串
  */
 public class HtmlParserTool {
 
-    public static String extractHtmlLabel(String content, String filterLable) {
+    public static List<String> extractHtmlLabel(String content, String filterLable) {
         Document doc = Jsoup.parse(content);
-        String HtmlText = "";
-        StringBuffer sbHtmlText = null;
+        List<String> htmlTextList=new ArrayList<String>();
         Elements values = doc.select(filterLable);
-        sbHtmlText = new StringBuffer();
         for (Element link : values) {
-            HtmlText = link.outerHtml();
-            sbHtmlText.append(HtmlText);
+            String htmlText = link.outerHtml();
+            htmlTextList.add(htmlText);
         }
-        return sbHtmlText.toString();
+        return htmlTextList;
     }
 
-    public static String extractHtmlText(String content, String filterLable) {
+    public static List<String> extractHtmlText(String content, String filterLable) {
         Document doc = Jsoup.parse(content);
-        StringBuffer sbHtmlText = null;
+        List<String> htmlTextList=new ArrayList<String>();
         Elements values = doc.select(filterLable);
-        sbHtmlText = new StringBuffer();
         for (Element link : values) {
-            String HtmlText = link.text();
-            sbHtmlText.append(HtmlText);
+            String htmlText = link.text();
+            htmlTextList.add(htmlText);
         }
-        return sbHtmlText.toString();
+        return htmlTextList;
     }
 
-    public static String extractAttributeHref(String content, String filterLable) {
+    public static List<String> extractAttributeHref(String content, String filterLable) {
         Document doc = Jsoup.parse(content);
-        StringBuffer sbHtmlText = null;
+        List<String> htmlTextList=new ArrayList<String>();
         Elements values = doc.select(filterLable);
-        sbHtmlText = new StringBuffer();
         String linkHref = "";
         for (Element link : values) {
             //如果是图片
-            if (filterLable.equals("img")) {
+            if (filterLable.equals("img")) { //img
                 linkHref = link.attr("src");
-            } else if (filterLable.equals("a")) { //如果是a 链接
+            } else if (filterLable.equals("a")) { //a
                 linkHref = link.attr("href");
             }
-            sbHtmlText.append(linkHref);
+            htmlTextList.add(linkHref);
         }
-        return sbHtmlText.toString();
+        return htmlTextList;
     }
 
     public static String extractSpecificContent(String s, String s1, String useful) {
         return null;
+    }
+
+    public static List<String> extractTable(String content, String filterLable)
+    {
+        List<String> values=new ArrayList<String>();
+        Document doc = Jsoup.parse(content);
+        Element infoTable = doc.select(filterLable).first();
+        Elements infoTrs = infoTable.select("tr");
+        for (Element infotds : infoTrs) {
+            values.add(infotds.select("td").last().text().trim());
+        }
+        return values;
     }
 }

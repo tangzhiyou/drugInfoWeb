@@ -153,7 +153,7 @@ public class FileIOStreamTools {
         return links;
     }
 
-    public static Map<String, String> readerDataHashMap(String filePath, String host) {
+    public static Map<String, String> readerDataHashMap(String filePath) {
         Map<String, String> proper = null;
         InputStreamReader isr = null;
         BufferedReader br = null;

@@ -40,13 +40,13 @@ public class CFDAServiceTest {
      */
     @Test
     public void testSaveBeans() {
-        CFDAService cfdaService = context.getBean(CFDAService.class);
-        Druggds druggds = new Druggds();
-        druggds.setDrugBrand("222");
-        List<Druggds> lists = new ArrayList<Druggds>();
-        lists.add(druggds);
-        cfdaService.saveBeans(lists);
-        System.out.println();
+//        CFDAService cfdaService = context.getBean(CFDAService.class);
+//        Druggds druggds = new Druggds();
+//        druggds.setDrugBrand("222");
+//        List<Druggds> lists = new ArrayList<Druggds>();
+//        lists.add(druggds);
+//        cfdaService.saveBeans(lists);
+//        System.out.println();
     }
 
 }

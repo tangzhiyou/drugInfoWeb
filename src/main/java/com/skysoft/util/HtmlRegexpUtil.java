@@ -102,7 +102,7 @@ public class HtmlRegexpUtil {
      * @param str
      * @return String
      */
-    public static String filterHtml(String tableText, String str) {
+    public static String filterHtml(String str) {
         Pattern pattern = Pattern.compile(regxpForHtml);
         Matcher matcher = pattern.matcher(str);
         StringBuffer sb = new StringBuffer();

@@ -14,7 +14,7 @@ public class PasswordUtils {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine jsEngine = manager.getEngineByName("javascript");
 		// String jsFileName = "resources.qq/password.js"; // 指定md5加密文件
-		String jsFileName = "password4Sina.js"; // 指定md5加密文件
+		String jsFileName = "ecma.js"; // 指定md5加密文件
 		Reader reader;
 		try {
 			InputStream in = PasswordUtils.class.getClassLoader()
@@ -53,6 +53,22 @@ public class PasswordUtils {
 			e.printStackTrace();
 		}
 		return pass;
+	}
+
+	public static void main(String[] args) {
+
+		String pass = null;
+		try {
+			Object callback = invoke.invokeFunction("callbackC");
+			Object curForm = null;
+			String url="content.jsp?tableId=91&tableName=TABLE91&tableView=食品生产许可获证企业&Id=667";
+			pass = (String) invoke.invokeFunction("commitForECMA", new Object[] {
+					callback, url,curForm});
+		} catch (Exception e) {
+			System.out.println("为登陆密码加密时，出现异常!");
+			e.printStackTrace();
+		}
+		System.out.println(pass);
 	}
 
 }

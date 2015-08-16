@@ -8,21 +8,20 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class CFDAService {
+public class SFDAService {
 
     @Autowired
     private DruggdsMapper druggdsDao;
 
-    public void save(SortedMap map, String TableName) {
-        List<Object> list = new ArrayList<Object>();
-        Iterator<Map.Entry<Integer, Object>> iter = map.entrySet()
-                .iterator();
-        while (iter.hasNext()) {
-            Map.Entry<Integer, Object> entry = iter.next();
-            Object ident = (Object) entry.getValue();
-            list.add(ident);
-            map.remove(entry.getKey());
+    public void save(TreeMap<String,Druggds> map, String TableName) {
+
+
+        List<Druggds> druggdsList = new ArrayList<Druggds>();
+        for(Map.Entry<String,Druggds> entry:map.entrySet()){
+            druggdsList.add(entry.getValue());
+//            map.remove(entry.getKey());
         }
+//        druggdsDao.batchInsert(druggdsList);
     }
 
     public void saveBeans(List<Druggds> druggdsList) {

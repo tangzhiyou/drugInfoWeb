@@ -4,13 +4,20 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="libs/mysql-connector-java-5.1.26.jar"/>
+    <classPathEntry
+            location="D:/javatools/mavenRepository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar"/>
 
     <context id="cfdaTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.144:3306/cfda"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/showcase4"
                         userId="root"
-                        password="skysoft">
+                        password="root">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -27,12 +34,23 @@
                          targetProject="src/main/resources/">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
-        <table schema="" tableName="drug_gds" domainObjectName="druggds"
+
+        <javaClientGenerator targetPackage="com.skysoft.repository"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--ignoreColumn 忽略数据库列-->
+        <table tableName="drug_gds" domainObjectName="Druggds"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+               selectByExampleQueryId="false" escapeWildcards="false"
+               delimitIdentifiers="false" delimitAllColumns="false">
             <property name="useActualColumnNames" value="true"/>
+            <property name="useColumnIndexes" value="true"/>
+            <property name="constructorBased" value="true"/>
             <generatedKey column="ID" sqlStatement="MySQL" identity="true"/>
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
         </table>
     </context>
 </generatorConfiguration>

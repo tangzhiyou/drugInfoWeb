@@ -5,6 +5,8 @@ import org.dom4j.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +55,27 @@ public class generateBean {
             LOGGER.error("反射一个对象出错", ex);
         }
         return ret;
+    }
+
+
+    /**
+     * 获取对象的属性名集合
+     * @param clazz
+     * @return
+     */
+    public static List<String> getObjectProperty(Class<?> clazz)
+    {
+        List<String> fieldNameList=new ArrayList<String>();
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field f:fields)
+        {
+            if(f.getName().equals("updepts"))
+            {
+                continue;
+            }
+            fieldNameList.add(f.getName());
+        }
+        return fieldNameList;
     }
 
 

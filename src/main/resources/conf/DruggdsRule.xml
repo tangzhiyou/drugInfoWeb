@@ -4,26 +4,16 @@
         <!-- 规则名称 -->
         <GatherName>cfdaRule</GatherName>
         <!-- 站点域名 -->
-        <SiteDomain></SiteDomain>
-        <!-- 描述 -->
-        <describe>cfda</describe>
-        <!-- 采集到栏目 -->
-        <GatherColumn>cfdaColumn</GatherColumn>
+        <SiteDomain>http://app1.sfda.gov.cn/datasearch/face3/</SiteDomain>
         <!-- 网页字符集 -->
         <characterset>GB2312</characterset>
-        <!-- 专业数据库 -->
-        <tableId>84</tableId>
-        <!-- 开始ID -->
-        <startID>1</startID>
-        <!-- 结束ID -->
-        <EndID>500</EndID>
-        <!-- ===============  -->
         <!-- 批量更新数据库的记录 -->
         <batchUpdate>5</batchUpdate>
         <!-- file imort -->
         <ImportFile>conf/url/urldata.txt</ImportFile>
         <!-- 爬取数据到数据库的表名 -->
-        <Datatable>drug_gds</Datatable>
+        <DataTable>drug_gds</DataTable>
+        <CurrentURL></CurrentURL>
     </webGather>
     <!-- 映射的实体名 -->
     <databases>
