@@ -18,7 +18,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 
 /**
- * Java·´Éä¹¤¾ßÀà
+ * Javaåå°„å·¥å…·ç±»
  */
 @SuppressWarnings({"unchecked","rawtypes"})
 public class ReflectionUtils {
@@ -30,7 +30,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * µ÷ÓÃGetter·½·¨
+	 * è°ƒç”¨Getteræ–¹æ³•
 	 */
 	public static Object invokeGetterMethod(Object target, String propertyName) {
 		String getterMethodName = "get" + org.apache.commons.lang3.StringUtils.capitalize(propertyName);
@@ -38,24 +38,24 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * µ÷ÓÃGetter·½·¨
+	 * è°ƒç”¨Getteræ–¹æ³•
 	 */
 	public static Object invokeGetMethod(Object target, String methodName) {
 		return invokeMethod(target, methodName, new Class[] {}, new Object[] {});
 	}
 
 	/**
-	 * µ÷ÓÃSetter·½·¨.Ê¹ÓÃvalueµÄClassÀ´²éÕÒSetter·½·¨.
+	 * è°ƒç”¨Setteræ–¹æ³•.ä½¿ç”¨valueçš„Classæ¥æŸ¥æ‰¾Setteræ–¹æ³•.
 	 */
 	public static void invokeSetterMethod(Object target, String propertyName, Object value) {
 		invokeSetterMethod(target, propertyName, value, null);
 	}
 
 	/**
-	 * µ÷ÓÃSetter·½·¨.
+	 * è°ƒç”¨Setteræ–¹æ³•.
 	 *
 	 * @param propertyType
-	 *            ÓÃÓÚ²éÕÒSetter·½·¨,Îª¿ÕÊ±Ê¹ÓÃvalueµÄClassÌæ´ú
+	 *            ç”¨äºæŸ¥æ‰¾Setteræ–¹æ³•,ä¸ºç©ºæ—¶ä½¿ç”¨valueçš„Classæ›¿ä»£
 	 */
 	public static void invokeSetterMethod(Object target, String propertyName, Object value, Class<?> propertyType) {
 		Class<?> type = propertyType != null ? propertyType : value.getClass();
@@ -64,7 +64,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Ö±½Ó¶ÁÈ¡¶ÔÏóÊôĞÔÖµ, ÎŞÊÓprivate/protectedĞŞÊÎ·û, ²»¾­¹ıgetterº¯Êı.
+	 * ç›´æ¥è¯»å–å¯¹è±¡å±æ€§å€¼, æ— è§†private/protectedä¿®é¥°ç¬¦, ä¸ç»è¿‡getterå‡½æ•°.
 	 */
 	public static Object getFieldValue(final Object object, final String fieldName) {
 		Field field = getDeclaredField(object, fieldName);
@@ -76,13 +76,13 @@ public class ReflectionUtils {
 		try {
 			result = field.get(object);
 		} catch (IllegalAccessException e) {
-			throw new RuntimeException("Ö±½Ó¶ÁÈ¡¶ÔÏóÊôĞÔÖµ³öÏÖÒì³£", e);
+			throw new RuntimeException("ç›´æ¥è¯»å–å¯¹è±¡å±æ€§å€¼å‡ºç°å¼‚å¸¸", e);
 		}
 		return result;
 	}
 
 	/**
-	 * Ö±½ÓÉèÖÃ¶ÔÏóÊôĞÔÖµ, ÎŞÊÓprivate/protectedĞŞÊÎ·û, ²»¾­¹ısetterº¯Êı.
+	 * ç›´æ¥è®¾ç½®å¯¹è±¡å±æ€§å€¼, æ— è§†private/protectedä¿®é¥°ç¬¦, ä¸ç»è¿‡setterå‡½æ•°.
 	 */
 	public static void setFieldValue(final Object object, final String fieldName, final Object value) {
 		Field field = getDeclaredField(object, fieldName);
@@ -93,12 +93,12 @@ public class ReflectionUtils {
 		try {
 			field.set(object, value);
 		} catch (IllegalAccessException e) {
-			throw new RuntimeException("Ö±½ÓÉèÖÃ¶ÔÏóÊôĞÔÖµ³öÏÖÒì³£", e);
+			throw new RuntimeException("ç›´æ¥è®¾ç½®å¯¹è±¡å±æ€§å€¼å‡ºç°å¼‚å¸¸", e);
 		}
 	}
 
 	/**
-	 * Ö±½Óµ÷ÓÃ¶ÔÏó·½·¨, ÎŞÊÓprivate/protectedĞŞÊÎ·û.
+	 * ç›´æ¥è°ƒç”¨å¯¹è±¡æ–¹æ³•, æ— è§†private/protectedä¿®é¥°ç¬¦.
 	 */
 	public static Object invokeMethod(final Object object, final String methodName, final Class<?>[] parameterTypes,
 									  final Object[] parameters) {
@@ -116,14 +116,14 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ½«·´ÉäÊ±µÄchecked exception×ª»»Îªunchecked exception.
+	 * å°†åå°„æ—¶çš„checked exceptionè½¬æ¢ä¸ºunchecked exception.
 	 */
 	public static RuntimeException convertReflectionExceptionToUnchecked(Exception e) {
 		return convertReflectionExceptionToUnchecked(null, e);
 	}
 
 	/**
-	 * ½«·´ÉäÊ±µÄchecked exception×ª»»Îªunchecked exception(ÖØÔØ)
+	 * å°†åå°„æ—¶çš„checked exceptionè½¬æ¢ä¸ºunchecked exception(é‡è½½)
 	 */
 	public static RuntimeException convertReflectionExceptionToUnchecked(String desc, Exception e) {
 		desc = (desc == null) ? "Unexpected Checked Exception." : desc;
@@ -138,7 +138,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Ñ­»·ÏòÉÏ×ªĞÍ, »ñÈ¡¶ÔÏóµÄDeclaredMethod. ÈôÏòÉÏ×ªĞÍµ½ObjectÈÔÎŞ·¨ÕÒµ½, ·µ»Ønull.
+	 * å¾ªç¯å‘ä¸Šè½¬å‹, è·å–å¯¹è±¡çš„DeclaredMethod. è‹¥å‘ä¸Šè½¬å‹åˆ°Objectä»æ— æ³•æ‰¾åˆ°, è¿”å›null.
 	 */
 	protected static Method getDeclaredMethod(Class target, String methodName, Class<?>[] parameterTypes) {
 		if (null == target) {
@@ -148,7 +148,7 @@ public class ReflectionUtils {
 			try {
 				return superClass.getDeclaredMethod(methodName, parameterTypes);
 			} catch (NoSuchMethodException e) {
-				// Method²»ÔÚµ±Ç°Àà¶¨Òå,¼ÌĞøÏòÉÏ×ªĞÍ
+				// Methodä¸åœ¨å½“å‰ç±»å®šä¹‰,ç»§ç»­å‘ä¸Šè½¬å‹
 				continue;
 			}
 		}
@@ -156,7 +156,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Ñ­»·ÏòÉÏ×ªĞÍ, »ñÈ¡¶ÔÏóµÄDeclaredField. ÈôÏòÉÏ×ªĞÍµ½ObjectÈÔÎŞ·¨ÕÒµ½, ·µ»Ønull.
+	 * å¾ªç¯å‘ä¸Šè½¬å‹, è·å–å¯¹è±¡çš„DeclaredField. è‹¥å‘ä¸Šè½¬å‹åˆ°Objectä»æ— æ³•æ‰¾åˆ°, è¿”å›null.
 	 */
 	protected static Field getDeclaredField(final Object object, final String fieldName) {
 		if (null == object || null == fieldName || fieldName.equals("")) {
@@ -166,7 +166,7 @@ public class ReflectionUtils {
 			try {
 				return superClass.getDeclaredField(fieldName);
 			} catch (NoSuchFieldException e) {
-				// Field²»ÔÚµ±Ç°Àà¶¨Òå,¼ÌĞøÏòÉÏ×ªĞÍ
+				// Fieldä¸åœ¨å½“å‰ç±»å®šä¹‰,ç»§ç»­å‘ä¸Šè½¬å‹
 				continue;
 			}
 		}
@@ -174,7 +174,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Ç¿ĞĞÉèÖÃField¿É·ÃÎÊ
+	 * å¼ºè¡Œè®¾ç½®Fieldå¯è®¿é—®
 	 */
 	protected static void makeAccessible(final Field field) {
 		if (!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers())) {
@@ -183,12 +183,12 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Í¨¹ı·´Éä, »ñµÃ¶¨ÒåClassÊ±ÉùÃ÷µÄ¸¸ÀàµÄ·ºĞÍ²ÎÊıµÄÀàĞÍ,ÈôÎŞ·¨ÕÒµ½, ·µ»ØObject.class Èçpublic UserDao extends HibernateDao<User,Long>
+	 * é€šè¿‡åå°„, è·å¾—å®šä¹‰Classæ—¶å£°æ˜çš„çˆ¶ç±»çš„æ³›å‹å‚æ•°çš„ç±»å‹,è‹¥æ— æ³•æ‰¾åˆ°, è¿”å›Object.class å¦‚public UserDao extends HibernateDao<User,Long>
 	 *
 	 * @param clazz
 	 * @param index
-	 *            ¸¸Àà·ºĞÍ²ÎÊıµÄË÷Òı£¬´Ó0¿ªÊ¼¼ÆËã
-	 * @return Class ·µ»Ø¸¸ÀàindexÎ»ÖÃµÄ·ºĞÍ²ÎÊıµÄclass
+	 *            çˆ¶ç±»æ³›å‹å‚æ•°çš„ç´¢å¼•ï¼Œä»0å¼€å§‹è®¡ç®—
+	 * @return Class è¿”å›çˆ¶ç±»indexä½ç½®çš„æ³›å‹å‚æ•°çš„class
 	 */
 	public static Class getSuperClassGenricType(final Class clazz, final int index) {
 		Type genType = clazz.getGenericSuperclass();
@@ -206,22 +206,22 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Í¨¹ı·´Éä, »ñµÃ¶¨ÒåClassÊ±ÉùÃ÷µÄ¸¸ÀàµÄ·ºĞÍ²ÎÊıµÄÀàĞÍ£¬ Ä¬ÈÏindexµÈÓÚ0,ÈôÎŞ·¨ÕÒµ½, ·µ»ØObject.class
+	 * é€šè¿‡åå°„, è·å¾—å®šä¹‰Classæ—¶å£°æ˜çš„çˆ¶ç±»çš„æ³›å‹å‚æ•°çš„ç±»å‹ï¼Œ é»˜è®¤indexç­‰äº0,è‹¥æ— æ³•æ‰¾åˆ°, è¿”å›Object.class
 	 *
 	 * @param clazz
-	 * @return Class ·µ»Ø¸¸ÀàindexÎ»ÖÃµÄ·ºĞÍ²ÎÊıµÄclass
+	 * @return Class è¿”å›çˆ¶ç±»indexä½ç½®çš„æ³›å‹å‚æ•°çš„class
 	 */
 	public static <T> Class<T> getSuperClassGenricType(final Class clazz) {
 		return getSuperClassGenricType(clazz, 0);
 	}
 
 	/**
-	 * ÌáÈ¡¼¯ºÏÖĞµÄ¶ÔÏóµÄÄ³ÊôĞÔµÄÊôĞÔÖµ(Í¨¹ıgetterº¯Êı), ×éºÏ³ÉList.
+	 * æå–é›†åˆä¸­çš„å¯¹è±¡çš„æŸå±æ€§çš„å±æ€§å€¼(é€šè¿‡getterå‡½æ•°), ç»„åˆæˆList.
 	 *
 	 * @param collection
-	 *            Êı¾İ¼¯ºÏ.
+	 *            æ•°æ®é›†åˆ.
 	 * @param propertyName
-	 *            ÒªÌáÈ¡µÄÊôĞÔÃû.
+	 *            è¦æå–çš„å±æ€§å.
 	 */
 	public static List convertElementPropertyToList(final Collection collection, final String propertyName) {
 		List list = new ArrayList();
@@ -236,12 +236,12 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÌáÈ¡¼¯ºÏÖĞµÄ¶ÔÏóµÄÄ³ÊôĞÔµÄÊôĞÔÖµ(Í¨¹ıgetterº¯Êı), ×éºÏ³ÉÊı×é.
+	 * æå–é›†åˆä¸­çš„å¯¹è±¡çš„æŸå±æ€§çš„å±æ€§å€¼(é€šè¿‡getterå‡½æ•°), ç»„åˆæˆæ•°ç»„.
 	 *
 	 * @param collection
-	 *            Êı¾İ¼¯ºÏ.
+	 *            æ•°æ®é›†åˆ.
 	 * @param propertyName
-	 *            ÒªÌáÈ¡µÄÊôĞÔÃû.
+	 *            è¦æå–çš„å±æ€§å.
 	 */
 	public static Object[] convertElementPropertyToArray(final Collection collection, final String propertyName) {
 		Object[] arrays = new Object[collection.size()];
@@ -258,14 +258,14 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÌáÈ¡¼¯ºÏÖĞµÄ¶ÔÏóµÄÄ³ÊôĞÔµÄÊôĞÔÖµ(Í¨¹ıgetterº¯Êı), ÓÃÖ¸¶¨µÄ·Ö¸î·û·Ö¸ô×é³É×Ö·û´®.
+	 * æå–é›†åˆä¸­çš„å¯¹è±¡çš„æŸå±æ€§çš„å±æ€§å€¼(é€šè¿‡getterå‡½æ•°), ç”¨æŒ‡å®šçš„åˆ†å‰²ç¬¦åˆ†éš”ç»„æˆå­—ç¬¦ä¸².
 	 *
 	 * @param collection
-	 *            Êı¾İ¼¯ºÏ.
+	 *            æ•°æ®é›†åˆ.
 	 * @param propertyName
-	 *            ÒªÌáÈ¡µÄÊôĞÔÃû.
+	 *            è¦æå–çš„å±æ€§å.
 	 * @param separator
-	 *            ·Ö¸ô·û.
+	 *            åˆ†éš”ç¬¦.
 	 */
 	public static String convertElementPropertyToString(final Collection collection, final String propertyName,
 														final String separator) {
@@ -274,22 +274,22 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÌáÈ¡¼¯ºÏÖĞµÄ¶ÔÏóµÄÄ³ÊôĞÔµÄÊôĞÔÖµ(Í¨¹ıgetterº¯Êı), 
-	 * ÓÃÖ¸¶¨µÄ·Ö¸î·û·Ö¸ô×é³É×Ö·û´®£¬Ä¬ÈÏ·Ö¸ô·ûÊÇ¶ººÅ
+	 * æå–é›†åˆä¸­çš„å¯¹è±¡çš„æŸå±æ€§çš„å±æ€§å€¼(é€šè¿‡getterå‡½æ•°), 
+	 * ç”¨æŒ‡å®šçš„åˆ†å‰²ç¬¦åˆ†éš”ç»„æˆå­—ç¬¦ä¸²ï¼Œé»˜è®¤åˆ†éš”ç¬¦æ˜¯é€—å·
 	 *
 	 * @param collection
-	 *            Êı¾İ¼¯ºÏ.
+	 *            æ•°æ®é›†åˆ.
 	 * @param propertyName
-	 *            ÒªÌáÈ¡µÄÊôĞÔÃû.
+	 *            è¦æå–çš„å±æ€§å.
 	 */
 	public static String convertElementPropertyToString(final Collection collection, final String propertyName) {
 		return convertElementPropertyToString(collection,propertyName,",");
 	}
 
 	/**
-	 *·½·¨ÕªÒª£º¼ì²âÄ³Àà×ÔÉíÊÇ·ñ°üº¬Ä³ÊôĞÔ
-	 *@param propertyName  ÊôĞÔÃû³Æ
-	 *@return boolean ÊÇ·ñ°üº¬
+	 *æ–¹æ³•æ‘˜è¦ï¼šæ£€æµ‹æŸç±»è‡ªèº«æ˜¯å¦åŒ…å«æŸå±æ€§
+	 *@param propertyName  å±æ€§åç§°
+	 *@return boolean æ˜¯å¦åŒ…å«
 	 */
 	public static boolean hasThisFieldOfSelf(Class target,String propertyName){
 		Field[] fields = target.getDeclaredFields();
@@ -307,9 +307,9 @@ public class ReflectionUtils {
 
 
 	/**
-	 *·½·¨ÕªÒª£º¼ì²âÄ³ÀàÊÇ·ñ°üº¬Ä³ÊôĞÔ
-	 *@param propertyName  ÊôĞÔÃû³Æ
-	 *@return boolean ÊÇ·ñ°üº¬
+	 *æ–¹æ³•æ‘˜è¦ï¼šæ£€æµ‹æŸç±»æ˜¯å¦åŒ…å«æŸå±æ€§
+	 *@param propertyName  å±æ€§åç§°
+	 *@return boolean æ˜¯å¦åŒ…å«
 	 */
 	public static boolean hasThisField(Class target,String propertyName){
 		List<Field> fieldList = new ArrayList<Field>();
@@ -318,10 +318,10 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ×ª»»×Ö·û´®µ½ÏàÓ¦ÀàĞÍ.
+	 * è½¬æ¢å­—ç¬¦ä¸²åˆ°ç›¸åº”ç±»å‹.
 	 *
-	 * @param value  ´ı×ª»»µÄ×Ö·û´®
-	 * @param toType ×ª»»Ä¿±êÀàĞÍ
+	 * @param value  å¾…è½¬æ¢çš„å­—ç¬¦ä¸²
+	 * @param toType è½¬æ¢ç›®æ ‡ç±»å‹
 	 */
 	public static <T>T convertStringToObject(String value, Class<T> toType) {
 		if(null == value) {
@@ -338,7 +338,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏChildÀàĞÍÊÇ·ñÊÇparentÀàĞÍµÄ×Ó½Ó¿Ú»òÊµÏÖÀà
+	 * åˆ¤æ–­Childç±»å‹æ˜¯å¦æ˜¯parentç±»å‹çš„å­æ¥å£æˆ–å®ç°ç±»
 	 * @param parent
 	 * @param child
 	 * @return
@@ -348,7 +348,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÄ³Àà»ò½Ó¿ÚÊÇ·ñÊµÏÖÖ¸¶¨½Ó¿Ú
+	 * åˆ¤æ–­æŸç±»æˆ–æ¥å£æ˜¯å¦å®ç°æŒ‡å®šæ¥å£
 	 * @param target
 	 * @param interfaceClazz
 	 * @return
@@ -361,7 +361,7 @@ public class ReflectionUtils {
 		if(GerneralUtils.isEmptyArray(faces) || !Modifier.isInterface(interfaceClazz.getModifiers())) {
 			return false;
 		}
-		//µİ¹éÅĞ¶Ï¸¸½Ó¿ÚÊÇ·ñÊµÏÖÖ¸¶¨½Ó¿Ú
+		//é€’å½’åˆ¤æ–­çˆ¶æ¥å£æ˜¯å¦å®ç°æŒ‡å®šæ¥å£
 		for (Class face : faces) {
 			if(face.getName().equals(interfaceClazz.getName())) {
 				return true;
@@ -378,7 +378,7 @@ public class ReflectionUtils {
 				}
 			}
 		}
-		//ÅĞ¶Ï¸¸ÀàÊÇ·ñÊµÏÖÖ¸¶¨½Ó¿Ú
+		//åˆ¤æ–­çˆ¶ç±»æ˜¯å¦å®ç°æŒ‡å®šæ¥å£
 		Class parentClazz = target.getSuperclass();
 		if(null != parentClazz) {
 			return isImplementInterface(parentClazz, interfaceClazz);
@@ -387,10 +387,10 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÄ³ÀàÊÇ·ñ°üº¬Ö¸¶¨·½·¨
-	 * @param methodName       ·½·¨Ãû³Æ
-	 * @param clazz            ´ı¼ì²âµÄÀàĞÍ
-	 * @param parameterTypes   ·½·¨²ÎÊıÀàĞÍ
+	 * åˆ¤æ–­æŸç±»æ˜¯å¦åŒ…å«æŒ‡å®šæ–¹æ³•
+	 * @param methodName       æ–¹æ³•åç§°
+	 * @param clazz            å¾…æ£€æµ‹çš„ç±»å‹
+	 * @param parameterTypes   æ–¹æ³•å‚æ•°ç±»å‹
 	 * @return
 	 */
 	public static boolean hasThisMethod(String methodName,Class clazz,Class<?>[] parameterTypes) {
@@ -399,10 +399,10 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÄ³Àà×ÔÉíÊÇ·ñ°üº¬Ö¸¶¨·½·¨(²»°üÀ¨¼Ì³ĞµÄ·½·¨)
-	 * @param methodName       ·½·¨Ãû³Æ
-	 * @param clazz            ´ı¼ì²âµÄÀàĞÍ
-	 * @param parameterTypes   ·½·¨²ÎÊıÀàĞÍ
+	 * åˆ¤æ–­æŸç±»è‡ªèº«æ˜¯å¦åŒ…å«æŒ‡å®šæ–¹æ³•(ä¸åŒ…æ‹¬ç»§æ‰¿çš„æ–¹æ³•)
+	 * @param methodName       æ–¹æ³•åç§°
+	 * @param clazz            å¾…æ£€æµ‹çš„ç±»å‹
+	 * @param parameterTypes   æ–¹æ³•å‚æ•°ç±»å‹
 	 * @return
 	 */
 	public static boolean hasThisMethodOfSelf(String methodName,Class clazz,Class<?>[] parameterTypes) {
@@ -411,8 +411,8 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÀàµÄ¸¸ÀàµÄËùÓĞ·ÇPrivate·ÇstaticÊôĞÔ
-	 * @param clazz            ´ı¼ì²âÀàĞÍ
+	 * è·å–å½“å‰ç±»çš„çˆ¶ç±»çš„æ‰€æœ‰éPrivateéstaticå±æ€§
+	 * @param clazz            å¾…æ£€æµ‹ç±»å‹
 	 * @return
 	 */
 	public static void getParentFields(List<Field> fieldList,Class clazz) {
@@ -422,7 +422,7 @@ public class ReflectionUtils {
 		Field[] fields = clazz.getDeclaredFields();
 		if(GerneralUtils.isNotEmptyArray(fields)) {
 			for(Field field : fields){
-				//Ö»Ìí¼Ó·ÇPrivate·ÇstaticÊôĞÔ
+				//åªæ·»åŠ éPrivateéstaticå±æ€§
 				if(!Modifier.isPrivate(field.getModifiers()) &&
 						!Modifier.isStatic(field.getModifiers())) {
 					fieldList.add(field);
@@ -436,10 +436,10 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * »ñÈ¡ÀàµÄËùÓĞÊôĞÔ 
-	 * @param methodList            ÊôĞÔÄ¿±ê´æ´¢¼¯ºÏ
-	 * @param clazz                 ´ı¼ì²âÀàĞÍ
-	 * @param includeParent         ÊÇ·ñ°üº¬´Ó¸¸Àà¼Ì³ĞµÄÊôĞÔ
+	 * è·å–ç±»çš„æ‰€æœ‰å±æ€§ 
+	 * @param methodList            å±æ€§ç›®æ ‡å­˜å‚¨é›†åˆ
+	 * @param clazz                 å¾…æ£€æµ‹ç±»å‹
+	 * @param includeParent         æ˜¯å¦åŒ…å«ä»çˆ¶ç±»ç»§æ‰¿çš„å±æ€§
 	 */
 	public static void getFields(List<Field> fieldList,Class clazz,boolean includeParent){
 		if(null == fieldList) {
@@ -457,15 +457,15 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * »ñÈ¡¸¸ÀàµÄËùÓĞ·ÇË½ÓĞ·Ç³éÏóÇÒ·Ç¾²Ì¬·½·¨
-	 * @param clazz     ´ı¼ì²âÀàĞÍ
+	 * è·å–çˆ¶ç±»çš„æ‰€æœ‰éç§æœ‰éæŠ½è±¡ä¸”éé™æ€æ–¹æ³•
+	 * @param clazz     å¾…æ£€æµ‹ç±»å‹
 	 * @return
 	 */
 	public static void getParentMethods(List<Method> methodList,Class clazz) {
 		Method[] methods = clazz.getDeclaredMethods();
 		if(GerneralUtils.isNotEmptyArray(methods)) {
 			for(Method method : methods){
-				//Ö»Ìí¼Ó·ÇPrivate·Çabstract·Çstatic·½·¨
+				//åªæ·»åŠ éPrivateéabstractéstaticæ–¹æ³•
 				if(!Modifier.isPrivate(method.getModifiers()) &&
 						!Modifier.isAbstract(method.getModifiers()) && !Modifier.isStatic(method.getModifiers())) {
 					methodList.add(method);
@@ -479,10 +479,10 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * »ñÈ¡ÀàµÄËùÓĞ·½·¨
-	 * @param methodList            ÊôĞÔÄ¿±ê´æ´¢¼¯ºÏ
-	 * @param clazz                 ´ı¼ì²âÀàĞÍ
-	 * @param includeParent         ÊÇ·ñ°üº¬´Ó¸¸Àà¼Ì³ĞµÄ·½·¨
+	 * è·å–ç±»çš„æ‰€æœ‰æ–¹æ³•
+	 * @param methodList            å±æ€§ç›®æ ‡å­˜å‚¨é›†åˆ
+	 * @param clazz                 å¾…æ£€æµ‹ç±»å‹
+	 * @param includeParent         æ˜¯å¦åŒ…å«ä»çˆ¶ç±»ç»§æ‰¿çš„æ–¹æ³•
 	 */
 	public static void getMothds(List<Method> methodList,Class clazz,boolean includeParent){
 		if(null == methodList) {
@@ -500,8 +500,8 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * »ñÈ¡ÀàÖĞ¶¨ÒåË½ÓĞÊôĞÔ(²»°üÀ¨¼Ì³ĞµÄÊôĞÔ)
-	 * @param clazz    ´ı¼ì²âÀàĞÍ
+	 * è·å–ç±»ä¸­å®šä¹‰ç§æœ‰å±æ€§(ä¸åŒ…æ‹¬ç»§æ‰¿çš„å±æ€§)
+	 * @param clazz    å¾…æ£€æµ‹ç±»å‹
 	 * @return
 	 */
 	public static void getSelfPrivateField(List<Field> fieldList,Class clazz) {
@@ -515,7 +515,7 @@ public class ReflectionUtils {
 		if(GerneralUtils.isNotEmptyCollection(fieldList)) {
 			for (Iterator<Field> it = fieldList.iterator(); it.hasNext();) {
 				Field field = it.next();
-				//Èô²»ÊÇprivateÊôĞÔ,´Ó¼¯ºÏÖĞÉ¾³ıËü
+				//è‹¥ä¸æ˜¯privateå±æ€§,ä»é›†åˆä¸­åˆ é™¤å®ƒ
 				if(!Modifier.isPrivate(field.getModifiers())) {
 					it.remove();
 				}
@@ -524,9 +524,9 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÊôĞÔÉÏÊÇ·ñÓĞÖ¸¶¨ÀàĞÍµÄ×¢½â
-	 * @param field              ´ı¼ì²âÊôĞÔ
-	 * @param annotationClass    ×¢½âÀàĞÍ
+	 * åˆ¤æ–­å±æ€§ä¸Šæ˜¯å¦æœ‰æŒ‡å®šç±»å‹çš„æ³¨è§£
+	 * @param field              å¾…æ£€æµ‹å±æ€§
+	 * @param annotationClass    æ³¨è§£ç±»å‹
 	 * @return
 	 */
 	public static boolean hasThisAnnotationOfField(Field field,Class annotationClass) {
@@ -537,9 +537,9 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶Ï·½·¨ÉÏÊÇ·ñÓĞÖ¸¶¨ÀàĞÍµÄ×¢½â
-	 * @param method              ´ı¼ì²â·½·¨
-	 * @param annotationClass     ×¢½âÀàĞÍ
+	 * åˆ¤æ–­æ–¹æ³•ä¸Šæ˜¯å¦æœ‰æŒ‡å®šç±»å‹çš„æ³¨è§£
+	 * @param method              å¾…æ£€æµ‹æ–¹æ³•
+	 * @param annotationClass     æ³¨è§£ç±»å‹
 	 * @return
 	 */
 	public static boolean hasThisAnnotationOfMethod(Method method,Class annotationClass) {
@@ -550,9 +550,9 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÀàÉÏÊÇ·ñÓĞÖ¸¶¨ÀàĞÍµÄ×¢½â
-	 * @param target              ´ı¼ì²âÀàĞÍ
-	 * @param annotationClass     ×¢½âÀàĞÍ
+	 * åˆ¤æ–­ç±»ä¸Šæ˜¯å¦æœ‰æŒ‡å®šç±»å‹çš„æ³¨è§£
+	 * @param target              å¾…æ£€æµ‹ç±»å‹
+	 * @param annotationClass     æ³¨è§£ç±»å‹
 	 * @return
 	 */
 	public static boolean hasThisAnnotationOfClass(Class target,Class annotationClass) {
@@ -562,11 +562,11 @@ public class ReflectionUtils {
 		if(target.isAnnotationPresent(annotationClass)) {
 			return true;
 		}
-		//ÈôÖ¸¶¨×¢½âÃ»ÓĞÌí¼Ó@Inherited×¢½â£¬¼´¸Ã×¢½â²»¿É±»¼Ì³Ğ
+		//è‹¥æŒ‡å®šæ³¨è§£æ²¡æœ‰æ·»åŠ @Inheritedæ³¨è§£ï¼Œå³è¯¥æ³¨è§£ä¸å¯è¢«ç»§æ‰¿
 		if(!annotationClass.isAnnotationPresent(Inherited.class)) {
 			return false;
 		}
-		//µİ¹éÅĞ¶ÏÊÇ·ñÓĞ´Ó¸¸ÀàĞÍ¼Ì³ĞÁË¸Ã×¢½â£¬Ç°ÌáÊÇ¸Ã×¢½âÊÇ¿É±»¼Ì³ĞµÄ×¢½â£¬¼´¸Ã×¢½â±»@Inherited×¢½â(×¢Òâ£ºÖ»ÓĞÀàÉÏ¶¨ÒåµÄ×¢½â²Å¿ÉÒÔ±»¼Ì³Ğ)
+		//é€’å½’åˆ¤æ–­æ˜¯å¦æœ‰ä»çˆ¶ç±»å‹ç»§æ‰¿äº†è¯¥æ³¨è§£ï¼Œå‰ææ˜¯è¯¥æ³¨è§£æ˜¯å¯è¢«ç»§æ‰¿çš„æ³¨è§£ï¼Œå³è¯¥æ³¨è§£è¢«@Inheritedæ³¨è§£(æ³¨æ„ï¼šåªæœ‰ç±»ä¸Šå®šä¹‰çš„æ³¨è§£æ‰å¯ä»¥è¢«ç»§æ‰¿)
 		Class parentClass = target.getSuperclass();
 		return hasThisAnnotationOfClass(parentClass,annotationClass);
 	}

@@ -12,45 +12,45 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * Json¹¤¾ßÀà
+ * Jsonå·¥å…·ç±»
  *
  */
 @SuppressWarnings("rawtypes")
 public class JSONUtils {
     /**
-     * ¿ÕµÄ {@code JSON} Êı¾İ - <code>"{}"</code>¡£
+     * ç©ºçš„ {@code JSON} æ•°æ® - <code>"{}"</code>ã€‚
      */
     public static final String EMPTY_JSON = "{}";
     /**
-     * ¿ÕµÄ {@code JSON} Êı×é(¼¯ºÏ)Êı¾İ - {@code "[]"}¡£
+     * ç©ºçš„ {@code JSON} æ•°ç»„(é›†åˆ)æ•°æ® - {@code "[]"}ã€‚
      */
     public static final String EMPTY_JSON_ARRAY = "[]";
     /**
-     * Ä¬ÈÏµÄ {@code JSON} ÈÕÆÚ/Ê±¼ä×Ö¶ÎµÄ¸ñÊ½»¯Ä£Ê½¡£
+     * é»˜è®¤çš„ {@code JSON} æ—¥æœŸ/æ—¶é—´å­—æ®µçš„æ ¼å¼åŒ–æ¨¡å¼ã€‚
      */
     public static final String DEFAULT_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss SSS";
     /**
-     * {@code Google Gson} µÄ <code>@Since</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.0}¡£
+     * {@code Google Gson} çš„ <code>@Since</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.0}ã€‚
      */
     public static final double SINCE_VERSION_10 = 1.0d;
     /**
-     * {@code Google Gson} µÄ <code>@Since</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.1}¡£
+     * {@code Google Gson} çš„ <code>@Since</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.1}ã€‚
      */
     public static final double SINCE_VERSION_11 = 1.1d;
     /**
-     * {@code Google Gson} µÄ <code>@Since</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.2}¡£
+     * {@code Google Gson} çš„ <code>@Since</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.2}ã€‚
      */
     public static final double SINCE_VERSION_12 = 1.2d;
     /**
-     * {@code Google Gson} µÄ <code>@Until</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.0}¡£
+     * {@code Google Gson} çš„ <code>@Until</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.0}ã€‚
      */
     public static final double UNTIL_VERSION_10 = SINCE_VERSION_10;
     /**
-     * {@code Google Gson} µÄ <code>@Until</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.1}¡£
+     * {@code Google Gson} çš„ <code>@Until</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.1}ã€‚
      */
     public static final double UNTIL_VERSION_11 = SINCE_VERSION_11;
     /**
-     * {@code Google Gson} µÄ <code>@Until</code> ×¢½â³£ÓÃµÄ°æ±¾ºÅ³£Á¿ - {@code 1.2}¡£
+     * {@code Google Gson} çš„ <code>@Until</code> æ³¨è§£å¸¸ç”¨çš„ç‰ˆæœ¬å·å¸¸é‡ - {@code 1.2}ã€‚
      */
     public static final double UNTIL_VERSION_12 = SINCE_VERSION_12;
 
@@ -58,17 +58,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó¸ù¾İÖ¸¶¨µÄÌõ¼ş²ÎÊı×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
-     * <strong>¸Ã·½·¨×ª»»·¢Éú´íÎóÊ±£¬²»»áÅ×³öÈÎºÎÒì³£¡£Èô·¢Éú´íÎóÊ±£¬ÔøÍ¨¶ÔÏó·µ»Ø <code>"{}"</code>£» ¼¯ºÏ»òÊı×é¶ÔÏó·µ»Ø
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡æ ¹æ®æŒ‡å®šçš„æ¡ä»¶å‚æ•°è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
+     * <strong>è¯¥æ–¹æ³•è½¬æ¢å‘ç”Ÿé”™è¯¯æ—¶ï¼Œä¸ä¼šæŠ›å‡ºä»»ä½•å¼‚å¸¸ã€‚è‹¥å‘ç”Ÿé”™è¯¯æ—¶ï¼Œæ›¾é€šå¯¹è±¡è¿”å› <code>"{}"</code>ï¼› é›†åˆæˆ–æ•°ç»„å¯¹è±¡è¿”å›
      * </strong>
      *
-     * @param target                      Ä¿±ê¶ÔÏó
-     * @param targetType                  Ä¿±ê¶ÔÏóµÄÀàĞÍ
-     * @param isSerializeNulls            ÊÇ·ñĞòÁĞ»¯ {@code null} Öµ×Ö¶Î
-     * @param version                     ×Ö¶ÎµÄ°æ±¾ºÅ×¢½â
-     * @param datePattern                 ÈÕÆÚ×Ö¶ÎµÄ¸ñÊ½»¯Ä£Ê½
-     * @param excludesFieldsWithoutExpose ÊÇ·ñÅÅ³ıÎ´±ê×¢ {@literal @Expose} ×¢½âµÄ×Ö¶Î
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®
+     * @param target                      ç›®æ ‡å¯¹è±¡
+     * @param targetType                  ç›®æ ‡å¯¹è±¡çš„ç±»å‹
+     * @param isSerializeNulls            æ˜¯å¦åºåˆ—åŒ– {@code null} å€¼å­—æ®µ
+     * @param version                     å­—æ®µçš„ç‰ˆæœ¬å·æ³¨è§£
+     * @param datePattern                 æ—¥æœŸå­—æ®µçš„æ ¼å¼åŒ–æ¨¡å¼
+     * @param excludesFieldsWithoutExpose æ˜¯å¦æ’é™¤æœªæ ‡æ³¨ {@literal @Expose} æ³¨è§£çš„å­—æ®µ
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²
      * @since 1.0
      */
     public static String toJson(Object target, Type targetType,
@@ -103,16 +103,16 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Ö»ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
-     * <li>¸Ã·½·¨Ö»»á×ª»»±êÓĞ {@literal @Expose} ×¢½âµÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨»á×ª»»ËùÓĞÎ´±ê×¢»òÒÑ±ê×¢ {@literal @Since} µÄ×Ö¶Î£»</li>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•åªç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
+     * <li>è¯¥æ–¹æ³•åªä¼šè½¬æ¢æ ‡æœ‰ {@literal @Expose} æ³¨è§£çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¼šè½¬æ¢æ‰€æœ‰æœªæ ‡æ³¨æˆ–å·²æ ‡æ³¨ {@literal @Since} çš„å­—æ®µï¼›</li>
      * </ul>
      *
-     * @param target      Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param datePattern ÈÕÆÚ×Ö¶ÎµÄ¸ñÊ½»¯Ä£Ê½¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target      è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param datePattern æ—¥æœŸå­—æ®µçš„æ ¼å¼åŒ–æ¨¡å¼ã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, String datePattern) {
@@ -120,17 +120,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Ö»ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•åªç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨Ö»»á×ª»»±êÓĞ {@literal @Expose} ×¢½âµÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSS}£»</li>
+     * <li>è¯¥æ–¹æ³•åªä¼šè½¬æ¢æ ‡æœ‰ {@literal @Expose} æ³¨è§£çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSS}ï¼›</li>
      * </ul>
      *
-     * @param target  Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param version ×Ö¶ÎµÄ°æ±¾ºÅ×¢½â({@literal @Since})¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target  è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param version å­—æ®µçš„ç‰ˆæœ¬å·æ³¨è§£({@literal @Since})ã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Double version) {
@@ -138,17 +138,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Ö»ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•åªç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨»á×ª»»ËùÓĞÎ´±ê×¢»òÒÑ±ê×¢ {@literal @Since} µÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSS}£»</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¼šè½¬æ¢æ‰€æœ‰æœªæ ‡æ³¨æˆ–å·²æ ‡æ³¨ {@literal @Since} çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSS}ï¼›</li>
      * </ul>
      *
-     * @param target                      Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param excludesFieldsWithoutExpose ÊÇ·ñÅÅ³ıÎ´±ê×¢ {@literal @Expose} ×¢½âµÄ×Ö¶Î¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®
+     * @param target                      è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param excludesFieldsWithoutExpose æ˜¯å¦æ’é™¤æœªæ ‡æ³¨ {@literal @Expose} æ³¨è§£çš„å­—æ®µã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²
      * @since 1.0
      */
     public static String toJson(Object target, boolean excludesFieldsWithoutExpose) {
@@ -156,17 +156,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Ö»ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•åªç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSS}£»</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSS}ï¼›</li>
      * </ul>
      *
-     * @param target                      Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param version                     ×Ö¶ÎµÄ°æ±¾ºÅ×¢½â({@literal @Since})¡£
-     * @param excludesFieldsWithoutExpose ÊÇ·ñÅÅ³ıÎ´±ê×¢ {@literal @Expose} ×¢½âµÄ×Ö¶Î¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target                      è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param version                     å­—æ®µçš„ç‰ˆæœ¬å·æ³¨è§£({@literal @Since})ã€‚
+     * @param excludesFieldsWithoutExpose æ˜¯å¦æ’é™¤æœªæ ‡æ³¨ {@literal @Expose} æ³¨è§£çš„å­—æ®µã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Double version, boolean excludesFieldsWithoutExpose) {
@@ -174,17 +174,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»Ê¹ÓÃ·ºĞÍµÄ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢ä½¿ç”¨æ³›å‹çš„å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨Ö»»á×ª»»±êÓĞ {@literal @Expose} ×¢½âµÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨»á×ª»»ËùÓĞÎ´±ê×¢»òÒÑ±ê×¢ {@literal @Since} µÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSSS}£»</li>
+     * <li>è¯¥æ–¹æ³•åªä¼šè½¬æ¢æ ‡æœ‰ {@literal @Expose} æ³¨è§£çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¼šè½¬æ¢æ‰€æœ‰æœªæ ‡æ³¨æˆ–å·²æ ‡æ³¨ {@literal @Since} çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSSS}ï¼›</li>
      * </ul>
      *
-     * @param target     Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param targetType Ä¿±ê¶ÔÏóµÄÀàĞÍ¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target     è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param targetType ç›®æ ‡å¯¹è±¡çš„ç±»å‹ã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Type targetType) {
@@ -192,17 +192,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»Ê¹ÓÃ·ºĞÍµÄ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢ä½¿ç”¨æ³›å‹çš„å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨Ö»»á×ª»»±êÓĞ {@literal @Expose} ×¢½âµÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSSS}£»</li>
+     * <li>è¯¥æ–¹æ³•åªä¼šè½¬æ¢æ ‡æœ‰ {@literal @Expose} æ³¨è§£çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSSS}ï¼›</li>
      * </ul>
      *
-     * @param target     Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param targetType Ä¿±ê¶ÔÏóµÄÀàĞÍ¡£
-     * @param version    ×Ö¶ÎµÄ°æ±¾ºÅ×¢½â({@literal @Since})¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target     è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param targetType ç›®æ ‡å¯¹è±¡çš„ç±»å‹ã€‚
+     * @param version    å­—æ®µçš„ç‰ˆæœ¬å·æ³¨è§£({@literal @Since})ã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Type targetType, Double version) {
@@ -210,17 +210,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»Ê¹ÓÃ·ºĞÍµÄ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢ä½¿ç”¨æ³›å‹çš„å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨»á×ª»»ËùÓĞÎ´±ê×¢»òÒÑ±ê×¢ {@literal @Since} µÄ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSS}£»</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•ä¼šè½¬æ¢æ‰€æœ‰æœªæ ‡æ³¨æˆ–å·²æ ‡æ³¨ {@literal @Since} çš„å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSS}ï¼›</li>
      * </ul>
      *
-     * @param target                      Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param targetType                  Ä¿±ê¶ÔÏóµÄÀàĞÍ¡£
-     * @param excludesFieldsWithoutExpose ÊÇ·ñÅÅ³ıÎ´±ê×¢ {@literal @Expose} ×¢½âµÄ×Ö¶Î¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target                      è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param targetType                  ç›®æ ‡å¯¹è±¡çš„ç±»å‹ã€‚
+     * @param excludesFieldsWithoutExpose æ˜¯å¦æ’é™¤æœªæ ‡æ³¨ {@literal @Expose} æ³¨è§£çš„å­—æ®µã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Type targetType, boolean excludesFieldsWithoutExpose) {
@@ -228,17 +228,17 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»Ê¹ÓÃ·ºĞÍµÄ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢ä½¿ç”¨æ³›å‹çš„å¯¹è±¡ã€‚</strong>
      * <ul>
-     * <li>¸Ã·½·¨²»»á×ª»» {@code null} Öµ×Ö¶Î£»</li>
-     * <li>¸Ã·½·¨×ª»»Ê±Ê¹ÓÃÄ¬ÈÏµÄ ÈÕÆÚ/Ê±¼ä ¸ñÊ½»¯Ä£Ê½ - {@code yyyy-MM-dd HH:mm:ss SSS}£»</li>
+     * <li>è¯¥æ–¹æ³•ä¸ä¼šè½¬æ¢ {@code null} å€¼å­—æ®µï¼›</li>
+     * <li>è¯¥æ–¹æ³•è½¬æ¢æ—¶ä½¿ç”¨é»˜è®¤çš„ æ—¥æœŸ/æ—¶é—´ æ ¼å¼åŒ–æ¨¡å¼ - {@code yyyy-MM-dd HH:mm:ss SSS}ï¼›</li>
      * </ul>
      *
-     * @param target                      Òª×ª»»³É {@code JSON} µÄÄ¿±ê¶ÔÏó¡£
-     * @param targetType                  Ä¿±ê¶ÔÏóµÄÀàĞÍ¡£
-     * @param version                     ×Ö¶ÎµÄ°æ±¾ºÅ×¢½â({@literal @Since})¡£
-     * @param excludesFieldsWithoutExpose ÊÇ·ñÅÅ³ıÎ´±ê×¢ {@literal @Expose} ×¢½âµÄ×Ö¶Î¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target                      è¦è½¬æ¢æˆ {@code JSON} çš„ç›®æ ‡å¯¹è±¡ã€‚
+     * @param targetType                  ç›®æ ‡å¯¹è±¡çš„ç±»å‹ã€‚
+     * @param version                     å­—æ®µçš„ç‰ˆæœ¬å·æ³¨è§£({@literal @Since})ã€‚
+     * @param excludesFieldsWithoutExpose æ˜¯å¦æ’é™¤æœªæ ‡æ³¨ {@literal @Expose} æ³¨è§£çš„å­—æ®µã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.0
      */
     public static String toJson(Object target, Type targetType, Double version, boolean excludesFieldsWithoutExpose) {
@@ -246,13 +246,13 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄ {@code JSON} ×Ö·û´®×ª»»³ÉÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * å°†ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è½¬æ¢æˆæŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      *
-     * @param <T>         Òª×ª»»µÄÄ¿±êÀàĞÍ¡£
-     * @param json        ¸ø¶¨µÄ {@code JSON} ×Ö·û´®¡£
-     * @param token       {@code com.google.gson.reflect.TypeToken} µÄÀàĞÍÖ¸Ê¾Àà¶ÔÏó¡£
-     * @param datePattern ÈÕÆÚ¸ñÊ½Ä£Ê½¡£
-     * @return ¸ø¶¨µÄ {@code JSON} ×Ö·û´®±íÊ¾µÄÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * @param <T>         è¦è½¬æ¢çš„ç›®æ ‡ç±»å‹ã€‚
+     * @param json        ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²ã€‚
+     * @param token       {@code com.google.gson.reflect.TypeToken} çš„ç±»å‹æŒ‡ç¤ºç±»å¯¹è±¡ã€‚
+     * @param datePattern æ—¥æœŸæ ¼å¼æ¨¡å¼ã€‚
+     * @return ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è¡¨ç¤ºçš„æŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      * @since 1.0
      */
     public static <T> T fromJson(String json, TypeToken<T> token, String datePattern) {
@@ -273,12 +273,12 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄ {@code JSON} ×Ö·û´®×ª»»³ÉÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * å°†ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è½¬æ¢æˆæŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      *
-     * @param <T>   Òª×ª»»µÄÄ¿±êÀàĞÍ¡£
-     * @param json  ¸ø¶¨µÄ {@code JSON} ×Ö·û´®¡£
-     * @param token {@code com.google.gson.reflect.TypeToken} µÄÀàĞÍÖ¸Ê¾Àà¶ÔÏó¡£
-     * @return ¸ø¶¨µÄ {@code JSON} ×Ö·û´®±íÊ¾µÄÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * @param <T>   è¦è½¬æ¢çš„ç›®æ ‡ç±»å‹ã€‚
+     * @param json  ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²ã€‚
+     * @param token {@code com.google.gson.reflect.TypeToken} çš„ç±»å‹æŒ‡ç¤ºç±»å¯¹è±¡ã€‚
+     * @return ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è¡¨ç¤ºçš„æŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      * @since 1.0
      */
     public static <T> T fromJson(String json, TypeToken<T> token) {
@@ -286,14 +286,14 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄ {@code JSON} ×Ö·û´®×ª»»³ÉÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è½¬æ¢æˆæŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
      *
-     * @param <T>         Òª×ª»»µÄÄ¿±êÀàĞÍ¡£
-     * @param json        ¸ø¶¨µÄ {@code JSON} ×Ö·û´®¡£
-     * @param clazz       Òª×ª»»µÄÄ¿±êÀà¡£
-     * @param datePattern ÈÕÆÚ¸ñÊ½Ä£Ê½¡£
-     * @return ¸ø¶¨µÄ {@code JSON} ×Ö·û´®±íÊ¾µÄÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * @param <T>         è¦è½¬æ¢çš„ç›®æ ‡ç±»å‹ã€‚
+     * @param json        ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²ã€‚
+     * @param clazz       è¦è½¬æ¢çš„ç›®æ ‡ç±»ã€‚
+     * @param datePattern æ—¥æœŸæ ¼å¼æ¨¡å¼ã€‚
+     * @return ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è¡¨ç¤ºçš„æŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      * @since 1.0
      */
     public static <T> T fromJson(String json, Class<T> clazz, String datePattern) {
@@ -313,28 +313,28 @@ public class JSONUtils {
     }
 
     /**
-     * ½«¸ø¶¨µÄ {@code JSON} ×Ö·û´®×ª»»³ÉÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£<strong>´Ë·½·¨Í¨³£ÓÃÀ´×ª»»ÆÕÍ¨µÄ {@code JavaBean}
-     * ¶ÔÏó¡£</strong>
+     * å°†ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è½¬æ¢æˆæŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚<strong>æ­¤æ–¹æ³•é€šå¸¸ç”¨æ¥è½¬æ¢æ™®é€šçš„ {@code JavaBean}
+     * å¯¹è±¡ã€‚</strong>
      *
-     * @param <T>   Òª×ª»»µÄÄ¿±êÀàĞÍ¡£
-     * @param json  ¸ø¶¨µÄ {@code JSON} ×Ö·û´®¡£
-     * @param clazz Òª×ª»»µÄÄ¿±êÀà¡£
-     * @return ¸ø¶¨µÄ {@code JSON} ×Ö·û´®±íÊ¾µÄÖ¸¶¨µÄÀàĞÍ¶ÔÏó¡£
+     * @param <T>   è¦è½¬æ¢çš„ç›®æ ‡ç±»å‹ã€‚
+     * @param json  ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²ã€‚
+     * @param clazz è¦è½¬æ¢çš„ç›®æ ‡ç±»ã€‚
+     * @return ç»™å®šçš„ {@code JSON} å­—ç¬¦ä¸²è¡¨ç¤ºçš„æŒ‡å®šçš„ç±»å‹å¯¹è±¡ã€‚
      */
     public static <T> T fromJson(String json, Class<T> clazz) {
         return fromJson(json, clazz, null);
     }
 
     /**
-     * ½«¸ø¶¨µÄÄ¿±ê¶ÔÏó¸ù¾İ{@code GsonBuilder} ËùÖ¸¶¨µÄÌõ¼ş²ÎÊı×ª»»³É {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * å°†ç»™å®šçš„ç›®æ ‡å¯¹è±¡æ ¹æ®{@code GsonBuilder} æ‰€æŒ‡å®šçš„æ¡ä»¶å‚æ•°è½¬æ¢æˆ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * <p/>
-     * ¸Ã·½·¨×ª»»·¢Éú´íÎóÊ±£¬²»»áÅ×³öÈÎºÎÒì³£¡£Èô·¢Éú´íÎóÊ±£¬{@code JavaBean} ¶ÔÏó·µ»Ø <code>"{}"</code>£»
-     * ¼¯ºÏ»òÊı×é¶ÔÏó·µ»Ø
+     * è¯¥æ–¹æ³•è½¬æ¢å‘ç”Ÿé”™è¯¯æ—¶ï¼Œä¸ä¼šæŠ›å‡ºä»»ä½•å¼‚å¸¸ã€‚è‹¥å‘ç”Ÿé”™è¯¯æ—¶ï¼Œ{@code JavaBean} å¯¹è±¡è¿”å› <code>"{}"</code>ï¼›
+     * é›†åˆæˆ–æ•°ç»„å¯¹è±¡è¿”å›
      *
-     * @param target     Ä¿±ê¶ÔÏó¡£
-     * @param targetType Ä¿±ê¶ÔÏóµÄÀàĞÍ¡£
-     * @param builder    ¿É¶¨ÖÆµÄ{@code Gson} ¹¹½¨Æ÷¡£
-     * @return Ä¿±ê¶ÔÏóµÄ {@code JSON} ¸ñÊ½µÄ×Ö·û´®¡£
+     * @param target     ç›®æ ‡å¯¹è±¡ã€‚
+     * @param targetType ç›®æ ‡å¯¹è±¡çš„ç±»å‹ã€‚
+     * @param builder    å¯å®šåˆ¶çš„{@code Gson} æ„å»ºå™¨ã€‚
+     * @return ç›®æ ‡å¯¹è±¡çš„ {@code JSON} æ ¼å¼çš„å­—ç¬¦ä¸²ã€‚
      * @since 1.1
      */
     public static String toJson(Object target, Type targetType,

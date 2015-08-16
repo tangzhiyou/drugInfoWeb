@@ -3,120 +3,120 @@ package com.skysoft.util;
 import java.util.Calendar;
 
 /**
- * ĞÇÆÚ[Ã¶¾Ù]
+ * æ˜ŸæœŸ[æšä¸¾]
  */
 public enum Week {
-    SUNDAY {             //ĞÇÆÚÈÕ
+    SUNDAY {             //æ˜ŸæœŸæ—¥
 
         int getValue() {
             return WEEK_SUNDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚÈÕ";
+            return "æ˜ŸæœŸæ—¥";
         }
     },
-    MONDAY {            //ĞÇÆÚÒ»
+    MONDAY {            //æ˜ŸæœŸä¸€
 
         int getValue() {
             return WEEK_MONDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚÒ»";
+            return "æ˜ŸæœŸä¸€";
         }
     },
-    TUESDAY {            //ĞÇÆÚ¶ş
+    TUESDAY {            //æ˜ŸæœŸäºŒ
 
         int getValue() {
             return WEEK_TUESDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚ¶ş";
+            return "æ˜ŸæœŸäºŒ";
         }
     },
-    WEDNESDAY {            //ĞÇÆÚÈı
+    WEDNESDAY {            //æ˜ŸæœŸä¸‰
 
         int getValue() {
             return WEEK_WEDNESDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚÈı";
+            return "æ˜ŸæœŸä¸‰";
         }
     },
-    THURSDAY {            //ĞÇÆÚËÄ
+    THURSDAY {            //æ˜ŸæœŸå››
 
         int getValue() {
             return WEEK_THURSDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚËÄ";
+            return "æ˜ŸæœŸå››";
         }
     },
-    FRIDAY {            //ĞÇÆÚÎå
+    FRIDAY {            //æ˜ŸæœŸäº”
 
         int getValue() {
             return WEEK_FRIDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚÎå";
+            return "æ˜ŸæœŸäº”";
         }
     },
-    SATURDAY {            //ĞÇÆÚÁù
+    SATURDAY {            //æ˜ŸæœŸå…­
 
         int getValue() {
             return WEEK_SATURDAY;
         }
 
         String getChinese() {
-            return "ĞÇÆÚÁù";
+            return "æ˜ŸæœŸå…­";
         }
     };
 
     /**
-     * ·½·¨ÕªÒª£º»ñÈ¡ĞÇÆÚµÄÊı×Ö±êÊ¶£¬1±íÊ¾ĞÇÆÚÈÕ£¬7±íÊ¾ĞÇÆÚÁù
+     * æ–¹æ³•æ‘˜è¦ï¼šè·å–æ˜ŸæœŸçš„æ•°å­—æ ‡è¯†ï¼Œ1è¡¨ç¤ºæ˜ŸæœŸæ—¥ï¼Œ7è¡¨ç¤ºæ˜ŸæœŸå…­
      *
      * @return int
      */
     abstract int getValue();
 
     /**
-     * ·½·¨ÕªÒª£º»ñÈ¡ĞÇÆÚµÄÖĞÎÄÃû³Æ
+     * æ–¹æ³•æ‘˜è¦ï¼šè·å–æ˜ŸæœŸçš„ä¸­æ–‡åç§°
      *
      * @return String
      */
     abstract String getChinese();
 
     /**
-     * ĞÇÆÚÈÕ
+     * æ˜ŸæœŸæ—¥
      */
     public static final int WEEK_SUNDAY = Calendar.SUNDAY;
     /**
-     * ĞÇÆÚÒ»
+     * æ˜ŸæœŸä¸€
      */
     public static final int WEEK_MONDAY = Calendar.MONDAY;
     /**
-     * ĞÇÆÚ¶ş
+     * æ˜ŸæœŸäºŒ
      */
     public static final int WEEK_TUESDAY = Calendar.TUESDAY;
     /**
-     * ĞÇÆÚÈı
+     * æ˜ŸæœŸä¸‰
      */
     public static final int WEEK_WEDNESDAY = Calendar.WEDNESDAY;
     /**
-     * ĞÇÆÚËÄ
+     * æ˜ŸæœŸå››
      */
     public static final int WEEK_THURSDAY = Calendar.THURSDAY;
     /**
-     * ĞÇÆÚÎå
+     * æ˜ŸæœŸäº”
      */
     public static final int WEEK_FRIDAY = Calendar.FRIDAY;
     /**
-     * ĞÇÆÚÁù
+     * æ˜ŸæœŸå…­
      */
     public static final int WEEK_SATURDAY = Calendar.SATURDAY;
 }

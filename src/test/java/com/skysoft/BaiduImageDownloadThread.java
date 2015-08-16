@@ -10,11 +10,11 @@ import org.apache.http.client.ClientProtocolException;
 
 
 /**
- * @Description: 百度图片下载线程
+ * @Description: 鐧惧害鍥剧墖涓嬭浇绾跨▼
  */
 public class BaiduImageDownloadThread extends Thread {
     /**
-     * 图片链接集合
+     * 鍥剧墖閾炬帴闆嗗悎
      */
     private List<String> imgURLList;
     private Map<String, String> headers;
@@ -59,14 +59,14 @@ public class BaiduImageDownloadThread extends Thread {
      * @return void
      * @throws
      * @Title: downloadImage
-     * @Description: 图片下载
+     * @Description: 鍥剧墖涓嬭浇
      */
     public void downloadImage(List<String> subList) throws ClientProtocolException, IOException {
         for (String imgURL : subList) {
             if (null == imgURL) {
                 continue;
             }
-            //当前页码
+            //褰撳墠椤电爜
             String host = imgURL.replaceAll("http://(\\w+\\.baidu\\.com).*", "$1");
             headers.put("Host", host);
             String fileName = GerneralUtils.gernerateRandomFilename() + ".jpg";

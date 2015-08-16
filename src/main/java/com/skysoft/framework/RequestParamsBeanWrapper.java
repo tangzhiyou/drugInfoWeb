@@ -4,40 +4,40 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * RequestÇëÇó²ÎÊı°ü×°Æ÷
+ * Requestè¯·æ±‚å‚æ•°åŒ…è£…å™¨
  *
  */
 public class RequestParamsBeanWrapper {
     /**
-     * ÇëÇóURL
+     * è¯·æ±‚URL
      */
     private String url;
     /**
-     * ÇëÇóÍ·ĞÅÏ¢
+     * è¯·æ±‚å¤´ä¿¡æ¯
      */
     private Map<String, String> headers;
     /**
-     * ÆÕÍ¨±íµ¥Êı¾İ
+     * æ™®é€šè¡¨å•æ•°æ®
      */
     private Map<String, String> params;
     /**
-     * ÎÄ¼şÓòµÄ±íµ¥ÔªËØÃû³Æ
+     * æ–‡ä»¶åŸŸçš„è¡¨å•å…ƒç´ åç§°
      */
     private String fileFormName = "file";
     /**
-     * ÎÄ¼şÉÏ´«ºóµÄÄ¿±êÂ·¾¶
+     * æ–‡ä»¶ä¸Šä¼ åçš„ç›®æ ‡è·¯å¾„
      */
     private List<String> fileParams;
     /**
-     * ´úÀíÖ÷»úIP
+     * ä»£ç†ä¸»æœºIP
      */
     private String host;
     /**
-     * ´úÀí¶Ë¿ÚºÅ
+     * ä»£ç†ç«¯å£å·
      */
     private int port;
     /**
-     * ÇëÇóÄ¬ÈÏ±àÂë
+     * è¯·æ±‚é»˜è®¤ç¼–ç 
      */
     private String encoding = "UTF-8";
 

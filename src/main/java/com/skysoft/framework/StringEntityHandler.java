@@ -7,7 +7,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 /**
- * ResponseÏìÓ¦¶ÔÏóto String´¦ÀíÆ÷
+ * Responseå“åº”å¯¹è±¡to Stringå¤„ç†å™¨
  *
  */
 @SuppressWarnings("deprecation")
@@ -15,7 +15,7 @@ public class StringEntityHandler implements EntityHandler<String> {
     private String encoding = "UTF-8";
 
     /**
-     * ¹©Íâ²¿ÖØÖÃ×Ö·û´®×ª»»±àÂë
+     * ä¾›å¤–éƒ¨é‡ç½®å­—ç¬¦ä¸²è½¬æ¢ç¼–ç 
      */
     public void setEncoding(String encoding) {
         this.encoding = encoding;

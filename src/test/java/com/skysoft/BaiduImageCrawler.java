@@ -21,6 +21,7 @@ public class BaiduImageCrawler {
     private static final String TAG1 = "美女";
     private static final String TAG2 = "全部";
     private static final int PAGE_SIZE = 60;
+    @SuppressWarnings("unchecked")
     private static String START_URL = "http://image.baidu.com/i?tn=listjson&word=liulan&oe=utf-8&ie=utf8&tag1=" +
             URLEncoder.encode(TAG1) + "&tag2=" + URLEncoder.encode(TAG2) + "&sorttype=0&pn=0&rn=" + PAGE_SIZE + "&ia=0";
 

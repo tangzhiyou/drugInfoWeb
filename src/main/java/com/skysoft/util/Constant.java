@@ -1,13 +1,13 @@
 package com.skysoft.util;
 
 /**
- * ³£Á¿Àà
+ * å¸¸é‡ç±»
  *
  */
 public class Constant {
 
     /**
-     * Ä¬ÈÏ¶ÁĞ´»º³åÇø´óĞ¡
+     * é»˜è®¤è¯»å†™ç¼“å†²åŒºå¤§å°
      */
     public static final int BUFFER_SIZE = 4096;
 
@@ -32,16 +32,16 @@ public class Constant {
             "HH:mm",
     };
     /**
-     * Ã¿Ò³´óĞ¡
+     * æ¯é¡µå¤§å°
      */
     public static final int PAGE_SIZE = 2000;
     /**
-     * Ä¬ÈÏ±àÂë
+     * é»˜è®¤ç¼–ç 
      */
     public static final String DEFAULT_CHARSET = "UTF-8";
 
     /**
-     * HTMLÒ³ÃæÄ£°æ
+     * HTMLé¡µé¢æ¨¡ç‰ˆ
      */
     public static StringBuffer HTML_TEMPLATE = new StringBuffer();
 

@@ -6,7 +6,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 /**
- * ResponseÏìÓ¦¶ÔÏóto×Ö½ÚÊı×é´¦ÀíÆ÷
+ * Responseå“åº”å¯¹è±¡toå­—èŠ‚æ•°ç»„å¤„ç†å™¨
  *
  */
 public class ByteArrayEntityHandler implements EntityHandler<byte[]> {

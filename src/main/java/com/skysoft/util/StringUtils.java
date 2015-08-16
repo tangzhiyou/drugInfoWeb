@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Description: ×Ö·û´®´¦Àí¹¤¾ßÀà
+ * @Description: å­—ç¬¦ä¸²å¤„ç†å·¥å…·ç±»
  */
 public class StringUtils {
     private static final String[] escapeIgnore = new String[]{"*", "+", "-", ".", "/", "@", "_"};
@@ -20,8 +20,8 @@ public class StringUtils {
      * @return void
      * @throws
      * @Title: encode
-     * @Description: URL±àÂë(Ô­Àí:½«×Ö·û×ª»»³É16½øÖÆ, È»ºóÇ°Ãæ¼ÓÇ°×º%, ¶ÔÓÚ0-255·¶Î§Ö®Íâ×Ö·û¼ÓÇ°×º%u)
-     * ²»±àÂë×Ö·û°üÀ¨.-*_,×¢Òâ¿Õ¸ñ»á±»±àÂë³É¼ÓºÅ+,±¾º¯ÊıÒÑĞŞ¸´´ËBUG
+     * @Description: URLç¼–ç (åŸç†:å°†å­—ç¬¦è½¬æ¢æˆ16è¿›åˆ¶, ç„¶åå‰é¢åŠ å‰ç¼€%, å¯¹äº0-255èŒƒå›´ä¹‹å¤–å­—ç¬¦åŠ å‰ç¼€%u)
+     * ä¸ç¼–ç å­—ç¬¦åŒ…æ‹¬.-*_,æ³¨æ„ç©ºæ ¼ä¼šè¢«ç¼–ç æˆåŠ å·+,æœ¬å‡½æ•°å·²ä¿®å¤æ­¤BUG
      */
     public static String encode(String url) {
         if (GerneralUtils.isEmptyString(url)) {
@@ -36,7 +36,7 @@ public class StringUtils {
      * @return void
      * @throws
      * @Title: decode
-     * @Description: URL½âÂë(»á½«+¼ÓºÅ½âÂë³É¿Õ¸ñ)
+     * @Description: URLè§£ç (ä¼šå°†+åŠ å·è§£ç æˆç©ºæ ¼)
      */
     public static String decode(String url) {
         if (GerneralUtils.isEmptyString(url)) {
@@ -51,7 +51,7 @@ public class StringUtils {
      * @return String
      * @throws
      * @Title: escape
-     * @Description: URLÖĞÌØÊâ×Ö·û±àÂë(* + - . / @ _ 0-9 a-z A-Z²»»á±»±àÂë)
+     * @Description: URLä¸­ç‰¹æ®Šå­—ç¬¦ç¼–ç (* + - . / @ _ 0-9 a-z A-Zä¸ä¼šè¢«ç¼–ç )
      */
     public static String escape(String src) {
         if (GerneralUtils.isEmptyString(src)) {
@@ -94,7 +94,7 @@ public class StringUtils {
      * @return String
      * @throws
      * @Title: encodeURI
-     * @Description: ¶ÔURI½øĞĞÍêÕûµÄ±àÂë(!#$&'()*+,-./:;=?@_~0-9a-zA-Z²»»á±»±àÂë)
+     * @Description: å¯¹URIè¿›è¡Œå®Œæ•´çš„ç¼–ç (!#$&'()*+,-./:;=?@_~0-9a-zA-Zä¸ä¼šè¢«ç¼–ç )
      */
     public static String encodeURI(String src) {
         if (GerneralUtils.isEmptyString(src)) {
@@ -137,10 +137,10 @@ public class StringUtils {
      * @return String
      * @throws
      * @Title: encodeURIComponent
-     * @Description: ¶ÔURI²ÎÊı²¿·Ö½øĞĞ±àÂë(!'()*-._~0-9a-zA-Z²»»á±»±àÂë)
-     * Ö÷ÒªÊÊÓÃÓÚ¶ÔURL´«µİµÄÌØÊâ×Ö·û»òÖĞÎÄ²ÎÊı²¿·Ö½øĞĞ±àÂë,¶ø²»ÊÇ°ÑÕû¸öURL´«µİ¸ø´Ëº¯Êı
-     * eg:http://xxxx.do?qu=ÖĞÎÄ&r=50%,Ã÷ÏÔ²ÎÊı:ÖĞÎÄºÍ50%ĞèÒª±àÂë,
-     * Òò´ËÄãÖ»ĞèÒª°ÑÖĞÎÄºÍ50%´«µİ¸ø´Ëº¯Êı½øĞĞ±àÂë
+     * @Description: å¯¹URIå‚æ•°éƒ¨åˆ†è¿›è¡Œç¼–ç (!'()*-._~0-9a-zA-Zä¸ä¼šè¢«ç¼–ç )
+     * ä¸»è¦é€‚ç”¨äºå¯¹URLä¼ é€’çš„ç‰¹æ®Šå­—ç¬¦æˆ–ä¸­æ–‡å‚æ•°éƒ¨åˆ†è¿›è¡Œç¼–ç ,è€Œä¸æ˜¯æŠŠæ•´ä¸ªURLä¼ é€’ç»™æ­¤å‡½æ•°
+     * eg:http://xxxx.do?qu=ä¸­æ–‡&r=50%,æ˜æ˜¾å‚æ•°:ä¸­æ–‡å’Œ50%éœ€è¦ç¼–ç ,
+     * å› æ­¤ä½ åªéœ€è¦æŠŠä¸­æ–‡å’Œ50%ä¼ é€’ç»™æ­¤å‡½æ•°è¿›è¡Œç¼–ç 
      */
     public static String encodeURIComponent(String src) {
         if (GerneralUtils.isEmptyString(src)) {
@@ -183,7 +183,7 @@ public class StringUtils {
      * @return String
      * @throws
      * @Title: unescape
-     * @Description: URLÖĞÌØÊâ×Ö·û½âÂë£¬Óëescape¹¦ÄÜÏà·´
+     * @Description: URLä¸­ç‰¹æ®Šå­—ç¬¦è§£ç ï¼Œä¸escapeåŠŸèƒ½ç›¸å
      */
     public static String unescape(String src) {
         StringBuffer tmp = new StringBuffer();
@@ -217,7 +217,7 @@ public class StringUtils {
 
 
     /**
-     * ´Ó×Ö·û´®ÎÄ±¾ÖĞÌáÈ¡ÈÕÆÚ×Ö·û´®,Èç£ºxxxxxxx2/14/2013xxxxxxxx -->2/14/2013
+     * ä»å­—ç¬¦ä¸²æ–‡æœ¬ä¸­æå–æ—¥æœŸå­—ç¬¦ä¸²,å¦‚ï¼šxxxxxxx2/14/2013xxxxxxxx -->2/14/2013
      *
      * @param text
      * @return
@@ -244,7 +244,7 @@ public class StringUtils {
     }
 
     /**
-     * ´Ó×Ö·û´®ÖĞÌáÈ¡³öÊı×Ö(¿ÉÒÔÌáÈ¡ÕûÊıºÍĞ¡Êı)
+     * ä»å­—ç¬¦ä¸²ä¸­æå–å‡ºæ•°å­—(å¯ä»¥æå–æ•´æ•°å’Œå°æ•°)
      *
      * @param text
      * @return
@@ -265,8 +265,8 @@ public class StringUtils {
     }
 
     /**
-     * ´Ó×Ö·û´®ÖĞÌáÈ¡URLÁ´½Ó,<br/>
-     * Èç:http://www.google.com.hk
+     * ä»å­—ç¬¦ä¸²ä¸­æå–URLé“¾æ¥,<br/>
+     * å¦‚:http://www.google.com.hk
      * http://www.savings.com/popup/detail/coupon-723379.html
      * http://cdn3.node1.savings
      * .com/images/savings/logo/3499907.jpeg?height=30&width=120
@@ -291,10 +291,10 @@ public class StringUtils {
     }
 
     /**
-     * ½«ºÁÃë×ª»»³É¶àÉÙĞ¡Ê±·ÖÖÓÃëµÄ¸ñÊ½ Èç£º12410000-->3Ğ¡Ê±26·ÖÖÓ50Ãë
+     * å°†æ¯«ç§’è½¬æ¢æˆå¤šå°‘å°æ—¶åˆ†é’Ÿç§’çš„æ ¼å¼ å¦‚ï¼š12410000-->3å°æ—¶26åˆ†é’Ÿ50ç§’
      *
      * @param time
-     * @return ¸ñÊ½»¯ºóµÄÊ±¼ä¸ñÊ½
+     * @return æ ¼å¼åŒ–åçš„æ—¶é—´æ ¼å¼
      */
     public static String formatMillSecond(long time, String hourPlaceholder, String minuePlaceholder, String secondPlaceholder) {
         int hour = 0;
@@ -323,7 +323,7 @@ public class StringUtils {
     }
 
     /**
-     * ½«¶àÉÙĞ¡Ê±·ÖÖÓÃëµÄ¸ñÊ½×Ö·û´®×ª»»³ÉºÁÃëÊı(ÓëformatMillSecond·½·¨Ïà·´) Èç£º3Ğ¡Ê±26·ÖÖÓ50Ãë-->12410000
+     * å°†å¤šå°‘å°æ—¶åˆ†é’Ÿç§’çš„æ ¼å¼å­—ç¬¦ä¸²è½¬æ¢æˆæ¯«ç§’æ•°(ä¸formatMillSecondæ–¹æ³•ç›¸å) å¦‚ï¼š3å°æ—¶26åˆ†é’Ÿ50ç§’-->12410000
      *
      * @param str
      * @return
@@ -348,7 +348,7 @@ public class StringUtils {
     }
 
     /**
-     * ÌŞ³ıJS×¢ÊÍ
+     * å‰”é™¤JSæ³¨é‡Š
      *
      * @param str
      * @return
@@ -364,7 +364,7 @@ public class StringUtils {
     }
 
     /**
-     * Unicode×Ö·û´®×ª»»³ÉÖĞÎÄ
+     * Unicodeå­—ç¬¦ä¸²è½¬æ¢æˆä¸­æ–‡
      *
      * @param dataStr
      * @return
@@ -389,7 +389,7 @@ public class StringUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÒÔÊı×Ö½áÎ²
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä»¥æ•°å­—ç»“å°¾
      *
      * @param str
      * @return
@@ -403,7 +403,7 @@ public class StringUtils {
     }
 
     /**
-     * ²éÕÒ×Ö·û´®ÖĞµÚÒ»¸ö´óĞ´×ÖÄ¸µÄË÷ÒıÎ»ÖÃ
+     * æŸ¥æ‰¾å­—ç¬¦ä¸²ä¸­ç¬¬ä¸€ä¸ªå¤§å†™å­—æ¯çš„ç´¢å¼•ä½ç½®
      *
      * @param str
      * @return
@@ -422,7 +422,7 @@ public class StringUtils {
     }
 
     /**
-     * ÌŞ³ı×Ö·û´®½áÎ²¶àÓàµÄ»»ĞĞ·û Èç£ºI like java.\n\n\n\n --> I like java.
+     * å‰”é™¤å­—ç¬¦ä¸²ç»“å°¾å¤šä½™çš„æ¢è¡Œç¬¦ å¦‚ï¼šI like java.\n\n\n\n --> I like java.
      *
      * @param str
      * @return
@@ -435,11 +435,11 @@ public class StringUtils {
     }
 
     /**
-     * ½«·µ»ØµÄJSONÊı¾İ×é×°³ÉÒ»¸öHTML´úÂë×Ö·û´®
+     * å°†è¿”å›çš„JSONæ•°æ®ç»„è£…æˆä¸€ä¸ªHTMLä»£ç å­—ç¬¦ä¸²
      *
-     * @param data      HTML´úÂëÆ¬¶Î
-     * @param pageTitle HTMLÒ³ÃæµÄtitleÃû³Æ
-     * @param template  HTMLÄ£°æ
+     * @param data      HTMLä»£ç ç‰‡æ®µ
+     * @param pageTitle HTMLé¡µé¢çš„titleåç§°
+     * @param template  HTMLæ¨¡ç‰ˆ
      * @return
      */
     public static String gernerateHTML(String data, String pageTitle, String template) {
@@ -453,8 +453,8 @@ public class StringUtils {
     }
 
     /**
-     * ´ÓÍøÒ³meta±êÇ©ÖĞÌáÈ¡³öÒ³Ãæ±àÂë£¬<br/>
-     * ÈôÒ³ÃæÎ´Ö¸¶¨£¬Ä¬ÈÏ·µ»Ønull
+     * ä»ç½‘é¡µmetaæ ‡ç­¾ä¸­æå–å‡ºé¡µé¢ç¼–ç ï¼Œ<br/>
+     * è‹¥é¡µé¢æœªæŒ‡å®šï¼Œé»˜è®¤è¿”å›null
      *
      * @param html
      * @return
@@ -470,10 +470,10 @@ public class StringUtils {
     }
 
     /**
-     * Ìæ»»HTMLÒ³Ãæmeta²¿·ÖÉùÃ÷µÄcharset±àÂë
+     * æ›¿æ¢HTMLé¡µé¢metaéƒ¨åˆ†å£°æ˜çš„charsetç¼–ç 
      *
-     * @param html          htmlÒ³ÃæÄÚÈİ
-     * @param targetCharset Ä¿±ê±àÂë
+     * @param html          htmlé¡µé¢å†…å®¹
+     * @param targetCharset ç›®æ ‡ç¼–ç 
      * @return
      */
     public static String replaceHTMLCharsetFromMeta(String html, String targetCharset) {

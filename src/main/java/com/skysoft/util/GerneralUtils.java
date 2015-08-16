@@ -32,7 +32,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Í¨ÓÃº¯Êı¹¤¾ßÀà
+ * é€šç”¨å‡½æ•°å·¥å…·ç±»
  *
  */
 @SuppressWarnings({"rawtypes", "serial", "unchecked"})
@@ -58,7 +58,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ù±¾Êı¾İÀàĞÍ×¢²á
+     * åŸºæœ¬æ•°æ®ç±»å‹æ³¨å†Œ
      */
     private final static List<Class<?>> PRIMITIVE_CLASSES = new ArrayList<Class<?>>() {
         {
@@ -80,7 +80,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®Îª¿Õ(°üº¬nullºÍ"")
+     * åˆ¤æ–­å­—ç¬¦ä¸²ä¸ºç©º(åŒ…å«nullå’Œ"")
      *
      * @param str
      * @return
@@ -90,7 +90,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®·Ç¿Õ
+     * åˆ¤æ–­å­—ç¬¦ä¸²éç©º
      *
      * @param str
      * @return
@@ -100,7 +100,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï¼¯ºÏ·Ç¿Õ
+     * åˆ¤æ–­é›†åˆéç©º
      *
      * @param collection
      * @return
@@ -110,7 +110,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï¼¯ºÏ·Ç¿Õ
+     * åˆ¤æ–­é›†åˆéç©º
      *
      * @param collection
      * @return
@@ -120,7 +120,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÄ³¼¯ºÏÄÚÊÇ·ñ°üº¬¸ø¶¨ÔªËØ
+     * åˆ¤æ–­æŸé›†åˆå†…æ˜¯å¦åŒ…å«ç»™å®šå…ƒç´ 
      *
      * @param targetCollection
      * @param original
@@ -132,7 +132,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏMapÎª¿Õ
+     * åˆ¤æ–­Mapä¸ºç©º
      *
      * @param map
      * @return
@@ -142,7 +142,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏMap·Ç¿Õ
+     * åˆ¤æ–­Mapéç©º
      *
      * @param map
      * @return
@@ -152,7 +152,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÊı×éÎª¿Õ
+     * åˆ¤æ–­æ•°ç»„ä¸ºç©º
      *
      * @param array
      * @return
@@ -162,7 +162,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÊı×é·Ç¿Õ
+     * åˆ¤æ–­æ•°ç»„éç©º
      *
      * @param array
      * @return
@@ -172,7 +172,7 @@ public class GerneralUtils {
     }
 
     /**
-     * È¥³ıÊı×éÖĞÖØ¸´ÔªËØ
+     * å»é™¤æ•°ç»„ä¸­é‡å¤å…ƒç´ 
      *
      * @param array
      * @return
@@ -189,7 +189,7 @@ public class GerneralUtils {
 
 
     /**
-     * É¾³ı¼¯ºÏÖĞÖ¸¶¨ÔªËØ
+     * åˆ é™¤é›†åˆä¸­æŒ‡å®šå…ƒç´ 
      *
      * @param collection
      * @return
@@ -209,7 +209,7 @@ public class GerneralUtils {
     }
 
     /**
-     * É¾³ıMapÖĞÖ¸¶¨key¶ÔÓ¦µÄ¼üÖµ¶Ô
+     * åˆ é™¤Mapä¸­æŒ‡å®škeyå¯¹åº”çš„é”®å€¼å¯¹
      *
      * @param map
      * @param key
@@ -229,7 +229,7 @@ public class GerneralUtils {
     }
 
     /**
-     * É¾³ıÊı×éÄ³Ë÷ÒıÎ»ÖÃµÄÔªËØ²¢·µ»ØÉ¾³ıºóµÄĞÂÊı×é
+     * åˆ é™¤æ•°ç»„æŸç´¢å¼•ä½ç½®çš„å…ƒç´ å¹¶è¿”å›åˆ é™¤åçš„æ–°æ•°ç»„
      *
      * @param array
      * @param delItem
@@ -249,11 +249,11 @@ public class GerneralUtils {
     }
 
     /**
-     * ½«Êı×éÖĞËùÓĞÔªËØ°´ÕÕÖ¸¶¨µÄÁ¬½Ó·ûÆ´½Ó³ÉÒ»¸ö×Ö·û´®
-     * Èç¹û²»Ö¸¶¨Á¬½Ó·û£¬Ä¬ÈÏÉèÖÃÎªÓ¢ÎÄ¶ººÅ,
+     * å°†æ•°ç»„ä¸­æ‰€æœ‰å…ƒç´ æŒ‰ç…§æŒ‡å®šçš„è¿æ¥ç¬¦æ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²
+     * å¦‚æœä¸æŒ‡å®šè¿æ¥ç¬¦ï¼Œé»˜è®¤è®¾ç½®ä¸ºè‹±æ–‡é€—å·,
      *
-     * @param array     Êı×é¶ÔÏó
-     * @param delimiter Á¬½Ó·û
+     * @param array     æ•°ç»„å¯¹è±¡
+     * @param delimiter è¿æ¥ç¬¦
      * @return
      */
     public static String joinArray(Object[] array, String delimiter) {
@@ -275,11 +275,11 @@ public class GerneralUtils {
     }
 
     /**
-     * ½«Êı×éÖĞËùÓĞÔªËØ°´ÕÕÖ¸¶¨µÄÁ¬½Ó·ûÆ´½Ó³ÉÒ»¸ö×Ö·û´®(ÖØÔØ)
-     * Èç¹û²»Ö¸¶¨Á¬½Ó·û£¬Ä¬ÈÏÉèÖÃÎªÓ¢ÎÄ¶ººÅ,
+     * å°†æ•°ç»„ä¸­æ‰€æœ‰å…ƒç´ æŒ‰ç…§æŒ‡å®šçš„è¿æ¥ç¬¦æ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²(é‡è½½)
+     * å¦‚æœä¸æŒ‡å®šè¿æ¥ç¬¦ï¼Œé»˜è®¤è®¾ç½®ä¸ºè‹±æ–‡é€—å·,
      *
-     * @param array     Êı×é¶ÔÏó
-     * @param delimiter Á¬½Ó·û
+     * @param array     æ•°ç»„å¯¹è±¡
+     * @param delimiter è¿æ¥ç¬¦
      * @return
      */
     public static String joinArray(Object[] array) {
@@ -287,8 +287,8 @@ public class GerneralUtils {
     }
 
     /**
-     * ½«¼¯ºÏÖĞËùÓĞÔªËØ°´ÕÕÖ¸¶¨µÄÁ¬½Ó·ûÆ´½Ó³ÉÒ»¸ö×Ö·û´®
-     * Èç¹û²»Ö¸¶¨Á¬½Ó·û£¬Ä¬ÈÏÉèÖÃÎªÓ¢ÎÄ¶ººÅ,
+     * å°†é›†åˆä¸­æ‰€æœ‰å…ƒç´ æŒ‰ç…§æŒ‡å®šçš„è¿æ¥ç¬¦æ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²
+     * å¦‚æœä¸æŒ‡å®šè¿æ¥ç¬¦ï¼Œé»˜è®¤è®¾ç½®ä¸ºè‹±æ–‡é€—å·,
      *
      * @param collection
      * @param delimiter
@@ -313,8 +313,8 @@ public class GerneralUtils {
     }
 
     /**
-     * ½«¼¯ºÏÖĞËùÓĞÔªËØ°´ÕÕÖ¸¶¨µÄÁ¬½Ó·ûÆ´½Ó³ÉÒ»¸ö×Ö·û´®(ÖØÔØ)
-     * Èç¹û²»Ö¸¶¨Á¬½Ó·û£¬Ä¬ÈÏÉèÖÃÎªÓ¢ÎÄ¶ººÅ,
+     * å°†é›†åˆä¸­æ‰€æœ‰å…ƒç´ æŒ‰ç…§æŒ‡å®šçš„è¿æ¥ç¬¦æ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²(é‡è½½)
+     * å¦‚æœä¸æŒ‡å®šè¿æ¥ç¬¦ï¼Œé»˜è®¤è®¾ç½®ä¸ºè‹±æ–‡é€—å·,
      *
      * @param collection
      * @param delimiter
@@ -325,11 +325,11 @@ public class GerneralUtils {
     }
 
     /**
-     * List¼¯ºÏNµÈ·Ö<br/>
-     * Èô²»ÄÜÕû³ı£¬Ôò×îºóÓàÊıËãÒ»·İ
+     * Listé›†åˆNç­‰åˆ†<br/>
+     * è‹¥ä¸èƒ½æ•´é™¤ï¼Œåˆ™æœ€åä½™æ•°ç®—ä¸€ä»½
      *
      * @param list
-     * @param splitCOunt ·Ö¸î¸öÊı¼´·Ö³ÉsplitCOunt·İ
+     * @param splitCOunt åˆ†å‰²ä¸ªæ•°å³åˆ†æˆsplitCOuntä»½
      * @return
      */
     public static List<List> splitList(List list, int splitCOunt) {
@@ -356,7 +356,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï´«Èë×Ö·û´®ÊÇ·ñ°üº¬Êı×Ö
+     * åˆ¤æ–­ä¼ å…¥å­—ç¬¦ä¸²æ˜¯å¦åŒ…å«æ•°å­—
      *
      * @param text
      * @return
@@ -373,7 +373,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÈ«²¿ÓÉ´óĞ´×ÖÄ¸×é³É
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å…¨éƒ¨ç”±å¤§å†™å­—æ¯ç»„æˆ
      *
      * @param str
      * @return
@@ -387,7 +387,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÈ«²¿ÓÉĞ¡Ğ´×ÖÄ¸×é³É
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å…¨éƒ¨ç”±å°å†™å­—æ¯ç»„æˆ
      *
      * @param str
      * @return
@@ -401,7 +401,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÈ«²¿ÊÇÊı×Ö(²»º¬Ğ¡Êıµã)
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å…¨éƒ¨æ˜¯æ•°å­—(ä¸å«å°æ•°ç‚¹)
      *
      * @param str
      * @return
@@ -410,14 +410,14 @@ public class GerneralUtils {
         if (isEmptyString(str) || (str.length() > 1 && str.startsWith("0"))) {
             return false;
         }
-        //JDK×Ô´øº¯ÊıÊµÏÖ
+        //JDKè‡ªå¸¦å‡½æ•°å®ç°
         for (int i = str.length(); --i >= 0; ) {
             if (!Character.isDigit(str.charAt(i))) {
                 return false;
             }
         }
         return true;
-        /*//ÅĞ¶ÏASCÂëÊµÏÖ
+        /*//åˆ¤æ–­ASCç å®ç°
         for(int i=str.length();--i >= 0;){
 	        int chr = str.charAt(i);   
 	        if(chr < 48 || chr > 57) {   
@@ -428,7 +428,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñ¿ÉÒÔ×ª»»³ÉĞ¡Êı
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦å¯ä»¥è½¬æ¢æˆå°æ•°
      *
      * @param str
      * @return
@@ -439,12 +439,12 @@ public class GerneralUtils {
                 (str.indexOf(".") != str.lastIndexOf("."))) {
             return false;
         }
-        //ÅĞ¶ÏÊÇ·ñº¬ÓĞ·ÇÊı×Ö×Ö·û
+        //åˆ¤æ–­æ˜¯å¦å«æœ‰éæ•°å­—å­—ç¬¦
         String temp = str.replaceAll("[\\d|.]*", "");
         if (temp.length() != 0) {
             return false;
         }
-        //ÅÅ³ıÀàËÆ000.12ĞÎÊ½
+        //æ’é™¤ç±»ä¼¼000.12å½¢å¼
         if (str.indexOf(".") > 1) {
             String firstLetter = str.substring(0, 1);
             if (firstLetter.equals("0")) {
@@ -455,7 +455,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ´Ó×Ö·û´®ÖĞÌáÈ¡Êı×Ö(º¬Ğ¡Êı),Èç£ºWas $365.00--365.00
+     * ä»å­—ç¬¦ä¸²ä¸­æå–æ•°å­—(å«å°æ•°),å¦‚ï¼šWas $365.00--365.00
      *
      * @param str
      * @return
@@ -468,8 +468,8 @@ public class GerneralUtils {
     }
 
     /**
-     * ×Ö·û´®ÌŞ³ıÖØ¸´Ïî£¬Èç£ºaaaaabbbbbccccc-->abc
-     * ×¢Òâ£ºÔİ²»Ö§³Ö½»²æÖØ¸´£¬Èç£ºaaaaabbbaaaccc-->bac¶ø²»ÊÇabac
+     * å­—ç¬¦ä¸²å‰”é™¤é‡å¤é¡¹ï¼Œå¦‚ï¼šaaaaabbbbbccccc-->abc
+     * æ³¨æ„ï¼šæš‚ä¸æ”¯æŒäº¤å‰é‡å¤ï¼Œå¦‚ï¼šaaaaabbbaaaccc-->bacè€Œä¸æ˜¯abac
      *
      * @param str
      * @return
@@ -482,7 +482,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Éú³ÉÖ¸¶¨Çø¼ä[min-max)Ö®¼äµÄËæ»úÊı
+     * ç”ŸæˆæŒ‡å®šåŒºé—´[min-max)ä¹‹é—´çš„éšæœºæ•°
      *
      * @param max
      * @param min
@@ -493,7 +493,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÄ³×Ö·û´®ÊÇ·ñ°üº¬ÖĞÎÄ×Ö·û
+     * åˆ¤æ–­æŸå­—ç¬¦ä¸²æ˜¯å¦åŒ…å«ä¸­æ–‡å­—ç¬¦
      *
      * @param text
      * @return
@@ -505,7 +505,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÎªÈÕÆÚ¸ñÊ½
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºæ—¥æœŸæ ¼å¼
      *
      * @param dateString
      * @return
@@ -532,7 +532,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÖ¸¶¨ÀàĞÍÊÇ·ñÊÇ»ù±¾Êı¾İÀàĞÍ
+     * åˆ¤æ–­æŒ‡å®šç±»å‹æ˜¯å¦æ˜¯åŸºæœ¬æ•°æ®ç±»å‹
      *
      * @param clazz
      * @return
@@ -542,7 +542,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ×Ö·û´®Ê××ÖÄ¸×ª»»³É´óĞ´
+     * å­—ç¬¦ä¸²é¦–å­—æ¯è½¬æ¢æˆå¤§å†™
      *
      * @param text
      * @return
@@ -557,7 +557,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ×Ö·û´®Ê××ÖÄ¸×ª»»³ÉĞ¡Ğ´
+     * å­—ç¬¦ä¸²é¦–å­—æ¯è½¬æ¢æˆå°å†™
      *
      * @param text
      * @return
@@ -572,7 +572,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ´Óget/set·½·¨ÃûÖĞÌáÈ¡³öÊôĞÔÃû³Æ
+     * ä»get/setæ–¹æ³•åä¸­æå–å‡ºå±æ€§åç§°
      *
      * @return
      */
@@ -589,11 +589,11 @@ public class GerneralUtils {
     }
 
     /**
-     * ÂæÍÕÃüÃû·¨×ª»»³ÉÊı¾İ¿â×Ö¶ÎÃüÃû·¨£¬ÈçstudentName-->student_name
+     * éª†é©¼å‘½åæ³•è½¬æ¢æˆæ•°æ®åº“å­—æ®µå‘½åæ³•ï¼Œå¦‚studentName-->student_name
      *
-     * @param propertyName ÊôĞÔÃû³Æ
-     * @param prefix       Ìí¼ÓÇ°×º
-     * @param stuffix      Ìí¼Óºó×º
+     * @param propertyName å±æ€§åç§°
+     * @param prefix       æ·»åŠ å‰ç¼€
+     * @param stuffix      æ·»åŠ åç¼€
      * @return
      */
     public static String splitCamelName(String propertyName, String prefix,
@@ -625,9 +625,9 @@ public class GerneralUtils {
     }
 
     /**
-     * ÂæÍÕÃüÃû·¨×ª»»³ÉÊı¾İ¿â×Ö¶ÎÃüÃû·¨(ÖØÔØ)£¬ÈçstudentName-->student_name
+     * éª†é©¼å‘½åæ³•è½¬æ¢æˆæ•°æ®åº“å­—æ®µå‘½åæ³•(é‡è½½)ï¼Œå¦‚studentName-->student_name
      *
-     * @param propertyName ÊôĞÔÃû³Æ
+     * @param propertyName å±æ€§åç§°
      * @return
      */
     public static String splitCamelName(String propertyName) {
@@ -635,11 +635,11 @@ public class GerneralUtils {
     }
 
     /**
-     * Êı¾İ¿â×Ö¶ÎÃû³Æ×ª»»³ÉÀàÊôĞÔÃû£¬Èçstu_name-->stuName
+     * æ•°æ®åº“å­—æ®µåç§°è½¬æ¢æˆç±»å±æ€§åï¼Œå¦‚stu_name-->stuName
      *
-     * @param fieldName Êı¾İ¿â×Ö¶ÎÃû³Æ
-     * @param prefix    Ç°×º
-     * @param stuffix   ºó×º
+     * @param fieldName æ•°æ®åº“å­—æ®µåç§°
+     * @param prefix    å‰ç¼€
+     * @param stuffix   åç¼€
      * @return
      */
     public static String splitDBFieldName(String fieldName, String prefix,
@@ -681,9 +681,9 @@ public class GerneralUtils {
     }
 
     /**
-     * Êı¾İ¿â×Ö¶ÎÃû³Æ×ª»»³ÉÀàÊôĞÔÃû(ÖØÔØ)£¬Èçstu_name-->stuName
+     * æ•°æ®åº“å­—æ®µåç§°è½¬æ¢æˆç±»å±æ€§å(é‡è½½)ï¼Œå¦‚stu_name-->stuName
      *
-     * @param fieldName Êı¾İ¿â×Ö¶ÎÃû³Æ
+     * @param fieldName æ•°æ®åº“å­—æ®µåç§°
      * @return
      */
     public static String splitDBFieldName(String fieldName) {
@@ -691,10 +691,10 @@ public class GerneralUtils {
     }
 
     /**
-     * ¶ÔÏó×ª»»³ÉÊôĞÔMap¼üÖµ¶Ô
+     * å¯¹è±¡è½¬æ¢æˆå±æ€§Mapé”®å€¼å¯¹
      *
-     * @param object Ä¿±ê¶ÔÏó
-     * @param toDB   MapµÄkeyÊÇ·ñ×ª»»³ÉÊı¾İ¿â×Ö¶ÎĞÎÊ½
+     * @param object ç›®æ ‡å¯¹è±¡
+     * @param toDB   Mapçš„keyæ˜¯å¦è½¬æ¢æˆæ•°æ®åº“å­—æ®µå½¢å¼
      * @return
      */
     public static Map<String, Object> object2Map(Object object, boolean toDB) {
@@ -706,7 +706,7 @@ public class GerneralUtils {
         if (GerneralUtils.isEmptyCollection(fieldList)) {
             return null;
         }
-        // Ê¹ÓÃLinkedHashMapÊÇÎªÁË±£Ö¤ÔªËØ²åÈëË³Ğò
+        // ä½¿ç”¨LinkedHashMapæ˜¯ä¸ºäº†ä¿è¯å…ƒç´ æ’å…¥é¡ºåº
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         for (Field field : fieldList) {
             if (toDB) {
@@ -720,9 +720,9 @@ public class GerneralUtils {
     }
 
     /**
-     * ¶ÔÏó×ª»»³ÉÊôĞÔMap¼üÖµ¶Ô(ÖØÔØ)
+     * å¯¹è±¡è½¬æ¢æˆå±æ€§Mapé”®å€¼å¯¹(é‡è½½)
      *
-     * @param object Ä¿±ê¶ÔÏó
+     * @param object ç›®æ ‡å¯¹è±¡
      * @return
      */
     public static Map<String, Object> object2Map(Object object) {
@@ -730,10 +730,10 @@ public class GerneralUtils {
     }
 
     /**
-     * Object×ª»»³ÉÊôĞÔÖµÊı×é
+     * Objectè½¬æ¢æˆå±æ€§å€¼æ•°ç»„
      *
-     * @param object       ´ı×ª»»µÄ¶ÔÏó
-     * @param filterFields ĞèÒª¹ıÂËµô²»×ª»»µÄÊôĞÔ¼¯ºÏ
+     * @param object       å¾…è½¬æ¢çš„å¯¹è±¡
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰ä¸è½¬æ¢çš„å±æ€§é›†åˆ
      * @return
      */
     public static Object[] object2Array(Object object, Set<String> filterFields) {
@@ -759,9 +759,9 @@ public class GerneralUtils {
     }
 
     /**
-     * Object×ª»»³ÉÊôĞÔÖµÊı×é(ÖØÔØ)
+     * Objectè½¬æ¢æˆå±æ€§å€¼æ•°ç»„(é‡è½½)
      *
-     * @param object ´ı×ª»»µÄ¶ÔÏó
+     * @param object å¾…è½¬æ¢çš„å¯¹è±¡
      * @return
      */
     public static Object[] object2Array(Object object) {
@@ -769,7 +769,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Map¼üÖµ¶Ô×ª»»³É¶ÔÏó
+     * Mapé”®å€¼å¯¹è½¬æ¢æˆå¯¹è±¡
      *
      * @param map
      * @param target
@@ -805,7 +805,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Map½á¹¹×İÏò¸Ä³ÉºáÏò
+     * Mapç»“æ„çºµå‘æ”¹æˆæ¨ªå‘
      *
      * @param map
      * @return
@@ -814,7 +814,7 @@ public class GerneralUtils {
         if (GerneralUtils.isEmptyMap(map)) {
             return null;
         }
-        //ÁĞË÷Òı
+        //åˆ—ç´¢å¼•
         int index = 0;
         List<Map<Integer, Object>> mapList = new ArrayList<Map<Integer, Object>>();
         for (Map.Entry<String, List<Object>> entry : map.entrySet()) {
@@ -836,7 +836,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Map½á¹¹×İÏò¸Ä³ÉºáÏò(ÖØÔØ)
+     * Mapç»“æ„çºµå‘æ”¹æˆæ¨ªå‘(é‡è½½)
      *
      * @param map
      * @return
@@ -845,7 +845,7 @@ public class GerneralUtils {
         if (GerneralUtils.isEmptyMap(map)) {
             return null;
         }
-        //ÁĞË÷Òı
+        //åˆ—ç´¢å¼•
         int index = 0;
         List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
         for (Map.Entry<String, List<Object>> entry : map.entrySet()) {
@@ -868,7 +868,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Map½á¹¹ºáÏò¸Ä³É×İÏò
+     * Mapç»“æ„æ¨ªå‘æ”¹æˆçºµå‘
      *
      * @param mapList
      * @return
@@ -900,7 +900,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Map½á¹¹ºáÏò¸Ä³É×İÏò
+     * Mapç»“æ„æ¨ªå‘æ”¹æˆçºµå‘
      *
      * @param mapList
      * @return
@@ -932,7 +932,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ¶ÔÏó¼¯ºÏ×ª»»³É¶şÎ¬Êı×é£¬ÓÃÓÚÅúÁ¿²åÈë»ò¸üĞÂ²ÎÊı
+     * å¯¹è±¡é›†åˆè½¬æ¢æˆäºŒç»´æ•°ç»„ï¼Œç”¨äºæ‰¹é‡æ’å…¥æˆ–æ›´æ–°å‚æ•°
      *
      * @param beanList
      * @return
@@ -950,7 +950,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ¶ÔÏó¼¯ºÏ×ª»»³É¶şÎ¬Êı×é£¬ÓÃÓÚÅúÁ¿²åÈë»ò¸üĞÂ²ÎÊı(ÖØÔØ)
+     * å¯¹è±¡é›†åˆè½¬æ¢æˆäºŒç»´æ•°ç»„ï¼Œç”¨äºæ‰¹é‡æ’å…¥æˆ–æ›´æ–°å‚æ•°(é‡è½½)
      *
      * @param beanList
      * @return
@@ -960,7 +960,7 @@ public class GerneralUtils {
     }
 
     /**
-     * List<Object[]>×ª»»³É¶şÎ¬Êı×é
+     * List<Object[]>è½¬æ¢æˆäºŒç»´æ•°ç»„
      *
      * @param list
      * @return
@@ -977,7 +977,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ×·¼Ó²ÎÊı(½«whereParamsÀïµÄ²ÎÊıÖµ×·¼ÓÖÁparams¶şÎ¬Êı×éÃ¿ÏîµÄÄ©Î²)
+     * è¿½åŠ å‚æ•°(å°†whereParamsé‡Œçš„å‚æ•°å€¼è¿½åŠ è‡³paramsäºŒç»´æ•°ç»„æ¯é¡¹çš„æœ«å°¾)
      *
      * @param params
      * @param whereParams
@@ -1003,9 +1003,9 @@ public class GerneralUtils {
     }
 
     /**
-     * ½á¹û¼¯×ª»»³ÉList<Map<String,Object>>(columnName:columnValue)
+     * ç»“æœé›†è½¬æ¢æˆList<Map<String,Object>>(columnName:columnValue)
      *
-     * @param rs ½á¹û¼¯
+     * @param rs ç»“æœé›†
      * @return
      * @throws SQLException
      */
@@ -1029,7 +1029,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡ÄÚÍøIPµØÖ·ÊıÖµ
+     * è·å–å†…ç½‘IPåœ°å€æ•°å€¼
      *
      * @param ipAddress
      * @return
@@ -1044,7 +1044,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÄÚÍøIPÊÇ·ñÔÚÖ¸¶¨Çø¶ÎÄÚ
+     * åˆ¤æ–­å†…ç½‘IPæ˜¯å¦åœ¨æŒ‡å®šåŒºæ®µå†…
      *
      * @param userIp
      * @param begin
@@ -1056,7 +1056,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ÅĞ¶ÏÊÇ·ñÎªÄÚÍøIP
+     * åˆ¤æ–­æ˜¯å¦ä¸ºå†…ç½‘IP
      *
      * @param ipAddress
      * @return
@@ -1064,8 +1064,8 @@ public class GerneralUtils {
     public static boolean isInnerIP(String ipAddress) {
         long ipNum = getIpNum(ipAddress);
         /**
-         * Ë½ÓĞIP£ºAÀà 10.0.0.0-10.255.255.255 BÀà 172.16.0.0-172.31.255.255 CÀà
-         * 192.168.0.0-192.168.255.255 µ±È»£¬»¹ÓĞ127.0.0.1Õâ¸öÍø¶ÎÊÇ»·»ØµØÖ·
+         * ç§æœ‰IPï¼šAç±» 10.0.0.0-10.255.255.255 Bç±» 172.16.0.0-172.31.255.255 Cç±»
+         * 192.168.0.0-192.168.255.255 å½“ç„¶ï¼Œè¿˜æœ‰127.0.0.1è¿™ä¸ªç½‘æ®µæ˜¯ç¯å›åœ°å€
          **/
         long aBegin = getIpNum("10.0.0.0");
         long aEnd = getIpNum("10.255.255.255");
@@ -1079,7 +1079,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡µ±Ç°»úÆ÷µÄËùÓĞÄÚÍøIP
+     * è·å–å½“å‰æœºå™¨çš„æ‰€æœ‰å†…ç½‘IP
      *
      * @return
      * @throws SocketException
@@ -1119,7 +1119,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡±¾»úµÄÄ¬ÈÏÍâÍøIP
+     * è·å–æœ¬æœºçš„é»˜è®¤å¤–ç½‘IP
      *
      * @return
      *//*
@@ -1130,7 +1130,7 @@ public class GerneralUtils {
 	}*/
 
     /**
-     * ×Ö½ÚÊı×é×ª»»³ÉÊ®Áù½øÖÆ×Ö·û´®
+     * å­—èŠ‚æ•°ç»„è½¬æ¢æˆåå…­è¿›åˆ¶å­—ç¬¦ä¸²
      *
      * @param bytes
      * @return
@@ -1148,10 +1148,10 @@ public class GerneralUtils {
     }
 
     /**
-     * ×Ö·û´®×ª»»³ÉÊ®Áù½øÖÆ×Ö·û´®
+     * å­—ç¬¦ä¸²è½¬æ¢æˆåå…­è¿›åˆ¶å­—ç¬¦ä¸²
      *
-     * @param str str ´ı×ª»»µÄASCII×Ö·û´®
-     * @return String Ã¿¸öByteÖ®¼ä¿Õ¸ñ·Ö¸ô£¬Èç: [61 6C 6B]
+     * @param str str å¾…è½¬æ¢çš„ASCIIå­—ç¬¦ä¸²
+     * @return String æ¯ä¸ªByteä¹‹é—´ç©ºæ ¼åˆ†éš”ï¼Œå¦‚: [61 6C 6B]
      */
     public static String str2HexStr(String str) {
         char[] chars = "0123456789ABCDEF".toCharArray();
@@ -1169,10 +1169,10 @@ public class GerneralUtils {
     }
 
     /**
-     * Ê®Áù½øÖÆ×ª»»×Ö·û´®
+     * åå…­è¿›åˆ¶è½¬æ¢å­—ç¬¦ä¸²
      *
-     * @param hexStr str Byte×Ö·û´®(ByteÖ®¼äÎŞ·Ö¸ô·û Èç:[616C6B])
-     * @return String ¶ÔÓ¦µÄ×Ö·û´®
+     * @param hexStr str Byteå­—ç¬¦ä¸²(Byteä¹‹é—´æ— åˆ†éš”ç¬¦ å¦‚:[616C6B])
+     * @return String å¯¹åº”çš„å­—ç¬¦ä¸²
      */
     public static String hexStr2Str(String hexStr) {
         String str = "0123456789ABCDEF";
@@ -1188,10 +1188,10 @@ public class GerneralUtils {
     }
 
     /**
-     * ×Ö½ÚÊı×é×ª»»³ÉÊ®Áù½øÖÆ×Ö·û´®
+     * å­—èŠ‚æ•°ç»„è½¬æ¢æˆåå…­è¿›åˆ¶å­—ç¬¦ä¸²
      *
-     * @param byte[] b byteÊı×é
-     * @return String Ã¿¸öByteÖµÖ®¼ä¿Õ¸ñ·Ö¸ô
+     * @param byte[] b byteæ•°ç»„
+     * @return String æ¯ä¸ªByteå€¼ä¹‹é—´ç©ºæ ¼åˆ†éš”
      */
     public static String byte2HexStr(byte[] b) {
         String stmp = "";
@@ -1205,9 +1205,9 @@ public class GerneralUtils {
     }
 
     /**
-     * bytes×Ö·û´®×ª»»Îª×Ö½ÚÊı×é
+     * byteså­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„
      *
-     * @param src src Byte×Ö·û´®£¬Ã¿¸öByteÖ®¼äÃ»ÓĞ·Ö¸ô·û
+     * @param src src Byteå­—ç¬¦ä¸²ï¼Œæ¯ä¸ªByteä¹‹é—´æ²¡æœ‰åˆ†éš”ç¬¦
      * @return byte[]
      */
     public static byte[] hexStr2Bytes(String src) {
@@ -1224,10 +1224,10 @@ public class GerneralUtils {
     }
 
     /**
-     * StringµÄ×Ö·û´®×ª»»³ÉunicodeµÄString
+     * Stringçš„å­—ç¬¦ä¸²è½¬æ¢æˆunicodeçš„String
      *
-     * @param strText strText È«½Ç×Ö·û´®
-     * @return String Ã¿¸öunicodeÖ®¼äÎŞ·Ö¸ô·û
+     * @param strText strText å…¨è§’å­—ç¬¦ä¸²
+     * @return String æ¯ä¸ªunicodeä¹‹é—´æ— åˆ†éš”ç¬¦
      * @throws Exception
      */
     public static String strToUnicode(String strText) {
@@ -1241,7 +1241,7 @@ public class GerneralUtils {
             strHex = Integer.toHexString(intAsc);
             if (intAsc > 128) {
                 str.append("\\u" + strHex);
-            } else { // µÍÎ»ÔÚÇ°Ãæ²¹00
+            } else { // ä½ä½åœ¨å‰é¢è¡¥00
                 str.append("\\u00" + strHex);
             }
         }
@@ -1249,23 +1249,23 @@ public class GerneralUtils {
     }
 
     /**
-     * unicodeµÄString×ª»»³ÉStringµÄ×Ö·û´®
+     * unicodeçš„Stringè½¬æ¢æˆStringçš„å­—ç¬¦ä¸²
      *
-     * @param hex hex 16½øÖÆÖµ×Ö·û´® £¨Ò»¸öunicodeÎª2byte£©
-     * @return String È«½Ç×Ö·û´®
+     * @param hex hex 16è¿›åˆ¶å€¼å­—ç¬¦ä¸² ï¼ˆä¸€ä¸ªunicodeä¸º2byteï¼‰
+     * @return String å…¨è§’å­—ç¬¦ä¸²
      */
     public static String unicodeToString(String hex) {
         int t = hex.length() / 6;
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < t; i++) {
             String s = hex.substring(i * 6, (i + 1) * 6);
-            // ¸ßÎ»ĞèÒª²¹ÉÏ00ÔÙ×ª
+            // é«˜ä½éœ€è¦è¡¥ä¸Š00å†è½¬
             String s1 = s.substring(2, 4) + "00";
-            // µÍÎ»Ö±½Ó×ª
+            // ä½ä½ç›´æ¥è½¬
             String s2 = s.substring(4);
-            // ½«16½øÖÆµÄstring×ªÎªint
+            // å°†16è¿›åˆ¶çš„stringè½¬ä¸ºint
             int n = Integer.valueOf(s1, 16) + Integer.valueOf(s2, 16);
-            // ½«int×ª»»Îª×Ö·û
+            // å°†intè½¬æ¢ä¸ºå­—ç¬¦
             char[] chars = Character.toChars(n);
             str.append(new String(chars));
         }
@@ -1273,14 +1273,14 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä
+     * è·å–updateçš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param params       SQLÓï¾äÏŞÖÆÌõ¼ş²ÎÊı(×Ö¶ÎÃû³Æ--²ÎÊıÖµ)
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param params       SQLè¯­å¥é™åˆ¶æ¡ä»¶å‚æ•°(å­—æ®µåç§°--å‚æ•°å€¼)
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getUpdateSql(Class targetClass,
@@ -1327,7 +1327,7 @@ public class GerneralUtils {
                 String key = entry.getKey();
                 Object val = entry.getValue();
                 if (null != val) {
-                    //ÈôkeyÎªÀàÊôĞÔÃû³Æ,Ôò×ª»»³ÉÊı¾İ¿â±í×Ö¶ÎÃûĞÎÊ½
+                    //è‹¥keyä¸ºç±»å±æ€§åç§°,åˆ™è½¬æ¢æˆæ•°æ®åº“è¡¨å­—æ®µåå½¢å¼
                     if (key.indexOf("_") == -1) {
                         builder.append(" and ").append(splitCamelName(key)).append("=?");
                     } else {
@@ -1340,13 +1340,13 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä( ÖØÔØ1)
+     * è·å–updateçš„SQLè¯­å¥( é‡è½½1)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param params       SQLÓï¾äÏŞÖÆÌõ¼ş²ÎÊı(×Ö¶ÎÃû³Æ--²ÎÊıÖµ)
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param params       SQLè¯­å¥é™åˆ¶æ¡ä»¶å‚æ•°(å­—æ®µåç§°--å‚æ•°å€¼)
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
      * @return
      */
     public static String getUpdateSql(Class targetClass,
@@ -1357,12 +1357,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä(ÖØÔØ2)
+     * è·å–updateçš„SQLè¯­å¥(é‡è½½2)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param params       SQLÓï¾äÏŞÖÆÌõ¼ş²ÎÊı(×Ö¶ÎÃû³Æ--²ÎÊıÖµ)
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param params       SQLè¯­å¥é™åˆ¶æ¡ä»¶å‚æ•°(å­—æ®µåç§°--å‚æ•°å€¼)
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getUpdateSql(Class targetClass,
@@ -1373,11 +1373,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä(ÖØÔØ3)
+     * è·å–updateçš„SQLè¯­å¥(é‡è½½3)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param params       SQLÓï¾äÏŞÖÆÌõ¼ş²ÎÊı(×Ö¶ÎÃû³Æ--²ÎÊıÖµ)
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param params       SQLè¯­å¥é™åˆ¶æ¡ä»¶å‚æ•°(å­—æ®µåç§°--å‚æ•°å€¼)
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
      * @return
      */
     public static String getUpdateSql(Class targetClass,
@@ -1386,10 +1386,10 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä(ÖØÔØ4)
+     * è·å–updateçš„SQLè¯­å¥(é‡è½½4)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
      * @return
      */
     public static String getUpdateSql(Class targetClass,
@@ -1398,9 +1398,9 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡updateµÄSQLÓï¾ä(ÖØÔØ5)
+     * è·å–updateçš„SQLè¯­å¥(é‡è½½5)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
+     * @param targetClass ç›®æ ‡ç±»å‹
      * @return
      */
     public static String getUpdateSql(Class targetClass) {
@@ -1408,13 +1408,13 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡insertµÄSQLÓï¾ä
+     * è·å–insertçš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
-     * @param tableName    ×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
+     * @param tableName    è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getInsertSql(Class targetClass, Set<String> filterFields, String tablePrefix, String tableStuf, String tableName) {
@@ -1465,11 +1465,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡insertµÄSQLÓï¾ä(ÖØÔØ1)
+     * è·å–insertçš„SQLè¯­å¥(é‡è½½1)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
-     * @param tableName    ×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
+     * @param tableName    è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getInsertSql(Class targetClass,
@@ -1478,10 +1478,10 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡insertµÄSQLÓï¾ä(ÖØÔØ2)
+     * è·å–insertçš„SQLè¯­å¥(é‡è½½2)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param filterFields ĞèÒª¹ıÂËµôµÄ×Ö¶Î(±ÈÈçÖ÷¼ü×ÔÔö³¤×Ö¶Î²»ĞèÒª²åÈë)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param filterFields éœ€è¦è¿‡æ»¤æ‰çš„å­—æ®µ(æ¯”å¦‚ä¸»é”®è‡ªå¢é•¿å­—æ®µä¸éœ€è¦æ’å…¥)
      * @return
      */
     public static String getInsertSql(Class targetClass, Set<String> filterFields) {
@@ -1489,9 +1489,9 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡insertµÄSQLÓï¾ä(ÖØÔØ3)
+     * è·å–insertçš„SQLè¯­å¥(é‡è½½3)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
+     * @param targetClass ç›®æ ‡ç±»å‹
      * @return
      */
     public static String getInsertSql(Class targetClass) {
@@ -1499,19 +1499,19 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKeyÖ÷¼ü²éÑ¯µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyä¸»é”®æŸ¥è¯¢çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName KeyÖ÷¼ü×Ö¶ÎÃû³Æ
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName Keyä¸»é”®å­—æ®µåç§°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getByKeySql(Class targetClass, String keyFieldName,
                                      String tablePrefix, String tableStuf, String tableName) {
         if (GerneralUtils.isEmptyString(keyFieldName)) {
-            keyFieldName = "id"; // Ä¬ÈÏÉèÖÃÖ÷¼üID×Ö¶ÎÎªid
+            keyFieldName = "id"; // é»˜è®¤è®¾ç½®ä¸»é”®IDå­—æ®µä¸ºid
         }
         String table = getTableName(targetClass, tablePrefix, tableStuf,
                 tableName);
@@ -1525,12 +1525,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKeyÖ÷¼ü²éÑ¯µÄSQLÓï¾ä(ÖØÔØ1)
+     * è·å–æ ¹æ®Keyä¸»é”®æŸ¥è¯¢çš„SQLè¯­å¥(é‡è½½1)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName KeyÖ÷¼ü×Ö¶ÎÃû³Æ
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName Keyä¸»é”®å­—æ®µåç§°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
      * @return
      */
     public static String getByKeySql(Class targetClass, String keyFieldName,
@@ -1540,11 +1540,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKeyÖ÷¼ü²éÑ¯µÄSQLÓï¾ä(ÖØÔØ2)
+     * è·å–æ ¹æ®Keyä¸»é”®æŸ¥è¯¢çš„SQLè¯­å¥(é‡è½½2)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName KeyÖ÷¼ü×Ö¶ÎÃû³Æ
-     * @param tableName    ×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName Keyä¸»é”®å­—æ®µåç§°
+     * @param tableName    è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getByKeySql(Class targetClass, String keyFieldName,
@@ -1553,11 +1553,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKeyÖ÷¼ü²éÑ¯µÄSQLÓï¾ä(ÖØÔØ3)
+     * è·å–æ ¹æ®Keyä¸»é”®æŸ¥è¯¢çš„SQLè¯­å¥(é‡è½½3)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName KeyÖ÷¼ü×Ö¶ÎÃû³Æ
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName Keyä¸»é”®å­—æ®µåç§°
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getByKeySql(Class targetClass, String keyFieldName) {
@@ -1565,20 +1565,20 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ıµÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteByKeySql(Class targetClass,
                                            String keyFieldName, String tablePrefix, String tableStuf,
                                            String tableName) {
         if (GerneralUtils.isEmptyString(keyFieldName)) {
-            keyFieldName = "id"; // Ä¬ÈÏÉèÖÃÖ÷¼üID×Ö¶ÎÎªid
+            keyFieldName = "id"; // é»˜è®¤è®¾ç½®ä¸»é”®IDå­—æ®µä¸ºid
         }
         String table = getTableName(targetClass, tablePrefix, tableStuf,
                 tableName);
@@ -1592,12 +1592,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ıµÄSQLÓï¾ä(ÖØÔØ1)
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤çš„SQLè¯­å¥(é‡è½½1)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
      * @return
      */
     public static String getDeleteByKeySql(Class targetClass,
@@ -1607,11 +1607,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ıµÄSQLÓï¾ä(ÖØÔØ2)
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤çš„SQLè¯­å¥(é‡è½½2)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteByKeySql(Class targetClass,
@@ -1621,10 +1621,10 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ıµÄSQLÓï¾ä(ÖØÔØ3)
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤çš„SQLè¯­å¥(é‡è½½3)
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
      * @return
      */
     public static String getDeleteByKeySql(Class targetClass,
@@ -1633,9 +1633,9 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ıµÄSQLÓï¾ä--(ÖØÔØ4) ²»Ö¸¶¨Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ£¬Ä¬ÈÏÈÏÎªÊÇid
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤çš„SQLè¯­å¥--(é‡è½½4) ä¸æŒ‡å®šå”¯ä¸€çº¦æŸå­—æ®µåç§°ï¼Œé»˜è®¤è®¤ä¸ºæ˜¯id
      *
-     * @param targetClass Ä¿±êÀàĞÍ
+     * @param targetClass ç›®æ ‡ç±»å‹
      * @return
      */
     public static String getDeleteByKeySql(Class targetClass) {
@@ -1643,21 +1643,21 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ı¶àÌõ¼ÇÂ¼µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤å¤šæ¡è®°å½•çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param paramsCount  ²ÎÊı¸öÊı
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param paramsCount  å‚æ•°ä¸ªæ•°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteByKeysSql(Class targetClass,
                                             String keyFieldName, int paramsCount, String tablePrefix,
                                             String tableStuf, String tableName) {
         if (GerneralUtils.isEmptyString(keyFieldName)) {
-            keyFieldName = "id"; // Ä¬ÈÏÉèÖÃÖ÷¼üID×Ö¶ÎÎªid
+            keyFieldName = "id"; // é»˜è®¤è®¾ç½®ä¸»é”®IDå­—æ®µä¸ºid
         }
         String table = getTableName(targetClass, tablePrefix, tableStuf,
                 tableName);
@@ -1679,13 +1679,13 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ı¶àÌõ¼ÇÂ¼µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤å¤šæ¡è®°å½•çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param paramsCount  ²ÎÊı¸öÊı
-     * @param tablePrefix  ±íÃûÇ°×º
-     * @param tableStuf    ±íÃûºó×º
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param paramsCount  å‚æ•°ä¸ªæ•°
+     * @param tablePrefix  è¡¨åå‰ç¼€
+     * @param tableStuf    è¡¨ååç¼€
      * @return
      */
     public static String getDeleteByKeysSql(Class targetClass,
@@ -1696,12 +1696,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ı¶àÌõ¼ÇÂ¼µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤å¤šæ¡è®°å½•çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param paramsCount  ²ÎÊı¸öÊı
-     * @param tableName    ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param paramsCount  å‚æ•°ä¸ªæ•°
+     * @param tableName    ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteByKeysSql(Class targetClass,
@@ -1711,11 +1711,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ı¶àÌõ¼ÇÂ¼µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤å¤šæ¡è®°å½•çš„SQLè¯­å¥
      *
-     * @param targetClass  Ä¿±êÀàĞÍ
-     * @param keyFieldName Î¨Ò»Ô¼Êø×Ö¶ÎÃû³Æ
-     * @param paramsCount  ²ÎÊı¸öÊı
+     * @param targetClass  ç›®æ ‡ç±»å‹
+     * @param keyFieldName å”¯ä¸€çº¦æŸå­—æ®µåç§°
+     * @param paramsCount  å‚æ•°ä¸ªæ•°
      * @return
      */
     public static String getDeleteByKeysSql(Class targetClass,
@@ -1725,10 +1725,10 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡¸ù¾İKey×Ö¶ÎÉ¾³ı¶àÌõ¼ÇÂ¼µÄSQLÓï¾ä
+     * è·å–æ ¹æ®Keyå­—æ®µåˆ é™¤å¤šæ¡è®°å½•çš„SQLè¯­å¥
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param paramsCount ²ÎÊı¸öÊı
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param paramsCount å‚æ•°ä¸ªæ•°
      * @return
      */
     public static String getDeleteByKeysSql(Class targetClass, int paramsCount) {
@@ -1737,14 +1737,14 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡º¬¶àÏŞÖÆÌõ¼ş²ÎÊıµÄÉ¾³ıSQLÓï¾ä
-     * (×¢Òâ£ºÔİÖ»Ö§³Öand¡¢=µÈÓÚĞÎÊ½µÄÏŞÖÆÌõ¼ş£¬or like between in > >= < <=ºóĞøÔÙÀ©Õ¹)
+     * è·å–å«å¤šé™åˆ¶æ¡ä»¶å‚æ•°çš„åˆ é™¤SQLè¯­å¥
+     * (æ³¨æ„ï¼šæš‚åªæ”¯æŒandã€=ç­‰äºå½¢å¼çš„é™åˆ¶æ¡ä»¶ï¼Œor like between in > >= < <=åç»­å†æ‰©å±•)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param params      Where²¿·Ö²ÎÊı
-     * @param tablePrefix ±íÃûÇ°×º
-     * @param tableStuf   ±íÃûºó×º
-     * @param tableName   ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param params      Whereéƒ¨åˆ†å‚æ•°
+     * @param tablePrefix è¡¨åå‰ç¼€
+     * @param tableStuf   è¡¨ååç¼€
+     * @param tableName   ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteSqlWithConditions(Class targetClass,
@@ -1763,7 +1763,7 @@ public class GerneralUtils {
             String key = entry.getKey();
             Object val = entry.getValue();
             if (null != val) {
-                //ÈôkeyÎªÀàÊôĞÔÃû³Æ,Ôò×ª»»³ÉÊı¾İ¿â±í×Ö¶ÎÃûĞÎÊ½
+                //è‹¥keyä¸ºç±»å±æ€§åç§°,åˆ™è½¬æ¢æˆæ•°æ®åº“è¡¨å­—æ®µåå½¢å¼
                 if (key.indexOf("_") == -1) {
                     builder.append(" and ").append(splitCamelName(key)).append("=?");
                 } else {
@@ -1775,12 +1775,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡º¬¶àÏŞÖÆÌõ¼ş²ÎÊıµÄÉ¾³ıSQLÓï¾ä
-     * (×¢Òâ£ºÔİÖ»Ö§³Öand¡¢=µÈÓÚĞÎÊ½µÄÏŞÖÆÌõ¼ş£¬or like between in > >= < <=ºóĞøÔÙÀ©Õ¹)
+     * è·å–å«å¤šé™åˆ¶æ¡ä»¶å‚æ•°çš„åˆ é™¤SQLè¯­å¥
+     * (æ³¨æ„ï¼šæš‚åªæ”¯æŒandã€=ç­‰äºå½¢å¼çš„é™åˆ¶æ¡ä»¶ï¼Œor like between in > >= < <=åç»­å†æ‰©å±•)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param params      Where²¿·Ö²ÎÊı
-     * @param tableName   ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param params      Whereéƒ¨åˆ†å‚æ•°
+     * @param tableName   ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteSqlWithConditions(Class targetClass,
@@ -1789,12 +1789,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡º¬¶àÏŞÖÆÌõ¼ş²ÎÊıµÄÉ¾³ıSQLÓï¾ä
-     * (×¢Òâ£ºÔİÖ»Ö§³Öand¡¢=µÈÓÚĞÎÊ½µÄÏŞÖÆÌõ¼ş£¬or like between in > >= < <=ºóĞøÔÙÀ©Õ¹)
+     * è·å–å«å¤šé™åˆ¶æ¡ä»¶å‚æ•°çš„åˆ é™¤SQLè¯­å¥
+     * (æ³¨æ„ï¼šæš‚åªæ”¯æŒandã€=ç­‰äºå½¢å¼çš„é™åˆ¶æ¡ä»¶ï¼Œor like between in > >= < <=åç»­å†æ‰©å±•)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param params      Where²¿·Ö²ÎÊı
-     * @param tableName   ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param params      Whereéƒ¨åˆ†å‚æ•°
+     * @param tableName   ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getDeleteSqlWithConditions(Class targetClass, Map<String, Object> params) {
@@ -1802,12 +1802,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡Select²éÑ¯Óï¾ä
-     * (²»Ö¸¶¨ÏÔÊ¾×Ö¶Î£¬Ä¬ÈÏ»áÏÔÊ¾±íµÄËùÓĞ×Ö¶Î)
+     * è·å–SelectæŸ¥è¯¢è¯­å¥
+     * (ä¸æŒ‡å®šæ˜¾ç¤ºå­—æ®µï¼Œé»˜è®¤ä¼šæ˜¾ç¤ºè¡¨çš„æ‰€æœ‰å­—æ®µ)
      *
-     * @param targetClass   Ä¿±êÀàĞÍ
-     * @param params        ²éÑ¯²ÎÊı
-     * @param displayFields ÏÔÊ¾×Ö¶Î
+     * @param targetClass   ç›®æ ‡ç±»å‹
+     * @param params        æŸ¥è¯¢å‚æ•°
+     * @param displayFields æ˜¾ç¤ºå­—æ®µ
      * @return
      */
     public static String getQuerySqlWithConditions(Class targetClass, Map<String, Object> params, List<String> displayFields, String tablePrefix, String tableStuf, String tableName) {
@@ -1850,12 +1850,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡Select²éÑ¯Óï¾ä
-     * (²»Ö¸¶¨ÏÔÊ¾×Ö¶Î£¬Ä¬ÈÏ»áÏÔÊ¾±íµÄËùÓĞ×Ö¶Î)
+     * è·å–SelectæŸ¥è¯¢è¯­å¥
+     * (ä¸æŒ‡å®šæ˜¾ç¤ºå­—æ®µï¼Œé»˜è®¤ä¼šæ˜¾ç¤ºè¡¨çš„æ‰€æœ‰å­—æ®µ)
      *
-     * @param targetClass   Ä¿±êÀàĞÍ
-     * @param params        ²éÑ¯²ÎÊı
-     * @param displayFields ÏÔÊ¾×Ö¶Î
+     * @param targetClass   ç›®æ ‡ç±»å‹
+     * @param params        æŸ¥è¯¢å‚æ•°
+     * @param displayFields æ˜¾ç¤ºå­—æ®µ
      * @return
      */
     public static String getQuerySqlWithConditions(Class targetClass, Map<String, Object> params, List<String> displayFields, String tableName) {
@@ -1863,12 +1863,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡Select²éÑ¯Óï¾ä
-     * (²»Ö¸¶¨ÏÔÊ¾×Ö¶Î£¬Ä¬ÈÏ»áÏÔÊ¾±íµÄËùÓĞ×Ö¶Î)
+     * è·å–SelectæŸ¥è¯¢è¯­å¥
+     * (ä¸æŒ‡å®šæ˜¾ç¤ºå­—æ®µï¼Œé»˜è®¤ä¼šæ˜¾ç¤ºè¡¨çš„æ‰€æœ‰å­—æ®µ)
      *
-     * @param targetClass   Ä¿±êÀàĞÍ
-     * @param params        ²éÑ¯²ÎÊı
-     * @param displayFields ÏÔÊ¾×Ö¶Î
+     * @param targetClass   ç›®æ ‡ç±»å‹
+     * @param params        æŸ¥è¯¢å‚æ•°
+     * @param displayFields æ˜¾ç¤ºå­—æ®µ
      * @return
      */
     public static String getQuerySqlWithConditions(Class targetClass, Map<String, Object> params, List<String> displayFields) {
@@ -1876,11 +1876,11 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡Select²éÑ¯Óï¾ä
-     * (²»Ö¸¶¨ÏÔÊ¾×Ö¶Î£¬Ä¬ÈÏ»áÏÔÊ¾±íµÄËùÓĞ×Ö¶Î)
+     * è·å–SelectæŸ¥è¯¢è¯­å¥
+     * (ä¸æŒ‡å®šæ˜¾ç¤ºå­—æ®µï¼Œé»˜è®¤ä¼šæ˜¾ç¤ºè¡¨çš„æ‰€æœ‰å­—æ®µ)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param params      ²éÑ¯²ÎÊı
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param params      æŸ¥è¯¢å‚æ•°
      * @return
      */
     public static String getQuerySqlWithConditions(Class targetClass, Map<String, Object> params) {
@@ -1888,12 +1888,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡Select²éÑ¯Óï¾ä
-     * (²»Ö¸¶¨ÏÔÊ¾×Ö¶Î£¬Ä¬ÈÏ»áÏÔÊ¾±íµÄËùÓĞ×Ö¶Î)
-     * (²»Ö¸¶¨²éÑ¯²ÎÊı£¬Ä¬ÈÏÎªÕû±í²éÑ¯)
+     * è·å–SelectæŸ¥è¯¢è¯­å¥
+     * (ä¸æŒ‡å®šæ˜¾ç¤ºå­—æ®µï¼Œé»˜è®¤ä¼šæ˜¾ç¤ºè¡¨çš„æ‰€æœ‰å­—æ®µ)
+     * (ä¸æŒ‡å®šæŸ¥è¯¢å‚æ•°ï¼Œé»˜è®¤ä¸ºæ•´è¡¨æŸ¥è¯¢)
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param params      ²éÑ¯²ÎÊı
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param params      æŸ¥è¯¢å‚æ•°
      * @return
      */
     public static String getQuerySqlWithConditions(Class targetClass) {
@@ -1901,7 +1901,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡²éÑ¯ËùÓĞµÄSQLÓï¾ä
+     * è·å–æŸ¥è¯¢æ‰€æœ‰çš„SQLè¯­å¥
      *
      * @param targetClass
      * @return
@@ -1914,7 +1914,7 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡²éÑ¯ËùÓĞµÄSQLÓï¾ä
+     * è·å–æŸ¥è¯¢æ‰€æœ‰çš„SQLè¯­å¥
      *
      * @param targetClass
      * @return
@@ -1926,12 +1926,12 @@ public class GerneralUtils {
     }
 
     /**
-     * »ñÈ¡±íÃû
+     * è·å–è¡¨å
      *
-     * @param targetClass Ä¿±êÀàĞÍ
-     * @param tablePrefix ±íÃûÇ°×º
-     * @param tableStuf   ±íÃûºó×º
-     * @param tableName   ÓÃ»§×Ô¶¨Òå±íÃû(µ±ÀàÃû³ÆºÍ±íÃû³ÆÃ»ÓĞ¹æÂÉÊ±ÇëÖ¸¶¨´Ë²ÎÊı)
+     * @param targetClass ç›®æ ‡ç±»å‹
+     * @param tablePrefix è¡¨åå‰ç¼€
+     * @param tableStuf   è¡¨ååç¼€
+     * @param tableName   ç”¨æˆ·è‡ªå®šä¹‰è¡¨å(å½“ç±»åç§°å’Œè¡¨åç§°æ²¡æœ‰è§„å¾‹æ—¶è¯·æŒ‡å®šæ­¤å‚æ•°)
      * @return
      */
     public static String getTableName(Class targetClass, String tablePrefix,
@@ -1950,10 +1950,10 @@ public class GerneralUtils {
     }
 
     /**
-     * Í³¼Æ¼¯ºÏÖĞÄ³ÔªËØ³öÏÖµÄ´ÎÊı
+     * ç»Ÿè®¡é›†åˆä¸­æŸå…ƒç´ å‡ºç°çš„æ¬¡æ•°
      *
-     * @param coll    ¼¯ºÏ
-     * @param element ¼¯ºÏÖĞÄ³Ò»ÔªËØ
+     * @param coll    é›†åˆ
+     * @param element é›†åˆä¸­æŸä¸€å…ƒç´ 
      * @return
      */
     public static int getOccurCountOfElInColl(Collection coll, Object element) {
@@ -1964,7 +1964,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ¸ù¾İvalue¶Ômap½øĞĞÅÅĞò
+     * æ ¹æ®valueå¯¹mapè¿›è¡Œæ’åº
      *
      * @param map
      */
@@ -1987,7 +1987,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ¸ù¾İvalue¶Ômap½øĞĞÅÅĞò(Ä¬ÈÏÉıĞò)
+     * æ ¹æ®valueå¯¹mapè¿›è¡Œæ’åº(é»˜è®¤å‡åº)
      *
      * @param map
      */
@@ -1996,7 +1996,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ²éÕÒÁ½¸ö×Ö·û´®×î´ó³¤¶ÈµÄÏàÍ¬²¿·Ö
+     * æŸ¥æ‰¾ä¸¤ä¸ªå­—ç¬¦ä¸²æœ€å¤§é•¿åº¦çš„ç›¸åŒéƒ¨åˆ†
      *
      * @param s1
      * @param s2
@@ -2027,7 +2027,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Ìæ»»HTML5µÄÎÄµµÉùÃ÷
+     * æ›¿æ¢HTML5çš„æ–‡æ¡£å£°æ˜
      *
      * @param html5
      * @return
@@ -2045,7 +2045,7 @@ public class GerneralUtils {
     }
 
     /**
-     * ¼¯ºÏ×ª»»³ÉÊı×é
+     * é›†åˆè½¬æ¢æˆæ•°ç»„
      *
      * @param collection
      * @return
@@ -2058,7 +2058,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Êı×é×ª»»³ÉList
+     * æ•°ç»„è½¬æ¢æˆList
      *
      * @param array
      * @return
@@ -2071,7 +2071,7 @@ public class GerneralUtils {
     }
 
     /**
-     * Êı×é×ª»»³ÉSet
+     * æ•°ç»„è½¬æ¢æˆSet
      *
      * @param array
      * @return
@@ -2084,11 +2084,11 @@ public class GerneralUtils {
     }
 
     /**
-     * ÌŞ³ı½áÎ²×Ö·û(Èç×îºóÒ»¸ö»»ĞĞ·û¡¢×îºóÒ»¸ö¶ººÅµÈµÈ)
+     * å‰”é™¤ç»“å°¾å­—ç¬¦(å¦‚æœ€åä¸€ä¸ªæ¢è¡Œç¬¦ã€æœ€åä¸€ä¸ªé€—å·ç­‰ç­‰)
      *
-     * @param str     ´ı´¦Àí×Ö·û´®
-     * @param regular ÕıÔò±í´ïÊ½
-     * @return ·µ»ØÌŞ³ıºóµÄ×Ö·û
+     * @param str     å¾…å¤„ç†å­—ç¬¦ä¸²
+     * @param regular æ­£åˆ™è¡¨è¾¾å¼
+     * @return è¿”å›å‰”é™¤åçš„å­—ç¬¦
      */
     public static String replaceEndsWith(String str, String regular) {
         if (isEmptyString(str)) {
@@ -2101,7 +2101,7 @@ public class GerneralUtils {
     }
 
     /*
-     * Éú³ÉËæ»úÎÄ¼şÃû 
+     * ç”Ÿæˆéšæœºæ–‡ä»¶å 
      */
     public static String gernerateRandomFilename() {
         Random rand = new Random();

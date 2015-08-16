@@ -6,7 +6,7 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 
 /**
- * ResponseÏìÓ¦Ìå°ü×°Æ÷
+ * Responseå“åº”ä½“åŒ…è£…å™¨
  *
  */
 public class Result {
@@ -15,15 +15,15 @@ public class Result {
      */
     private String cookie;
     /**
-     * ÏìÓ¦×´Ì¬Âë
+     * å“åº”çŠ¶æ€ç 
      */
     private int statusCode;
     /**
-     * ÏìÓ¦Í·ĞÅÏ¢
+     * å“åº”å¤´ä¿¡æ¯
      */
     private HashMap<String, Header> headerMap;
     /**
-     * ÏìÓ¦Ö÷Ìå¶ÔÏó
+     * å“åº”ä¸»ä½“å¯¹è±¡
      */
     private HttpEntity httpEntity;
 

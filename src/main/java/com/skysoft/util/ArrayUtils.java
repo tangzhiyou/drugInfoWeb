@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class ArrayUtils {
     /**
-     * Êı×éNµÈ·Ö
+     * æ•°ç»„Nç­‰åˆ†
      *
-     * @param arr            ´ı·Ö¸îÊı×é
-     * @param subArrayLength ×ÓÊı×éÔªËØ¸öÊı
+     * @param arr            å¾…åˆ†å‰²æ•°ç»„
+     * @param subArrayLength å­æ•°ç»„å…ƒç´ ä¸ªæ•°
      */
     public static Object[] splitArray(Object[] arr, int subArrayLength) {
         int start = 0;
@@ -56,7 +56,7 @@ public class ArrayUtils {
     }
 
     /**
-     * ºÏ²¢Á½¸öÊı×é
+     * åˆå¹¶ä¸¤ä¸ªæ•°ç»„
      *
      * @param arr1
      * @param arr2

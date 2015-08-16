@@ -6,16 +6,16 @@ import java.io.InputStream;
 import org.apache.http.HttpEntity;
 
 /**
- * ResponseÏìÓ¦¶ÔÏótoÎÄ¼şÁ÷´¦ÀíÆ÷
+ * Responseå“åº”å¯¹è±¡toæ–‡ä»¶æµå¤„ç†å™¨
  *
  */
 public class InputStreamEntityHandler implements EntityHandler<InputStream> {
     /**
-     * ÊÇ·ñ¿ªÆô¶ÏµãÏÂÔØÄ£Ê½
+     * æ˜¯å¦å¼€å¯æ–­ç‚¹ä¸‹è½½æ¨¡å¼
      */
     private boolean range;
     /**
-     * ÏìÓ¦×´Ì¬Âë
+     * å“åº”çŠ¶æ€ç 
      */
     private int statusCode;
 

@@ -61,53 +61,53 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 /**
- * HttpClient4¹¤¾ßÀà
+ * HttpClient4å·¥å…·ç±»
  *
  */
 @SuppressWarnings({"deprecation", "unused"})
 public class HttpClientUtils {
     /**
-     * Á¬½Ó³Ø×î´óÁ´½ÓÊı
+     * è¿æ¥æ± æœ€å¤§é“¾æ¥æ•°
      */
     private static final int MAX_TOTAL_CONNECTION = 500000;
     /**
-     * Á¬½Ó³ØÃ¿¸öÂ·ÓÉ×î´óÁ´½Ó²¢·¢Êı
+     * è¿æ¥æ± æ¯ä¸ªè·¯ç”±æœ€å¤§é“¾æ¥å¹¶å‘æ•°
      */
     private static final int MAX_PRE_ROUTE = 5000;
     /**
-     * Á¬½Ó³ØHTTPÇëÇó80¶Ë¿Ú×î´óÁ´½Ó²¢·¢Êı
+     * è¿æ¥æ± HTTPè¯·æ±‚80ç«¯å£æœ€å¤§é“¾æ¥å¹¶å‘æ•°
      */
     private static final int MAX_HTTP_ROUTE = 2000;
     /**
-     * ÓÃ»§ä¯ÀÀÆ÷´úÀí
+     * ç”¨æˆ·æµè§ˆå™¨ä»£ç†
      */
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0";
     /**
-     * Ä¬ÈÏÇëÇó±àÂëUTF-8
+     * é»˜è®¤è¯·æ±‚ç¼–ç UTF-8
      */
     private static final String HTTP_CONTENT_CHARSET = "UTF-8";
     /**
-     * Socket¶ÁÈ¡·µ»Ø³¬Ê±Ê±¼ä
+     * Socketè¯»å–è¿”å›è¶…æ—¶æ—¶é—´
      */
     private static final int SO_TIMEOUT = 3000000;
     /**
-     * Á´½Ó³¬Ê±Ê±¼ä
+     * é“¾æ¥è¶…æ—¶æ—¶é—´
      */
     public static final int CONNECT_TIMEOUT = 120000;
     /**
-     * »ñÈ¡Á¬½ÓµÄ×î´óµÈ´ıÊ±¼ä
+     * è·å–è¿æ¥çš„æœ€å¤§ç­‰å¾…æ—¶é—´
      */
     public static final int WAITING_TIMEOUT = 120000;
     /**
-     * Socket¹¤³§×¢²áÆ÷
+     * Socketå·¥å‚æ³¨å†Œå™¨
      */
     private static SchemeRegistry schemeRegistry;
     /**
-     * Á¬½Ó³Ø¹ÜÀíÆ÷
+     * è¿æ¥æ± ç®¡ç†å™¨
      */
     private static PoolingClientConnectionManager connectionManager;
 
-    /**HTTPÇëÇó²ÎÊı*/
+    /**HTTPè¯·æ±‚å‚æ•°*/
     //private static HttpParams httpParams;
 
     static {
@@ -116,29 +116,29 @@ public class HttpClientUtils {
     }
 
     /**
-     * Òì³£×Ô¶¯»Ö¸´´¦Àí, Ê¹ÓÃHttpRequestRetryHandler½Ó¿ÚÊµÏÖÇëÇóµÄÒì³£»Ö¸´
+     * å¼‚å¸¸è‡ªåŠ¨æ¢å¤å¤„ç†, ä½¿ç”¨HttpRequestRetryHandleræ¥å£å®ç°è¯·æ±‚çš„å¼‚å¸¸æ¢å¤
      */
     private static HttpRequestRetryHandler requestRetryHandler = new HttpRequestRetryHandler() {
-        // ×Ô¶¨ÒåµÄ»Ö¸´²ßÂÔ
+        // è‡ªå®šä¹‰çš„æ¢å¤ç­–ç•¥
         public boolean retryRequest(IOException exception, int executionCount,
                                     HttpContext context) {
-            // ÉèÖÃ»Ö¸´²ßÂÔ£¬ÔÚ·¢ÉúÒì³£Ê±ºò½«×Ô¶¯ÖØÊÔ5´Î
+            // è®¾ç½®æ¢å¤ç­–ç•¥ï¼Œåœ¨å‘ç”Ÿå¼‚å¸¸æ—¶å€™å°†è‡ªåŠ¨é‡è¯•5æ¬¡
             if (executionCount >= 5) {
-                // Èç¹ûÁ¬½Ó´ÎÊı³¬¹ıÁË×î´óÖµÔòÍ£Ö¹ÖØÊÔ
+                // å¦‚æœè¿æ¥æ¬¡æ•°è¶…è¿‡äº†æœ€å¤§å€¼åˆ™åœæ­¢é‡è¯•
                 return false;
             }
             if (exception instanceof NoHttpResponseException) {
-                // Èç¹û·şÎñÆ÷Á¬½ÓÊ§°ÜÖØÊÔ
+                // å¦‚æœæœåŠ¡å™¨è¿æ¥å¤±è´¥é‡è¯•
                 return true;
             }
             if (exception instanceof SSLHandshakeException) {
-                //SSLÁ¬½ÓÒì³£ Ê±²»ÖØÊÔ
+                //SSLè¿æ¥å¼‚å¸¸ æ—¶ä¸é‡è¯•
                 return false;
             }
             HttpRequest request = (HttpRequest) context.getAttribute(ExecutionContext.HTTP_REQUEST);
             boolean idempotent = (request instanceof HttpEntityEnclosingRequest);
             if (!idempotent) {
-                // ÇëÇóÄÚÈİÏàÍ¬ÔòÖØÊÔ
+                // è¯·æ±‚å†…å®¹ç›¸åŒåˆ™é‡è¯•
                 return true;
             }
             return false;
@@ -146,7 +146,7 @@ public class HttpClientUtils {
     };
 
     /**
-     * ÖØĞ´ÑéÖ¤·½·¨£¬È¡Ïû¼ì²âssl
+     * é‡å†™éªŒè¯æ–¹æ³•ï¼Œå–æ¶ˆæ£€æµ‹ssl
      */
     private static TrustManager truseAllManager = new X509TrustManager() {
         public void checkClientTrusted(java.security.cert.X509Certificate[] arg0, String arg1) throws CertificateException {
@@ -161,12 +161,12 @@ public class HttpClientUtils {
     };
 
     /**
-     * Ö§³Ö·ÃÎÊhttpsµÄÍøÕ¾
+     * æ”¯æŒè®¿é—®httpsçš„ç½‘ç«™
      *
      * @param httpclient
      */
     private static void enableSSL(DefaultHttpClient httpclient) {
-        //µ÷ÓÃSSL
+        //è°ƒç”¨SSL
         try {
             SSLContext sslcontext = SSLContext.getInstance("TLS");
             sslcontext.init(null, new TrustManager[]{truseAllManager}, null);
@@ -180,42 +180,42 @@ public class HttpClientUtils {
     }
 
     /**
-     * ÉèÖÃHTTPÇëÇóÁ´½Ó²ÎÊı
+     * è®¾ç½®HTTPè¯·æ±‚é“¾æ¥å‚æ•°
      */
     private static void setHttpParams(HttpParams httpParams, String charset) {
         if (null == httpParams) {
             return;
         }
-        // ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä
+        // è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´
         HttpConnectionParams.setConnectionTimeout(httpParams, CONNECT_TIMEOUT);
-        // ÉèÖÃ¶ÁÈ¡³¬Ê±Ê±¼ä
+        // è®¾ç½®è¯»å–è¶…æ—¶æ—¶é—´
         HttpConnectionParams.setSoTimeout(httpParams, SO_TIMEOUT);
-        // Ä£Äâä¯ÀÀÆ÷£¬½â¾öÒ»Ğ©·şÎñÆ÷³ÌĞòÖ»ÔÊĞíä¯ÀÀÆ÷·ÃÎÊµÄÎÊÌâ
+        // æ¨¡æ‹Ÿæµè§ˆå™¨ï¼Œè§£å†³ä¸€äº›æœåŠ¡å™¨ç¨‹åºåªå…è®¸æµè§ˆå™¨è®¿é—®çš„é—®é¢˜
         httpParams.setParameter(CoreProtocolPNames.USER_AGENT, USER_AGENT);
         httpParams.setParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
         httpParams.setParameter(CoreProtocolPNames.HTTP_CONTENT_CHARSET, charset == null ? HTTP_CONTENT_CHARSET : charset);
-        //½ûÖ¹×Ô¶¯ÖØ¶¨Ïò
+        //ç¦æ­¢è‡ªåŠ¨é‡å®šå‘
         httpParams.setParameter(ClientPNames.HANDLE_REDIRECTS, false);
-        // ä¯ÀÀÆ÷Cookie¼æÈİĞÔ
+        // æµè§ˆå™¨Cookieå…¼å®¹æ€§
         httpParams.setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
-        // ÉèÖÃ×î´óÁ¬½ÓÊı
+        // è®¾ç½®æœ€å¤§è¿æ¥æ•°
         ConnManagerParams.setMaxTotalConnections(httpParams, MAX_TOTAL_CONNECTION);
-        // ÉèÖÃ»ñÈ¡Á¬½ÓµÄ×î´óµÈ´ıÊ±¼ä
+        // è®¾ç½®è·å–è¿æ¥çš„æœ€å¤§ç­‰å¾…æ—¶é—´
         ConnManagerParams.setTimeout(httpParams, WAITING_TIMEOUT);
-        // ÉèÖÃÃ¿¸öÂ·ÓÉ×î´óÁ¬½ÓÊı
+        // è®¾ç½®æ¯ä¸ªè·¯ç”±æœ€å¤§è¿æ¥æ•°
         ConnPerRouteBean connPerRoute = new ConnPerRouteBean(MAX_PRE_ROUTE);
         ConnManagerParams.setMaxConnectionsPerRoute(httpParams, connPerRoute);
     }
 
     /**
-     * ÉèÖÃHTTPÇëÇóÁ´½Ó²ÎÊı
+     * è®¾ç½®HTTPè¯·æ±‚é“¾æ¥å‚æ•°
      */
     private static void setHttpParams(HttpParams httpParams) {
         setHttpParams(httpParams, HTTP_CONTENT_CHARSET);
     }
 
     /**
-     * Socket¹¤³§×¢²á
+     * Socketå·¥å‚æ³¨å†Œ
      *
      * @return
      */
@@ -229,7 +229,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ´´½¨Á¬½Ó³Ø
+     * åˆ›å»ºè¿æ¥æ± 
      *
      * @param schemeRegistry
      * @return
@@ -246,7 +246,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ´´½¨HttpClientÊµÀı
+     * åˆ›å»ºHttpClientå®ä¾‹
      *
      * @param charset
      * @return
@@ -255,13 +255,13 @@ public class HttpClientUtils {
         DefaultHttpClient httpClient = new DefaultHttpClient(connectionManager);
         HttpParams httpParams = httpClient.getParams();
         setHttpParams(httpParams, charset);
-        //¶¨ÒåÖØÊÔ²ßÂÔ
+        //å®šä¹‰é‡è¯•ç­–ç•¥
         httpClient.setHttpRequestRetryHandler(requestRetryHandler);
         return httpClient;
     }
 
     /**
-     * ´´½¨HttpClientÊµÀı
+     * åˆ›å»ºHttpClientå®ä¾‹
      *
      * @param charset
      * @return
@@ -271,9 +271,9 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍgetÇëÇó(ÖØÔØ1)
+     * å‘é€getè¯·æ±‚(é‡è½½1)
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -283,10 +283,10 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍgetÇëÇó(ÖØÔØ2)
+     * å‘é€getè¯·æ±‚(é‡è½½2)
      *
-     * @param url    ÇëÇóURL
-     * @param params ÇëÇó²ÎÊı
+     * @param url    è¯·æ±‚URL
+     * @param params è¯·æ±‚å‚æ•°
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -296,11 +296,11 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍgetÇëÇó(ÖØÔØ3)
+     * å‘é€getè¯·æ±‚(é‡è½½3)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -310,13 +310,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍgetÇëÇó
+     * å‘é€getè¯·æ±‚
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
-     * @param host    ´úÀíÖ÷»úIP
-     * @param port    ´úÀí¶Ë¿ÚºÅ
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
+     * @param host    ä»£ç†ä¸»æœºIP
+     * @param port    ä»£ç†ç«¯å£å·
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -325,15 +325,15 @@ public class HttpClientUtils {
         DefaultHttpClient httpClient = getDefaultHttpClient();
         url = url + (null == params ? "" : assemblyParameter(params));
         HttpGet httpGet = new HttpGet(url);
-        //ÅĞ¶ÏÊÇ·ñÊÇhttpsÇëÇó
+        //åˆ¤æ–­æ˜¯å¦æ˜¯httpsè¯·æ±‚
         if (url.startsWith("https")) {
             enableSSL(httpClient);
         }
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (null != headers) {
             httpGet.setHeaders(assemblyHeader(headers));
         }
-        //ÉèÖÃÇëÇó´úÀí
+        //è®¾ç½®è¯·æ±‚ä»£ç†
         if (null != host && host.equals("")) {
             httpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(host, port));
         }
@@ -341,24 +341,24 @@ public class HttpClientUtils {
         BufferedHttpEntity entity = new BufferedHttpEntity(response.getEntity());
 
         Result result = new Result();
-        //ÉèÖÃ·µ»ØµÄcookie
+        //è®¾ç½®è¿”å›çš„cookie
         result.setCookie(assemblyCookie(httpClient.getCookieStore().getCookies()));
-        //ÉèÖÃÏìÓ¦×´Ì¬Âë
+        //è®¾ç½®å“åº”çŠ¶æ€ç 
         result.setStatusCode(response.getStatusLine().getStatusCode());
-        //ÉèÖÃÏìÓ¦Í·ĞÅÏ¢
+        //è®¾ç½®å“åº”å¤´ä¿¡æ¯
         result.setHeaders(response.getAllHeaders());
-        //ÉèÖÃÏìÓ¦Ìå
+        //è®¾ç½®å“åº”ä½“
         result.setHttpEntity(entity);
-        //¶Ï¿ªÇëÇó
+        //æ–­å¼€è¯·æ±‚
         httpGet.abort();
         httpGet.releaseConnection();
         return result;
     }
 
     /**
-     * ·¢ËÍpostÇëÇó(ÖØÔØ1)
+     * å‘é€postè¯·æ±‚(é‡è½½1)
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -368,10 +368,10 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍpostÇëÇó(ÖØÔØ2)
+     * å‘é€postè¯·æ±‚(é‡è½½2)
      *
-     * @param url    ÇëÇóURL
-     * @param params ÇëÇó²ÎÊı
+     * @param url    è¯·æ±‚URL
+     * @param params è¯·æ±‚å‚æ•°
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -381,11 +381,11 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍpostÇëÇó(ÖØÔØ3)
+     * å‘é€postè¯·æ±‚(é‡è½½3)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -395,13 +395,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍpostÇëÇó(ÖØÔØ4)
+     * å‘é€postè¯·æ±‚(é‡è½½4)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
-     * @param host    ´úÀíÖ÷»úIP
-     * @param port    ´úÀí¶Ë¿ÚºÅ
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
+     * @param host    ä»£ç†ä¸»æœºIP
+     * @param port    ä»£ç†ç«¯å£å·
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -411,14 +411,14 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍpostÇëÇó
+     * å‘é€postè¯·æ±‚
      *
-     * @param url      ÇëÇóURL
-     * @param headers  ÇëÇóÍ·ĞÅÏ¢
-     * @param params   ÇëÇó²ÎÊı
-     * @param host     ´úÀíÖ÷»úIP
-     * @param port     ´úÀí¶Ë¿ÚºÅ
-     * @param encoding ÇëÇó±àÂë
+     * @param url      è¯·æ±‚URL
+     * @param headers  è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params   è¯·æ±‚å‚æ•°
+     * @param host     ä»£ç†ä¸»æœºIP
+     * @param port     ä»£ç†ç«¯å£å·
+     * @param encoding è¯·æ±‚ç¼–ç 
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -426,19 +426,19 @@ public class HttpClientUtils {
     public static Result post(String url, Map<String, String> headers, Map<String, String> params, String host, int port, String encoding) throws ClientProtocolException, IOException {
         DefaultHttpClient httpClient = getDefaultHttpClient();
         HttpPost httpPost = new HttpPost(url);
-        //ÅĞ¶ÏÊÇ·ñÊÇhttpsÇëÇó
+        //åˆ¤æ–­æ˜¯å¦æ˜¯httpsè¯·æ±‚
         if (url.startsWith("https")) {
             enableSSL(httpClient);
         }
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (null != headers) {
             httpPost.setHeaders(assemblyHeader(headers));
         }
-        //ÉèÖÃÇëÇó´úÀí
+        //è®¾ç½®è¯·æ±‚ä»£ç†
         if (null != host && host.equals("")) {
             httpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(host, port));
         }
-        //ÉèÖÃÇëÇó²ÎÊı
+        //è®¾ç½®è¯·æ±‚å‚æ•°
         if (GerneralUtils.isNotEmptyMap(params)) {
             List<NameValuePair> list = new ArrayList<NameValuePair>();
             for (String temp : params.keySet()) {
@@ -450,13 +450,13 @@ public class HttpClientUtils {
         BufferedHttpEntity entity = new BufferedHttpEntity(response.getEntity());
 
         Result result = new Result();
-        //ÉèÖÃ·µ»ØµÄcookie
+        //è®¾ç½®è¿”å›çš„cookie
         result.setCookie(assemblyCookie(httpClient.getCookieStore().getCookies()));
-        //ÉèÖÃÏìÓ¦×´Ì¬Âë
+        //è®¾ç½®å“åº”çŠ¶æ€ç 
         result.setStatusCode(response.getStatusLine().getStatusCode());
-        //ÉèÖÃÏìÓ¦Í·ĞÅÏ¢
+        //è®¾ç½®å“åº”å¤´ä¿¡æ¯
         result.setHeaders(response.getAllHeaders());
-        //ÉèÖÃÏìÓ¦Ìå
+        //è®¾ç½®å“åº”ä½“
         result.setHttpEntity(entity);
         httpPost.abort();
         httpPost.releaseConnection();
@@ -464,38 +464,38 @@ public class HttpClientUtils {
     }
 
     /**
-     * ·¢ËÍPOSTÇëÇó²¢Ö§³ÖÎÄ¼şÅúÁ¿ÉÏ´«
+     * å‘é€POSTè¯·æ±‚å¹¶æ”¯æŒæ–‡ä»¶æ‰¹é‡ä¸Šä¼ 
      *
-     * @param requestParams ÇëÇó²ÎÊı°ü×°Æ÷
+     * @param requestParams è¯·æ±‚å‚æ•°åŒ…è£…å™¨
      * @return
      * @throws IOException
      * @throws ClientProtocolException
      */
     public static Result postWithFileUpload(RequestParamsBeanWrapper requestParams) throws ClientProtocolException, IOException {
         DefaultHttpClient httpClient = getDefaultHttpClient();
-        //ÉèÖÃÆÕÍ¨±íµ¥ÇëÇó²ÎÊı
+        //è®¾ç½®æ™®é€šè¡¨å•è¯·æ±‚å‚æ•°
         MultipartEntity reqEntity = new MultipartEntity();
         if (GerneralUtils.isNotEmptyMap(requestParams.getParams())) {
             for (String key : requestParams.getParams().keySet()) {
                 reqEntity.addPart(key, new StringBody(requestParams.getParams().get(key), "text/plain", Charset.forName(requestParams.getEncoding())));
             }
         }
-        //ÉèÖÃÎÄ¼şÓò²ÎÊı
+        //è®¾ç½®æ–‡ä»¶åŸŸå‚æ•°
         if (GerneralUtils.isNotEmptyCollection(requestParams.getFileParams())) {
             for (String file : requestParams.getFileParams()) {
                 reqEntity.addPart(requestParams.getFileFormName(), new FileBody(new File(file)));
             }
         }
         HttpPost httpPost = new HttpPost(requestParams.getUrl());
-        //ÅĞ¶ÏÊÇ·ñÊÇhttpsÇëÇó
+        //åˆ¤æ–­æ˜¯å¦æ˜¯httpsè¯·æ±‚
         if (requestParams.getUrl().startsWith("https")) {
             enableSSL(httpClient);
         }
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (null != requestParams.getHeaders()) {
             httpPost.setHeaders(assemblyHeader(requestParams.getHeaders()));
         }
-        //ÉèÖÃÇëÇó´úÀí
+        //è®¾ç½®è¯·æ±‚ä»£ç†
         if (null != requestParams.getHost() && requestParams.getHost().equals("")) {
             httpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(requestParams.getHost(), requestParams.getPort()));
         }
@@ -504,13 +504,13 @@ public class HttpClientUtils {
         BufferedHttpEntity entity = new BufferedHttpEntity(response.getEntity());
 
         Result result = new Result();
-        //ÉèÖÃ·µ»ØµÄcookie
+        //è®¾ç½®è¿”å›çš„cookie
         result.setCookie(assemblyCookie(httpClient.getCookieStore().getCookies()));
-        //ÉèÖÃÏìÓ¦×´Ì¬Âë
+        //è®¾ç½®å“åº”çŠ¶æ€ç 
         result.setStatusCode(response.getStatusLine().getStatusCode());
-        //ÉèÖÃÏìÓ¦Í·ĞÅÏ¢
+        //è®¾ç½®å“åº”å¤´ä¿¡æ¯
         result.setHeaders(response.getAllHeaders());
-        //ÉèÖÃÏìÓ¦Ìå
+        //è®¾ç½®å“åº”ä½“
         result.setHttpEntity(entity);
         httpPost.abort();
         httpPost.releaseConnection();
@@ -518,7 +518,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ×é×°ÇëÇóÍ·ĞÅÏ¢
+     * ç»„è£…è¯·æ±‚å¤´ä¿¡æ¯
      *
      * @param headers
      * @return
@@ -534,7 +534,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ×é×°Cookie
+     * ç»„è£…Cookie
      *
      * @param cookies
      * @return
@@ -551,7 +551,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ×é×°ÇëÇó²ÎÊı
+     * ç»„è£…è¯·æ±‚å‚æ•°
      *
      * @param parameters
      * @return
@@ -569,7 +569,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
      * @param url
      * @return
@@ -581,7 +581,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
      * @param url
      * @return
@@ -593,7 +593,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
      * @param url
      * @return
@@ -612,7 +612,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
      * @param url
      * @return
@@ -624,11 +624,11 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
-     * @param url  ÇëÇóµØÖ·
-     * @param host ´úÀí·şÎñÆ÷Ö÷»úIP
-     * @param port ¶Ë¿ÚºÅ
+     * @param url  è¯·æ±‚åœ°å€
+     * @param host ä»£ç†æœåŠ¡å™¨ä¸»æœºIP
+     * @param port ç«¯å£å·
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -645,11 +645,11 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ä¬ÈÏget·½Ê½)
+     * è·å–HTMLå†…å®¹(é»˜è®¤getæ–¹å¼)
      *
-     * @param url  ÇëÇóµØÖ·
-     * @param host ´úÀí·şÎñÆ÷Ö÷»úIP
-     * @param port ¶Ë¿ÚºÅ
+     * @param url  è¯·æ±‚åœ°å€
+     * @param host ä»£ç†æœåŠ¡å™¨ä¸»æœºIP
+     * @param port ç«¯å£å·
      * @return
      * @throws ClientProtocolException
      * @throws IOException
@@ -660,7 +660,7 @@ public class HttpClientUtils {
 
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ
+     * è·å–HTMLå†…å®¹
      *
      * @param url
      * @param isGet get/post
@@ -680,7 +680,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ
+     * è·å–HTMLå†…å®¹
      *
      * @param url
      * @param isGet get/post
@@ -700,7 +700,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ
+     * è·å–HTMLå†…å®¹
      *
      * @param url
      * @param isGet get/post
@@ -713,7 +713,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ìí¼Ó×Ô¶¯ÖØÁ¬»úÖÆ)
+     * è·å–HTMLå†…å®¹(æ·»åŠ è‡ªåŠ¨é‡è¿æœºåˆ¶)
      *
      * @param url
      * @param headers
@@ -727,7 +727,7 @@ public class HttpClientUtils {
         int count = 0;
         while (flag) {
             try {
-                //³¬¹ı×î´óÖØÁ¬´ÎÊıÔòÍ£Ö¹
+                //è¶…è¿‡æœ€å¤§é‡è¿æ¬¡æ•°åˆ™åœæ­¢
                 if (count > retryCount) {
                     break;
                 }
@@ -758,7 +758,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ìí¼Ó×Ô¶¯ÖØÁ¬»úÖÆ)
+     * è·å–HTMLå†…å®¹(æ·»åŠ è‡ªåŠ¨é‡è¿æœºåˆ¶)
      *
      * @param url
      * @param headers
@@ -771,8 +771,8 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ìí¼Ó×Ô¶¯ÖØÁ¬»úÖÆ)
-     * ²»Ö¸¶¨ÖØÊÔ´ÎÊı£¬Ä¬ÈÏ×Ô¶¯ÖØÊÔ15´Î
+     * è·å–HTMLå†…å®¹(æ·»åŠ è‡ªåŠ¨é‡è¿æœºåˆ¶)
+     * ä¸æŒ‡å®šé‡è¯•æ¬¡æ•°ï¼Œé»˜è®¤è‡ªåŠ¨é‡è¯•15æ¬¡
      *
      * @param url
      * @param headers
@@ -785,7 +785,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ìí¼Ó×Ô¶¯ÖØÁ¬»úÖÆ)
+     * è·å–HTMLå†…å®¹(æ·»åŠ è‡ªåŠ¨é‡è¿æœºåˆ¶)
      *
      * @param url
      * @param headers
@@ -798,8 +798,8 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡HTMLÄÚÈİ(Ìí¼Ó×Ô¶¯ÖØÁ¬»úÖÆ)
-     * ²»Ö¸¶¨ÖØÊÔ´ÎÊı£¬Ä¬ÈÏ×Ô¶¯ÖØÊÔ15´Î
+     * è·å–HTMLå†…å®¹(æ·»åŠ è‡ªåŠ¨é‡è¿æœºåˆ¶)
+     * ä¸æŒ‡å®šé‡è¯•æ¬¡æ•°ï¼Œé»˜è®¤è‡ªåŠ¨é‡è¯•15æ¬¡
      *
      * @param url
      * @param headers
@@ -812,13 +812,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * Í¨¹ıSelenium¿â»ñÈ¡HTMLÒ³ÃæÄÚÈİ
-     * (×¢Òâ£ºÇë×ÔĞĞµ÷ÓÃdriver¶ÔÏóµÄcloseº¯ÊıÊÍ·Å×ÊÔ´)
-     * (Ö÷ÒªÊÊÓÃÓÚÒ³ÃæÄÚÈİ²ÉÓÃÁËAjax¼¼Êõ¼ÓÔØµÄÇé¿ö£¬Î¨Ò»È±Ïİ¾ÍÊÇÏìÓ¦ËÙ¶ÈºÜÂı)
+     * é€šè¿‡Seleniumåº“è·å–HTMLé¡µé¢å†…å®¹
+     * (æ³¨æ„ï¼šè¯·è‡ªè¡Œè°ƒç”¨driverå¯¹è±¡çš„closeå‡½æ•°é‡Šæ”¾èµ„æº)
+     * (ä¸»è¦é€‚ç”¨äºé¡µé¢å†…å®¹é‡‡ç”¨äº†AjaxæŠ€æœ¯åŠ è½½çš„æƒ…å†µï¼Œå”¯ä¸€ç¼ºé™·å°±æ˜¯å“åº”é€Ÿåº¦å¾ˆæ…¢)
      *
      * @param driver
-     * @param url              ÇëÇóÁ´½Ó
-     * @param enableJavaScript ÊÇ·ñÆôÓÃJavaScript¼´ÊÇ·ñÖ§³ÖAjax
+     * @param url              è¯·æ±‚é“¾æ¥
+     * @param enableJavaScript æ˜¯å¦å¯ç”¨JavaScriptå³æ˜¯å¦æ”¯æŒAjax
      * @return
      */
     public static String getHTMLBySelenium(WebDriver driver, String url, boolean enableJavaScript) {
@@ -828,13 +828,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * Í¨¹ıSelenium¿â»ñÈ¡HTMLÒ³ÃæÄÚÈİ(ÖØÔØ)
-     * (×¢Òâ£ºÇë×ÔĞĞµ÷ÓÃdriver¶ÔÏóµÄcloseº¯ÊıÊÍ·Å×ÊÔ´)
-     * (Ö÷ÒªÊÊÓÃÓÚÒ³ÃæÄÚÈİ²ÉÓÃÁËAjax¼¼Êõ¼ÓÔØµÄÇé¿ö£¬Î¨Ò»È±Ïİ¾ÍÊÇÏìÓ¦ËÙ¶ÈºÜÂı)
+     * é€šè¿‡Seleniumåº“è·å–HTMLé¡µé¢å†…å®¹(é‡è½½)
+     * (æ³¨æ„ï¼šè¯·è‡ªè¡Œè°ƒç”¨driverå¯¹è±¡çš„closeå‡½æ•°é‡Šæ”¾èµ„æº)
+     * (ä¸»è¦é€‚ç”¨äºé¡µé¢å†…å®¹é‡‡ç”¨äº†AjaxæŠ€æœ¯åŠ è½½çš„æƒ…å†µï¼Œå”¯ä¸€ç¼ºé™·å°±æ˜¯å“åº”é€Ÿåº¦å¾ˆæ…¢)
      *
      * @param driver
-     * @param url              ÇëÇóÁ´½Ó
-     * @param enableJavaScript ÊÇ·ñÆôÓÃJavaScript¼´ÊÇ·ñÖ§³ÖAjax
+     * @param url              è¯·æ±‚é“¾æ¥
+     * @param enableJavaScript æ˜¯å¦å¯ç”¨JavaScriptå³æ˜¯å¦æ”¯æŒAjax
      * @return
      */
     public static String getHTMLBySelenium(WebDriver driver, String url) {
@@ -842,31 +842,31 @@ public class HttpClientUtils {
     }
 
     /**
-     * Í¨¹ıSelenium¿â»ñÈ¡HTMLÒ³ÃæÄÚÈİ
-     * (Ö÷ÒªÊÊÓÃÓÚÒ³ÃæÄÚÈİ²ÉÓÃÁËAjax¼¼Êõ¼ÓÔØµÄÇé¿ö£¬Î¨Ò»È±Ïİ¾ÍÊÇÏìÓ¦ËÙ¶ÈºÜÂı)
+     * é€šè¿‡Seleniumåº“è·å–HTMLé¡µé¢å†…å®¹
+     * (ä¸»è¦é€‚ç”¨äºé¡µé¢å†…å®¹é‡‡ç”¨äº†AjaxæŠ€æœ¯åŠ è½½çš„æƒ…å†µï¼Œå”¯ä¸€ç¼ºé™·å°±æ˜¯å“åº”é€Ÿåº¦å¾ˆæ…¢)
      *
-     * @param url              ÇëÇóÁ´½Ó
-     * @param enableJavaScript ÊÇ·ñÆôÓÃJavaScript¼´ÊÇ·ñÖ§³ÖAjax
+     * @param url              è¯·æ±‚é“¾æ¥
+     * @param enableJavaScript æ˜¯å¦å¯ç”¨JavaScriptå³æ˜¯å¦æ”¯æŒAjax
      * @return
      */
     public static String getHTMLBySelenium(String url, boolean enableJavaScript) {
         WebDriver driver = new HtmlUnitDriver(enableJavaScript);
         //WebDriver driver = new FirefoxDriver();
-        //¿ªÊ¼ÇëÇó
+        //å¼€å§‹è¯·æ±‚
         driver.get(url);
         String html = driver.getPageSource();
-        //ÊÍ·Å×ÊÔ´
+        //é‡Šæ”¾èµ„æº
         driver.quit();
         //driver.close();
         return html;
     }
 
     /**
-     * Í¨¹ıSelenium¿â»ñÈ¡HTMLÒ³ÃæÄÚÈİ(ÖØÔØ)
-     * (Ö÷ÒªÊÊÓÃÓÚÒ³ÃæÄÚÈİ²ÉÓÃÁËAjax¼¼Êõ¼ÓÔØµÄÇé¿ö£¬Î¨Ò»È±Ïİ¾ÍÊÇÏìÓ¦ËÙ¶ÈºÜÂı)
-     * (Ä¬ÈÏ½ûÓÃJavaScript¼´²»Ö´ĞĞÒ³ÃæÉÏµ¼ÈëµÄJavascript)
+     * é€šè¿‡Seleniumåº“è·å–HTMLé¡µé¢å†…å®¹(é‡è½½)
+     * (ä¸»è¦é€‚ç”¨äºé¡µé¢å†…å®¹é‡‡ç”¨äº†AjaxæŠ€æœ¯åŠ è½½çš„æƒ…å†µï¼Œå”¯ä¸€ç¼ºé™·å°±æ˜¯å“åº”é€Ÿåº¦å¾ˆæ…¢)
+     * (é»˜è®¤ç¦ç”¨JavaScriptå³ä¸æ‰§è¡Œé¡µé¢ä¸Šå¯¼å…¥çš„Javascript)
      *
-     * @param url ÇëÇóÁ´½Ó
+     * @param url è¯·æ±‚é“¾æ¥
      * @return
      */
     public static String getHTMLBySelenium(String url) {
@@ -874,10 +874,10 @@ public class HttpClientUtils {
     }
 
     /**
-     * Í¨¹ıSelenium¿âÅúÁ¿»ñÈ¡HTMLÒ³ÃæÄÚÈİ
+     * é€šè¿‡Seleniumåº“æ‰¹é‡è·å–HTMLé¡µé¢å†…å®¹
      *
-     * @param urls             HTMLÒ³ÃæÁ´½Ó¼¯ºÏ
-     * @param enableJavaScript ÊÇ·ñÆôÓÃJavaScript
+     * @param urls             HTMLé¡µé¢é“¾æ¥é›†åˆ
+     * @param enableJavaScript æ˜¯å¦å¯ç”¨JavaScript
      * @return
      */
     public static List<String> getHTMLBySelenium(Collection<String> urls, boolean enableJavaScript) {
@@ -896,9 +896,9 @@ public class HttpClientUtils {
     }
 
     /**
-     * Í¨¹ıSelenium¿âÅúÁ¿»ñÈ¡HTMLÒ³ÃæÄÚÈİ(ÖØÔØ)
+     * é€šè¿‡Seleniumåº“æ‰¹é‡è·å–HTMLé¡µé¢å†…å®¹(é‡è½½)
      *
-     * @param urls HTMLÒ³ÃæÁ´½Ó¼¯ºÏ
+     * @param urls HTMLé¡µé¢é“¾æ¥é›†åˆ
      * @return
      */
     public static List<String> getHTMLBySelenium(Collection<String> urls) {
@@ -906,12 +906,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡×Ö½ÚÊı×é
-     * (Èô²ÉÓÃGET·½Ê½ÇÒÇëÇó²ÎÊıÎ´Ö¸¶¨,Çë×ÔĞĞ°ÑÇëÇó²ÎÊıÆ´½ÓÖÁURLºóÃæ,Èç£ºhttp://www.xxxx.com?id=xx&page=xx)
+     * è·å–å­—èŠ‚æ•°ç»„
+     * (è‹¥é‡‡ç”¨GETæ–¹å¼ä¸”è¯·æ±‚å‚æ•°æœªæŒ‡å®š,è¯·è‡ªè¡ŒæŠŠè¯·æ±‚å‚æ•°æ‹¼æ¥è‡³URLåé¢,å¦‚ï¼šhttp://www.xxxx.com?id=xx&page=xx)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @param isGet   GET/POST
      * @return
      * @throws IOException
@@ -929,13 +929,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡×Ö½ÚÊı×é
-     * (Ä¬ÈÏ²ÉÓÃGET·½Ê½·¢ËÍHTTPÇëÇó)
-     * (Èô²ÉÓÃGET·½Ê½ÇÒÇëÇó²ÎÊıÎ´Ö¸¶¨,Çë×ÔĞĞ°ÑÇëÇó²ÎÊıÆ´½ÓÖÁURLºóÃæ,Èç£ºhttp://www.xxxx.com?id=xx&page=xx)
+     * è·å–å­—èŠ‚æ•°ç»„
+     * (é»˜è®¤é‡‡ç”¨GETæ–¹å¼å‘é€HTTPè¯·æ±‚)
+     * (è‹¥é‡‡ç”¨GETæ–¹å¼ä¸”è¯·æ±‚å‚æ•°æœªæŒ‡å®š,è¯·è‡ªè¡ŒæŠŠè¯·æ±‚å‚æ•°æ‹¼æ¥è‡³URLåé¢,å¦‚ï¼šhttp://www.xxxx.com?id=xx&page=xx)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -945,13 +945,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡×Ö½ÚÊı×é
-     * (Ä¬ÈÏ²ÉÓÃGET·½Ê½·¢ËÍHTTPÇëÇó)
-     * (Èô²ÉÓÃGET·½Ê½ÇÒÇëÇó²ÎÊıÎ´Ö¸¶¨,Çë×ÔĞĞ°ÑÇëÇó²ÎÊıÆ´½ÓÖÁURLºóÃæ,Èç£ºhttp://www.xxxx.com?id=xx&page=xx)
+     * è·å–å­—èŠ‚æ•°ç»„
+     * (é»˜è®¤é‡‡ç”¨GETæ–¹å¼å‘é€HTTPè¯·æ±‚)
+     * (è‹¥é‡‡ç”¨GETæ–¹å¼ä¸”è¯·æ±‚å‚æ•°æœªæŒ‡å®š,è¯·è‡ªè¡ŒæŠŠè¯·æ±‚å‚æ•°æ‹¼æ¥è‡³URLåé¢,å¦‚ï¼šhttp://www.xxxx.com?id=xx&page=xx)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -961,13 +961,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡×Ö½ÚÊı×é
-     * (Ä¬ÈÏ²ÉÓÃGET·½Ê½·¢ËÍHTTPÇëÇó)
-     * (Èô²ÉÓÃGET·½Ê½ÇÒÇëÇó²ÎÊıÎ´Ö¸¶¨,Çë×ÔĞĞ°ÑÇëÇó²ÎÊıÆ´½ÓÖÁURLºóÃæ,Èç£ºhttp://www.xxxx.com?id=xx&page=xx)
+     * è·å–å­—èŠ‚æ•°ç»„
+     * (é»˜è®¤é‡‡ç”¨GETæ–¹å¼å‘é€HTTPè¯·æ±‚)
+     * (è‹¥é‡‡ç”¨GETæ–¹å¼ä¸”è¯·æ±‚å‚æ•°æœªæŒ‡å®š,è¯·è‡ªè¡ŒæŠŠè¯·æ±‚å‚æ•°æ‹¼æ¥è‡³URLåé¢,å¦‚ï¼šhttp://www.xxxx.com?id=xx&page=xx)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -977,13 +977,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
+     * è·å–è¾“å…¥æµ
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1000,13 +1000,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
+     * è·å–è¾“å…¥æµ
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1016,14 +1016,14 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
-     * (Ä¬ÈÏGET·½Ê½¡¢Ä¬ÈÏ¶ÏµãÄ£Ê½¹Ø±Õ)
+     * è·å–è¾“å…¥æµ
+     * (é»˜è®¤GETæ–¹å¼ã€é»˜è®¤æ–­ç‚¹æ¨¡å¼å…³é—­)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
-     * @param params  ÇëÇó²ÎÊı
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
+     * @param params  è¯·æ±‚å‚æ•°
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1033,13 +1033,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
-     * (Ä¬ÈÏGET·½Ê½¡¢Ä¬ÈÏ¶ÏµãÄ£Ê½¹Ø±Õ)
+     * è·å–è¾“å…¥æµ
+     * (é»˜è®¤GETæ–¹å¼ã€é»˜è®¤æ–­ç‚¹æ¨¡å¼å…³é—­)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1049,13 +1049,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
-     * (Ä¬ÈÏGET·½Ê½)
+     * è·å–è¾“å…¥æµ
+     * (é»˜è®¤GETæ–¹å¼)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1065,13 +1065,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
-     * (Ä¬ÈÏGET·½Ê½¡¢Ä¬ÈÏ¶ÏµãÄ£Ê½¹Ø±Õ)
+     * è·å–è¾“å…¥æµ
+     * (é»˜è®¤GETæ–¹å¼ã€é»˜è®¤æ–­ç‚¹æ¨¡å¼å…³é—­)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1081,12 +1081,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
+     * è·å–è¾“å…¥æµ
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1096,13 +1096,13 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÊäÈëÁ÷
-     * (Ä¬ÈÏGET·½Ê½)
+     * è·å–è¾“å…¥æµ
+     * (é»˜è®¤GETæ–¹å¼)
      *
-     * @param url     ÇëÇóURL
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     è¯·æ±‚URL
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @param isGet   GET/POST
-     * @param isRange ÊÇ·ñ¿ªÆô¶ÏµãÄ£Ê½
+     * @param isRange æ˜¯å¦å¼€å¯æ–­ç‚¹æ¨¡å¼
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1112,12 +1112,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * ÏÂÔØÎÄ¼ş(µ¥Ïß³ÌÏÂÔØ£¬ÊÊÓÃÓÚ¼¸MµÄĞ¡ÎÄ¼ş)
+     * ä¸‹è½½æ–‡ä»¶(å•çº¿ç¨‹ä¸‹è½½ï¼Œé€‚ç”¨äºå‡ Mçš„å°æ–‡ä»¶)
      *
-     * @param url      ´ıÏÂÔØÎÄ¼şÁ´½Ó
-     * @param headers  ÇëÇóÍ·ĞÅÏ¢
-     * @param savePath ±£´æÂ·¾¶(²»Ö¸¶¨£¬Ä¬ÈÏÉèÖÃÎªC:/temp/DOWNLOAD)
-     * @param fileName ÏÂÔØÏÂÀ´µÄÎÄ¼ş±£´æµÄÎÄ¼şÃû³Æ(²»Ö¸¶¨£¬Ä¬ÈÏÉèÖÃÎªNew-File.temp)
+     * @param url      å¾…ä¸‹è½½æ–‡ä»¶é“¾æ¥
+     * @param headers  è¯·æ±‚å¤´ä¿¡æ¯
+     * @param savePath ä¿å­˜è·¯å¾„(ä¸æŒ‡å®šï¼Œé»˜è®¤è®¾ç½®ä¸ºC:/temp/DOWNLOAD)
+     * @param fileName ä¸‹è½½ä¸‹æ¥çš„æ–‡ä»¶ä¿å­˜çš„æ–‡ä»¶åç§°(ä¸æŒ‡å®šï¼Œé»˜è®¤è®¾ç½®ä¸ºNew-File.temp)
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1130,12 +1130,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * ÏÂÔØÎÄ¼ş(µ¥Ïß³ÌÏÂÔØ£¬ÊÊÓÃÓÚ¼¸MµÄĞ¡ÎÄ¼ş)
-     * (ÈôÓÃ»§Î´×Ô¶¨ÒåÏÂÔØÎÄ¼şÃû³Æ£¬ÔòÄ¬ÈÏÉèÖÃÎªNew-File.temp)
+     * ä¸‹è½½æ–‡ä»¶(å•çº¿ç¨‹ä¸‹è½½ï¼Œé€‚ç”¨äºå‡ Mçš„å°æ–‡ä»¶)
+     * (è‹¥ç”¨æˆ·æœªè‡ªå®šä¹‰ä¸‹è½½æ–‡ä»¶åç§°ï¼Œåˆ™é»˜è®¤è®¾ç½®ä¸ºNew-File.temp)
      *
-     * @param url      ´ıÏÂÔØÎÄ¼şÁ´½Ó
-     * @param headers  ÇëÇóÍ·ĞÅÏ¢
-     * @param savePath ±£´æÂ·¾¶(²»Ö¸¶¨£¬Ä¬ÈÏÉèÖÃÎªC:/temp/DOWNLOAD)
+     * @param url      å¾…ä¸‹è½½æ–‡ä»¶é“¾æ¥
+     * @param headers  è¯·æ±‚å¤´ä¿¡æ¯
+     * @param savePath ä¿å­˜è·¯å¾„(ä¸æŒ‡å®šï¼Œé»˜è®¤è®¾ç½®ä¸ºC:/temp/DOWNLOAD)
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1145,12 +1145,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * ÏÂÔØÎÄ¼ş(µ¥Ïß³ÌÏÂÔØ£¬ÊÊÓÃÓÚ¼¸MµÄĞ¡ÎÄ¼ş)
-     * (ÈôÓÃ»§Î´×Ô¶¨ÒåÏÂÔØÎÄ¼şÃû³Æ£¬ÔòÄ¬ÈÏÉèÖÃÎªNew-File.temp)
-     * (ÈôÓÃ»§Î´×Ô¶¨ÒåÏÂÔØ±£´æÄ¿Â¼£¬ÔòÄ¬ÈÏÉèÖÃÎªC:/temp/DOWNLOAD)
+     * ä¸‹è½½æ–‡ä»¶(å•çº¿ç¨‹ä¸‹è½½ï¼Œé€‚ç”¨äºå‡ Mçš„å°æ–‡ä»¶)
+     * (è‹¥ç”¨æˆ·æœªè‡ªå®šä¹‰ä¸‹è½½æ–‡ä»¶åç§°ï¼Œåˆ™é»˜è®¤è®¾ç½®ä¸ºNew-File.temp)
+     * (è‹¥ç”¨æˆ·æœªè‡ªå®šä¹‰ä¸‹è½½ä¿å­˜ç›®å½•ï¼Œåˆ™é»˜è®¤è®¾ç½®ä¸ºC:/temp/DOWNLOAD)
      *
-     * @param url     ´ıÏÂÔØÎÄ¼şÁ´½Ó
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     å¾…ä¸‹è½½æ–‡ä»¶é“¾æ¥
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1160,12 +1160,12 @@ public class HttpClientUtils {
     }
 
     /**
-     * ÏÂÔØÎÄ¼ş(µ¥Ïß³ÌÏÂÔØ£¬ÊÊÓÃÓÚ¼¸MµÄĞ¡ÎÄ¼ş)
-     * (ÈôÓÃ»§Î´×Ô¶¨ÒåÏÂÔØÎÄ¼şÃû³Æ£¬ÔòÄ¬ÈÏÉèÖÃÎªNew-File.temp)
-     * (ÈôÓÃ»§Î´×Ô¶¨ÒåÏÂÔØ±£´æÄ¿Â¼£¬ÔòÄ¬ÈÏÉèÖÃÎªC:/temp/DOWNLOAD)
+     * ä¸‹è½½æ–‡ä»¶(å•çº¿ç¨‹ä¸‹è½½ï¼Œé€‚ç”¨äºå‡ Mçš„å°æ–‡ä»¶)
+     * (è‹¥ç”¨æˆ·æœªè‡ªå®šä¹‰ä¸‹è½½æ–‡ä»¶åç§°ï¼Œåˆ™é»˜è®¤è®¾ç½®ä¸ºNew-File.temp)
+     * (è‹¥ç”¨æˆ·æœªè‡ªå®šä¹‰ä¸‹è½½ä¿å­˜ç›®å½•ï¼Œåˆ™é»˜è®¤è®¾ç½®ä¸ºC:/temp/DOWNLOAD)
      *
-     * @param url     ´ıÏÂÔØÎÄ¼şÁ´½Ó
-     * @param headers ÇëÇóÍ·ĞÅÏ¢
+     * @param url     å¾…ä¸‹è½½æ–‡ä»¶é“¾æ¥
+     * @param headers è¯·æ±‚å¤´ä¿¡æ¯
      * @return
      * @throws IOException
      * @throws ClientProtocolException
@@ -1175,7 +1175,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦Ìå
+     * è·å–å“åº”ä½“
      *
      * @param url
      * @param headers
@@ -1184,7 +1184,7 @@ public class HttpClientUtils {
     public static Object[] getResponse(String url, Map<String, String> headers) {
         DefaultHttpClient httpClient = getDefaultHttpClient();
         HttpHead httpHead = new HttpHead(url);
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (GerneralUtils.isNotEmptyMap(headers)) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 String key = entry.getKey();
@@ -1200,7 +1200,7 @@ public class HttpClientUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //»ñÈ¡HTTPÏìÓ¦×´Ì¬Âë
+        //è·å–HTTPå“åº”çŠ¶æ€ç 
         int statusCode = response.getStatusLine().getStatusCode();
         Object[] result = null;
         if (!(statusCode >= 200 && statusCode <= 399)) {
@@ -1215,7 +1215,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦Ìå
+     * è·å–å“åº”ä½“
      *
      * @param url
      * @param headers
@@ -1226,7 +1226,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡Content-DispositionÏìÓ¦Í·
+     * è·å–Content-Dispositionå“åº”å¤´
      *
      * @param url
      * @return
@@ -1255,16 +1255,16 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦Í·ĞÅÏ¢£¬ÈçContent-Disposition¡¢Content-Length
+     * è·å–å“åº”å¤´ä¿¡æ¯ï¼Œå¦‚Content-Dispositionã€Content-Length
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
-     * @headers ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+     * @headers è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
      */
     public static Header[] getResponseHeaders(String url, Map<String, String> headers) {
         DefaultHttpClient httpClient = getDefaultHttpClient();
         HttpHead httpHead = new HttpHead(url);
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (GerneralUtils.isNotEmptyMap(headers)) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 String key = entry.getKey();
@@ -1280,7 +1280,7 @@ public class HttpClientUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //»ñÈ¡HTTPÏìÓ¦×´Ì¬Âë
+        //è·å–HTTPå“åº”çŠ¶æ€ç 
         int statusCode = response.getStatusLine().getStatusCode();
         if (!(statusCode >= 200 && statusCode <= 399)) {
             return null;
@@ -1292,9 +1292,9 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦Í·ĞÅÏ¢£¬ÈçContent-Disposition¡¢Content-Length
+     * è·å–å“åº”å¤´ä¿¡æ¯ï¼Œå¦‚Content-Dispositionã€Content-Length
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
      */
     public static Header[] getResponseHeaders(String url) {
@@ -1302,16 +1302,16 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦×´Ì¬Âë
+     * è·å–å“åº”çŠ¶æ€ç 
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
-     * @headers ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+     * @headers è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
      */
     public static int getStatusCode(String url, Map<String, String> headers) {
         DefaultHttpClient httpClient = getDefaultHttpClient();
         HttpHead httpHead = new HttpHead(url);
-        //ÉèÖÃÇëÇóÍ·ĞÅÏ¢
+        //è®¾ç½®è¯·æ±‚å¤´ä¿¡æ¯
         if (GerneralUtils.isNotEmptyMap(headers)) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
                 String key = entry.getKey();
@@ -1327,7 +1327,7 @@ public class HttpClientUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //»ñÈ¡HTTPÏìÓ¦×´Ì¬Âë
+        //è·å–HTTPå“åº”çŠ¶æ€ç 
         int statusCode = response.getStatusLine().getStatusCode();
         httpHead.abort();
         httpHead.releaseConnection();
@@ -1335,9 +1335,9 @@ public class HttpClientUtils {
     }
 
     /**
-     * »ñÈ¡ÏìÓ¦×´Ì¬Âë
+     * è·å–å“åº”çŠ¶æ€ç 
      *
-     * @param url ÇëÇóURL
+     * @param url è¯·æ±‚URL
      * @return
      */
     public static int getStatusCode(String url) {
@@ -1350,7 +1350,7 @@ public class HttpClientUtils {
      * @return String
      * @throws
      * @Title: getLocation
-     * @Description: »ñÈ¡ÖØ¶¨ÏòºóµÄÁ´½ÓURL
+     * @Description: è·å–é‡å®šå‘åçš„é“¾æ¥URL
      */
     public static String getLocation(String url) {
         Header[] headers = getResponseHeaders(url);
@@ -1358,7 +1358,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ¸ù¾İkey»ñÈ¡Ö¸¶¨µÄÇëÇó/ÏìÓ¦Í·ĞÅÏ¢
+     * æ ¹æ®keyè·å–æŒ‡å®šçš„è¯·æ±‚/å“åº”å¤´ä¿¡æ¯
      *
      * @param headers
      * @param key
@@ -1377,7 +1377,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * ¸ù¾İkey»ñÈ¡ÇëÇó/ÏìÓ¦Í·ĞÅÏ¢
+     * æ ¹æ®keyè·å–è¯·æ±‚/å“åº”å¤´ä¿¡æ¯
      *
      * @param key
      * @return

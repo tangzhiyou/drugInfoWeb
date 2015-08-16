@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.apache.http.HttpEntity;
 
 /**
- * ResponseÏìÓ¦Ìå´¦Àí½Ó¿Ú
+ * Responseå“åº”ä½“å¤„ç†æ¥å£
  *
  */
 public interface EntityHandler<T> {

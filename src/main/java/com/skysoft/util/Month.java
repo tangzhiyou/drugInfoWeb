@@ -3,191 +3,191 @@ package com.skysoft.util;
 import java.util.Calendar;
 
 /**
- * ÔÂ·İ[Ã¶¾Ù]
+ * æœˆä»½[æšä¸¾]
  *
  */
 public enum Month {
-    JANUARY {                 //Ò»ÔÂ
+    JANUARY {                 //ä¸€æœˆ
 
         int getValue() {
             return MONTH_JANUARY;
         }
 
         String getChinese() {
-            return "Ò»ÔÂ";
+            return "ä¸€æœˆ";
         }
     },
-    FEBRUARY {                 //¶şÔÂ
+    FEBRUARY {                 //äºŒæœˆ
 
         int getValue() {
             return MONTH_FEBRUARY;
         }
 
         String getChinese() {
-            return "¶şÔÂ";
+            return "äºŒæœˆ";
         }
     },
-    MARCH {                 //ÈıÔÂ
+    MARCH {                 //ä¸‰æœˆ
 
         int getValue() {
             return MONTH_MARCH;
         }
 
         String getChinese() {
-            return "ÈıÔÂ";
+            return "ä¸‰æœˆ";
         }
     },
-    APRIL {                 //ËÄÔÂ
+    APRIL {                 //å››æœˆ
 
         int getValue() {
             return MONTH_APRIL;
         }
 
         String getChinese() {
-            return "ËÄÔÂ";
+            return "å››æœˆ";
         }
     },
-    MAY {                 //ÎåÔÂ
+    MAY {                 //äº”æœˆ
 
         int getValue() {
             return MONTH_MAY;
         }
 
         String getChinese() {
-            return "ÎåÔÂ";
+            return "äº”æœˆ";
         }
     },
-    JUNE {                 //ÁùÔÂ
+    JUNE {                 //å…­æœˆ
 
         int getValue() {
             return MONTH_JUNE;
         }
 
         String getChinese() {
-            return "ÁùÔÂ";
+            return "å…­æœˆ";
         }
     },
-    JULY {                 //ÆßÔÂ
+    JULY {                 //ä¸ƒæœˆ
 
         int getValue() {
             return MONTH_JULY;
         }
 
         String getChinese() {
-            return "ÆßÔÂ";
+            return "ä¸ƒæœˆ";
         }
     },
-    AUGUST {                 //°ËÔÂ
+    AUGUST {                 //å…«æœˆ
 
         int getValue() {
             return MONTH_AUGUST;
         }
 
         String getChinese() {
-            return "°ËÔÂ";
+            return "å…«æœˆ";
         }
     },
-    SEPTEMBER {                 //¾ÅÔÂ
+    SEPTEMBER {                 //ä¹æœˆ
 
         int getValue() {
             return MONTH_SEPTEMBER;
         }
 
         String getChinese() {
-            return "¾ÅÔÂ";
+            return "ä¹æœˆ";
         }
     },
-    OCTOBER {                 //Ê®ÔÂ
+    OCTOBER {                 //åæœˆ
 
         int getValue() {
             return MONTH_OCTOBER;
         }
 
         String getChinese() {
-            return "Ê®ÔÂ";
+            return "åæœˆ";
         }
     },
-    NOVEMBER {                 //Ê®Ò»ÔÂ
+    NOVEMBER {                 //åä¸€æœˆ
 
         int getValue() {
             return MONTH_NOVEMBER;
         }
 
         String getChinese() {
-            return "Ê®Ò»ÔÂ";
+            return "åä¸€æœˆ";
         }
     },
-    DECEMBER {                 //Ê®¶şÔÂ
+    DECEMBER {                 //åäºŒæœˆ
 
         int getValue() {
             return MONTH_DECEMBER;
         }
 
         String getChinese() {
-            return "Ê®¶şÔÂ";
+            return "åäºŒæœˆ";
         }
     };
 
     /**
-     * ·½·¨ÕªÒª£º»ñÈ¡ÔÂ·İµÄÊı×Ö±êÊ¶£¬1±íÊ¾Ò»ÔÂ£¬12±íÊ¾Ê®¶şÔÂ
+     * æ–¹æ³•æ‘˜è¦ï¼šè·å–æœˆä»½çš„æ•°å­—æ ‡è¯†ï¼Œ1è¡¨ç¤ºä¸€æœˆï¼Œ12è¡¨ç¤ºåäºŒæœˆ
      *
      * @return int
      */
     abstract int getValue();
 
     /**
-     * ·½·¨ÕªÒª£º»ñÈ¡ÔÂ·İµÄÖĞÎÄÃû³Æ
+     * æ–¹æ³•æ‘˜è¦ï¼šè·å–æœˆä»½çš„ä¸­æ–‡åç§°
      *
      * @return String
      */
     abstract String getChinese();
 
     /**
-     * Ò»ÔÂ
+     * ä¸€æœˆ
      */
     public static final int MONTH_JANUARY = Calendar.JANUARY;
     /**
-     * ¶şÔÂ
+     * äºŒæœˆ
      */
     public static final int MONTH_FEBRUARY = Calendar.FEBRUARY;
     /**
-     * ÈıÔÂ
+     * ä¸‰æœˆ
      */
     public static final int MONTH_MARCH = Calendar.MARCH;
     /**
-     * ËÄÔÂ
+     * å››æœˆ
      */
     public static final int MONTH_APRIL = Calendar.APRIL;
     /**
-     * ÎåÔÂ
+     * äº”æœˆ
      */
     public static final int MONTH_MAY = Calendar.MAY;
     /**
-     * ÁùÔÂ
+     * å…­æœˆ
      */
     public static final int MONTH_JUNE = Calendar.JUNE;
     /**
-     * ÆßÔÂ
+     * ä¸ƒæœˆ
      */
     public static final int MONTH_JULY = Calendar.JULY;
     /**
-     * °ËÔÂ
+     * å…«æœˆ
      */
     public static final int MONTH_AUGUST = Calendar.AUGUST;
     /**
-     * ¾ÅÔÂ
+     * ä¹æœˆ
      */
     public static final int MONTH_SEPTEMBER = Calendar.SEPTEMBER;
     /**
-     * Ê®ÔÂ
+     * åæœˆ
      */
     public static final int MONTH_OCTOBER = Calendar.OCTOBER;
     /**
-     * Ê®Ò»ÔÂ
+     * åä¸€æœˆ
      */
     public static final int MONTH_NOVEMBER = Calendar.NOVEMBER;
     /**
-     * Ê®¶şÔÂ
+     * åäºŒæœˆ
      */
     public static final int MONTH_DECEMBER = Calendar.DECEMBER;
 }

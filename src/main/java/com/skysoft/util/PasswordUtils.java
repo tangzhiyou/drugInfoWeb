@@ -13,8 +13,8 @@ public class PasswordUtils {
 	static {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine jsEngine = manager.getEngineByName("javascript");
-		// String jsFileName = "resources.qq/password.js"; // Ö¸¶¨md5¼ÓÃÜÎÄ¼ş
-		String jsFileName = "ecma.js"; // Ö¸¶¨md5¼ÓÃÜÎÄ¼ş
+		// String jsFileName = "resources.qq/password.js"; // æŒ‡å®šmd5åŠ å¯†æ–‡ä»¶
+		String jsFileName = "ecma.js"; // æŒ‡å®šmd5åŠ å¯†æ–‡ä»¶
 		Reader reader;
 		try {
 			InputStream in = PasswordUtils.class.getClassLoader()
@@ -37,7 +37,7 @@ public class PasswordUtils {
 			pass = (String) invoke.invokeFunction("getPassEncoding", new Object[] {
 					pubKey, serverTime,nonce,password});
 		} catch (Exception e) {
-			System.out.println("ÎªµÇÂ½ÃÜÂë¼ÓÃÜÊ±£¬³öÏÖÒì³£!");
+			System.out.println("ä¸ºç™»é™†å¯†ç åŠ å¯†æ—¶ï¼Œå‡ºç°å¼‚å¸¸!");
 			e.printStackTrace();
 		}
 		return pass;
@@ -49,7 +49,7 @@ public class PasswordUtils {
 			pass = (String) invoke.invokeFunction("hexchar2bin",
 					new Object[] { hexCode });
 		} catch (Exception e) {
-			System.out.println("½«×Ö·û´®×ª»¯Îª16½øÖÆÊ±£¬³öÏÖÒì³£!");
+			System.out.println("å°†å­—ç¬¦ä¸²è½¬åŒ–ä¸º16è¿›åˆ¶æ—¶ï¼Œå‡ºç°å¼‚å¸¸!");
 			e.printStackTrace();
 		}
 		return pass;
@@ -61,11 +61,11 @@ public class PasswordUtils {
 		try {
 			Object callback = invoke.invokeFunction("callbackC");
 			Object curForm = null;
-			String url="content.jsp?tableId=91&tableName=TABLE91&tableView=Ê³Æ·Éú²úĞí¿É»ñÖ¤ÆóÒµ&Id=667";
+			String url="content.jsp?tableId=91&tableName=TABLE91&tableView=é£Ÿå“ç”Ÿäº§è®¸å¯è·è¯ä¼ä¸š&Id=667";
 			pass = (String) invoke.invokeFunction("commitForECMA", new Object[] {
 					callback, url,curForm});
 		} catch (Exception e) {
-			System.out.println("ÎªµÇÂ½ÃÜÂë¼ÓÃÜÊ±£¬³öÏÖÒì³£!");
+			System.out.println("ä¸ºç™»é™†å¯†ç åŠ å¯†æ—¶ï¼Œå‡ºç°å¼‚å¸¸!");
 			e.printStackTrace();
 		}
 		System.out.println(pass);
