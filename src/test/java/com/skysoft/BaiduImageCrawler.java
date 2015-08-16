@@ -13,12 +13,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
- * @Description: °Ù¶ÈÃÀÅ®Í¼Æ¬ÅÀÈ¡
+ * @Description: ç™¾åº¦ç¾å¥³å›¾ç‰‡çˆ¬å–
  */
 public class BaiduImageCrawler {
-    private static final String TAG1 = "Ã÷ĞÇ";
-    private static final String TAG2 = "È«²¿";
+    private static final String TAG1 = "ç¾å¥³";
+    private static final String TAG2 = "å…¨éƒ¨";
     private static final int PAGE_SIZE = 60;
     private static String START_URL = "http://image.baidu.com/i?tn=listjson&word=liulan&oe=utf-8&ie=utf8&tag1=" +
             URLEncoder.encode(TAG1) + "&tag2=" + URLEncoder.encode(TAG2) + "&sorttype=0&pn=0&rn=" + PAGE_SIZE + "&ia=0";
@@ -44,32 +45,29 @@ public class BaiduImageCrawler {
         headerMap.put("Connection", "keep-alive");
         headerMap.put("Cache-Control", "max-age=0");
     }
-
     public static void main(String[] args) throws ClientProtocolException, IOException {
-//        int totalCount = getTotalCount();
-//        int totalPage = totalCount % PAGE_SIZE == 0 ? totalCount / PAGE_SIZE : (totalCount / PAGE_SIZE) + 1;
-        //ËùÓĞ·ÖÒ³Á´½Ó
-//        List<String> pageURLs = getPageURLs(totalPage);
-        //ËùÓĞÍ¼Æ¬Á´½Ó
-//        List<String> imageURLList = getAllImageURLs(pageURLs);
-        //¶àÏß³ÌÏÂÔØÍ¼Æ¬,¿ª500¸öÏß³ÌÍ¬Ê±ÏÂÔØ
-//        List<List> list = GerneralUtils.splitList(imageURLList, 500);
-//        for (List subList : list) {
-//            new BaiduImageDownloadThread(subList, headerMap).start();
-//        }
-        String html_text=HttpClientUtils.getHTML("http://image.baidu.com/channel?c=%E7%BE%8E%E5%A5%B3",headers);
-        System.out.println(html_text);
+        int totalCount = getTotalCount();
+        int totalPage = totalCount % PAGE_SIZE == 0 ? totalCount / PAGE_SIZE : (totalCount / PAGE_SIZE) + 1;
+        //æ‰€æœ‰åˆ†é¡µé“¾æ¥
+        List<String> pageURLs = getPageURLs(totalPage);
+        //æ‰€æœ‰å›¾ç‰‡é“¾æ¥
+        List<String> imageURLList = getAllImageURLs(pageURLs);
+        //å¤šçº¿ç¨‹ä¸‹è½½å›¾ç‰‡,å¼€500ä¸ªçº¿ç¨‹åŒæ—¶ä¸‹è½½
+        List<List> list = GerneralUtils.splitList(imageURLList, 500);
+        for (List subList : list) {
+            new BaiduImageDownloadThread(subList, headerMap).start();
+        }
     }
 
     /**
-     * @param @param  pageURLs
+     * @Title: getAllImageURLs
+     * @Description: æå–æ‰€æœ‰å›¾ç‰‡é“¾æ¥
+     * @param @param pageURLs
      * @param @return
      * @param @throws ClientProtocolException
-     * @param @throws IOException
-     * @return List<String>
+     * @param @throws IOException 
+     * @return List<String> 
      * @throws
-     * @Title: getAllImageURLs
-     * @Description: ÌáÈ¡ËùÓĞÍ¼Æ¬Á´½Ó
      */
     private static List<String> getAllImageURLs(List<String> pageURLs) throws ClientProtocolException, IOException {
         List<String> imageURLList = new ArrayList<String>();
@@ -84,12 +82,12 @@ public class BaiduImageCrawler {
     }
 
     /**
-     * @param @param  data
-     * @param @return
-     * @return List<String>
-     * @throws
      * @Title: getImageUrl
-     * @Description: ´ÓJSONÊı¾İÖĞÌáÈ¡Í¼Æ¬Á´½Ó
+     * @Description: ä»JSONæ•°æ®ä¸­æå–å›¾ç‰‡é“¾æ¥
+     * @param @param data
+     * @param @return 
+     * @return List<String> 
+     * @throws
      */
     public static List<String> getImageUrl(String data) {
         List<String> imgList = new ArrayList<String>();
@@ -105,12 +103,12 @@ public class BaiduImageCrawler {
     }
 
     /**
-     * @param @param  totalPage
-     * @param @return
-     * @return List<String>
-     * @throws
      * @Title: getPageURLs
-     * @Description: »ñÈ¡Ã¿Ò³µÄAjaxÇëÇóÁ´½Ó
+     * @Description: è·å–æ¯é¡µçš„Ajaxè¯·æ±‚é“¾æ¥
+     * @param @param totalPage
+     * @param @return 
+     * @return List<String> 
+     * @throws
      */
     private static List<String> getPageURLs(int totalPage) {
         List<String> pageURLs = new ArrayList<String>();
@@ -123,13 +121,13 @@ public class BaiduImageCrawler {
     }
 
     /**
+     * @Title: getTotalCount
+     * @Description: è·å–å›¾ç‰‡æ€»å¼ æ•°
      * @param @return
      * @param @throws ClientProtocolException
-     * @param @throws IOException
+     * @param @throws IOException 
      * @return int
      * @throws
-     * @Title: getTotalCount
-     * @Description: »ñÈ¡Í¼Æ¬×ÜÕÅÊı
      */
     private static int getTotalCount() throws ClientProtocolException,
             IOException {

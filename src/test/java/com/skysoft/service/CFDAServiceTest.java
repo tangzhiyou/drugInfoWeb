@@ -3,15 +3,11 @@
  */
 package com.skysoft.service;
 
-import com.skysoft.domain.Druggds;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author pinaster.tang@hotmail.com

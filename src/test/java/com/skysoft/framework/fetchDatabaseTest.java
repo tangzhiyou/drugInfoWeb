@@ -1,11 +1,10 @@
 package com.skysoft.framework;
 
-import com.google.common.net.UrlEscapers;
 import com.skysoft.domain.Druggds;
-import com.skysoft.util.*;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.codec.CharEncoding;
-import org.apache.commons.codec.net.URLCodec;
+import com.skysoft.util.HtmlParserTool;
+import com.skysoft.util.HtmlRegexpUtil;
+import com.skysoft.util.StringUtils;
+import com.skysoft.util.generateBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,17 +13,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by tangzy on 2015/8/14.
@@ -142,12 +134,10 @@ public class fetchDatabaseTest {
     public void testExtractSfda()
     {
         String url="http://app1.sfda.gov.cn/datasearch/face3/content.jsp?tableId=25&tableName=TABLE25&tableView=%B9%FA%B2%FA%D2%A9%C6%B7&Id=187764";
-//        String url="http://app1.sfda.gov.cn/datasearch/face3/content.jsp?tableId=25&tableName=TABLE25&tableView=国产药品&Id=187764";
         try {
             String html=HttpClientUtils.getHTML(url);
             List<String> tables=HtmlParserTool.extractHtmlLabel(html, "table");
             Document doc = Jsoup.parse(tables.get(0));
-//            Element infoTable = doc.getElementsByAttributeValue("class", "table002").first();
             Element infoTable = doc.select("table").first();
             Elements tableLineInfos = infoTable.select("tr");
             for (Element lineInfo : tableLineInfos) {
@@ -165,11 +155,10 @@ public class fetchDatabaseTest {
     @Test
     public void testDruggdsWithBLOBs()
     {
-//        List<String> fieldNameList= generateBean.getObjectProperty(DruggdsWithBLOBs.class.getSuperclass());
-//
-//        for (String str:fieldNameList)
-//        {
-//            System.out.println(str);
-//        }
+        List<String> fieldNameList = generateBean.getObjectProperty(Druggds.class.getSuperclass());
+
+        for (String str : fieldNameList) {
+            System.out.println(str);
+        }
     }
 }
